@@ -1,0 +1,33 @@
+# Get from zsh-theme-powerlevel10k-git
+if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+[[ -d /usr/share/zsh-theme-powerlevel10k ]] && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+[[ -f "$ZDOTDIR/p10k.zsh" ]]                && source "$ZDOTDIR/p10k.zsh"
+
+export LC_ALL=en_NZ.utf8
+[[ ! $(locale -a | grep -i $LC_ALL) ]] && sudo locale-gen $LC_ALL # Set up preferred locale if absent (on WSL for instance)
+
+source "$ZDOTDIR/env.zsh"
+source "$ZDOTDIR/opts.zsh"
+source "$ZDOTDIR/plugins.zsh"
+source "$ZDOTDIR/aliases.zsh"
+source "$ZDOTDIR/hotkeys.zsh"
+source "$ZDOTDIR/hooks.zsh"
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}' `# Make the completion case- and [-_]- insensitive` \
+                                       '+l:|=* r:|=*'             # match sub-strings
+                                                                  # See https://zsh.sourceforge.io/Doc/Release/Completion-Widgets.html#Completion-Matching-Control
+                                                                  # See https://stackoverflow.com/questions/7906078/how-does-the-matcher-list-arguments-work-in-zsh-zstyle-completion
+
+export GPG_TTY=$TTY                                               # This entire block enables the use GPG keys for SSH authentication
+if [[ -n "$SSH_AGENT_PID" && -e "/proc/$SSH_AGENT_PID" ]]; then   #
+  systemctl --user disable --now ssh-agent                        # Fresh set-up:
+  systemctl --user enable  --now gpg-agent                        #
+fi                                                                #     > gpg --import publickeys.asc privatekeys.asc
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then                #     > gpg --list-keys --with-keygrip
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"  #     > echo [keygrip] >> ~/.gnupg/sshcontrol
+fi                                                                #
+
+[[ -f ~/.uniterc ]] && source ~/.uniterc
