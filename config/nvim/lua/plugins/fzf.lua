@@ -1,10 +1,6 @@
 return {
   -- TODO: Check out "profiles" and set up my own
   'ibhagwan/fzf-lua',
-  dependencies = {
-    -- TODO: Figure out whether/how to integrate icons
-    'echasnovski/mini.icons',
-  },
   keys = {
     { '<Leader>ff', function() require 'fzf-lua'.files {} end,                                        desc = 'Find in CWD' },
     { '<Leader>fn', function() require 'fzf-lua'.files { cwd = vim.fn.stdpath 'config' } end,         desc = 'Find in Neovim config' },
