@@ -31,6 +31,23 @@ return {
     -- Also consider https://github.com/kevinhwang91/nvim-bqf
     { '<Leader>fq', function() require 'fzf-lua'.quickfix {} end,                                     desc = 'Browse quickfix' },
     { '<Leader>fl', function() require 'fzf-lua'.loclist {} end,                                      desc = 'Browse loclist' },
+
+    {
+      '<Leader>f,',
+      desc = 'Find in new dotfiles',
+      function()
+        require 'fzf-lua'.fzf_exec('git --git-dir ~/.d ls-files --exclude-standard', {
+          prompt       = 'Dotfiles❯ ',
+          multiprocess = true,
+          actions      = {
+            default = function(selected, opts)
+              for i, s in ipairs(selected) do selected[i] = '~/' .. s end
+              require 'fzf-lua'.actions.file_edit(selected, opts)
+            end
+          },
+        })
+      end,
+    },
   },
   config = function()
     require 'fzf-lua'.setup {
