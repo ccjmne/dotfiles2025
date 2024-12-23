@@ -1,3 +1,7 @@
+if [[ -z "$TMUX" ]]; then
+  exec tmux new-session -As "$USER" > /dev/null 2>&1
+fi
+
 # Get from zsh-theme-powerlevel10k-git
 if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
