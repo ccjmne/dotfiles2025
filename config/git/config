@@ -1,0 +1,41 @@
+[user]
+	email = ccjmne@gmail.com
+	name = Éric NICOLAS
+	signingKey = 9B49C8C163B3320C!
+
+[commit]
+	verbose = true
+	gpgsign = true
+[core]
+	editor = nvim +'set filetype=gitcommit textwidth=72 spell' +'normal $'
+	excludesfile = /home/ccjmne/.config/.gitignore-global
+	pager = less -SFX -x2
+[diff]
+	wsErrorHighlight = all
+[gpg]
+	program = gpg2
+[grep]
+	column = true
+	lineNumber = true
+[rerere]
+	enabled = true
+[status]
+	short = true
+
+; Naming things: it's famously hard, but here's my attempt nonetheless
+[checkout]
+	defaultRemote = upstream
+[clone]
+	defaultRemoteName = upstream
+[init]
+	defaultBranch = master
+
+[includeIf "gitdir:~/git.unite/"]
+	path = ~/.gitconfig.unite
+
+; Experimental
+[rebase]
+    autosquash = true
+    autostash = true
+[color]
+    ui = true
