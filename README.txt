@@ -1,4 +1,15 @@
--------------------------------- Using GNU Stow --------------------------------
+                               Personal Dotfiles                    Éric NICOLAS
+                               -----------------
+Revisions: 2
+Latest: 2025-01-08
+
+TODO ---------------------------------------------------------------------------
+
+    Consider using alternatives to Git submodules.  Git subtree was considered.
+    Git subrepo may be it.
+
+
+------------------------------ Usage w/ GNU Stow -------------------------------
 
 Using a symlinks farm.  Cool kids use chezmoi or whatever; sysadmins already use
 Stow and would rather master the few tools hanging at their belt.
