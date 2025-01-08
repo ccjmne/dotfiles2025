@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+export PATH=$PATH:$HOME/git/gitutil
+export MERCATEO_DIR=$HOME/git.unite/mercateo
+export MERCATEO_CONF_DIR=$HOME/git.unite/mercateo-config
+
+if command -v mise > /dev/null; then
+	mkdir -p "$HOME/.m2"
+	xml=$(<<-EOF
+		<?xml version="1.0" encoding="UTF-8"?>
+		<toolchains>
+		EOF
+	)
+
+	mise list java --json \
+		| jq '.[] | select(.installed) | "\(.version) \(.install_path)"' --raw-output \
+		| while read -r version home; do
+		vendor="${version%%-*}"
+		major="${version#*-}"
+		major="${major%%.*}"
+		xml+=$'\n'$(<<-EOF
+			  <toolchain>
+			    <type>jdk</type>
+			    <provides>
+			      <version>${major}</version>
+			      <vendor>${vendor}</vendor>
+			    </provides>
+			    <configuration>
+			      <jdkHome>${home}</jdkHome>
+			    </configuration>
+			  </toolchain>
+			EOF
+		)
+	done
+
+	echo "$(<<-EOF
+		${xml}
+		</toolchains>
+		EOF
+	)" > "$HOME/.m2/toolchains.xml"
+fi
+
+# sudo trust anchor --store ./.certs/*.crt --verbose
+
+# [[ $(trust list | grep -c Mercateo) -ne 2 ]] && sudo trust anchor --store ./.certs/* && sudo update-ca-trust
+# if [[ -d "$ASDF_DATA_DIR/installs/java" ]]; then
+#   for cert in ~/.certs/*; do
+#     # TODO: This doesn't handle spaces in filenames
+#     for store in $(find "$ASDF_DATA_DIR/installs/java" -name cacerts); do
+#       if ! keytool -list -storepass changeit -keystore "$store" -alias "$(basename "$cert")" > /dev/null 2>&1; then
+#         keytool -import -trustcacerts -storepass changeit -noprompt \
+#           -keystore "$store" -alias "$(basename "$cert")" -file "$cert" > /dev/null
+#       fi
+#     done
+#   done
+# fi
+
+# if [[ -d $HOME/.sdkman/candidates/java ]]; then
+#   for cert in ~/.certs/*; do
+#     # TODO: This doesn't handle spaces in filenames
+#     for store in $(find "$HOME/.sdkman/candidates/java" -name cacerts); do
+#       if ! keytool -list -storepass changeit -keystore "$store" -alias "$(basename "$cert")" > /dev/null 2>&1; then
+#         keytool -import -trustcacerts -storepass changeit -noprompt \
+#           -keystore "$store" -alias "$(basename "$cert")" -file "$cert" > /dev/null
+#       fi
+#     done
+#   done
+# fi
