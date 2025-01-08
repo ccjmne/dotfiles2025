@@ -1,13 +1,11 @@
-Set me up ======================================================================
+
+                                Bare Repo Set-up
 
     git clone --separate-git-dir=$HOME/.d git@github.com:ccjmne/dotfiles2025 ~
     alias dots='/usr/bin/git --git-dir=$HOME/.d --work-tree=$HOME'
     dots config status.showUntrackedFiles no
     dots update-index --assume-unchanged LICENSE README.txt
     rm $HOME/LICENSE $HOME/README.txt
-
-
-Use me =========================================================================
 
     dots status
     dots add --update
