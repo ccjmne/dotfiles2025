@@ -1,0 +1,9 @@
+window-decoration = false
+window-step-resize = true
+
+theme = dark:catppuccin-mocha,light:catppuccin-latte
+cursor-style = block
+font-size = 10
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
