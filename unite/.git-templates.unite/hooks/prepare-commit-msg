@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+commit_msg_file=$1
+commit_source=$2
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+
+# See https://git-scm.com/docs/githooks#_prepare_commit_msg
+# If it's a merge commit, there's no prefix to prepend
+if [ "${commit_source}" != "merge" ]; then
+  prefix=$(pcregrep -oi '(TERMINUS|(?<=MAPLE_|FINDUS_)ITH?D|PI)-[0-9]+' <<< "$branch_name")
+  if [[ -n $prefix ]]; then sed -i.bak -E "1s/^($prefix: )?/$prefix: /" "$commit_msg_file"; fi
+fi
