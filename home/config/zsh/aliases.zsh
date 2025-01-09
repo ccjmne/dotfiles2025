@@ -31,7 +31,7 @@ function bak {
   done
 }
 
-function ls { command ls --classify=if-tty --color=auto "$@" }
+function ls { command ls --classify=if-tty --group-directories-first --color=auto "$@" }
 alias ll='ls -l --almost-all --human-readable'
 
 function less { command less --chop-long-lines "$@" }
