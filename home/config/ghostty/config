@@ -3,6 +3,7 @@ window-step-resize = true
 
 theme = dark:catppuccin-mocha,light:catppuccin-latte
 cursor-style = block
+cursor-invert-fg-bg = true
 font-size = 10
 font-feature = -calt
 font-feature = -dlig
