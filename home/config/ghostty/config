@@ -1,4 +1,4 @@
-window-decoration = false
+window-decoration = none
 window-step-resize = true
 
 theme = dark:catppuccin-mocha,light:catppuccin-latte
