@@ -39,3 +39,5 @@
     autostash = true
 [color]
     ui = true
+[url "git@github.com:"]
+  insteadOf = gh:
