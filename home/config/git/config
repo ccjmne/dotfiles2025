@@ -17,8 +17,6 @@
 [grep]
 	column = true
 	lineNumber = true
-[rerere]
-	enabled = true
 [status]
 	short = true
 
