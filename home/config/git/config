@@ -18,6 +18,8 @@
 	lineNumber = true
 [status]
 	short = true
+[url "git@github.com:"]
+  insteadOf = gh:
 
 ; Naming things: it's famously hard, but here's my attempt nonetheless
 [checkout]
@@ -36,5 +38,3 @@
     autostash = true
 [color]
     ui = true
-[url "git@github.com:"]
-  insteadOf = gh:
