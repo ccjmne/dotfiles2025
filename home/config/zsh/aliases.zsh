@@ -43,8 +43,6 @@ alias gitt='noglob git -c diff.external=difft'
 alias rg='noglob rg --no-heading --column'
 alias fd='noglob fd'
 
-alias dots='git --git-dir=$HOME/.d --work-tree=$HOME'
-
 alias watch='watch --color'
 
 [[ $(command -v stow) ]] && function stow {
