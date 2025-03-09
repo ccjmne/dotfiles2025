@@ -11,6 +11,7 @@
 	excludesfile = /home/ccjmne/.config/.gitignore-global
 	pager = less -SFX -x2
 [diff]
+	algorithm = histogram
 	colorMoved = dimmed-zebra
 [gpg]
 	program = gpg2
