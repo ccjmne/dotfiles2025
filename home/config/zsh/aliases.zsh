@@ -45,6 +45,15 @@ alias fd='noglob fd'
 
 alias watch='watch --color'
 
+function tmpd() {
+  set -e
+  cd $(mktemp --directory)
+  set +e
+  ( $SHELL )
+  rm -rf $(pwd)
+  cd -
+}
+
 [[ $(command -v stow) ]] && function stow {
   local has_target=false
   for arg in "$@"; do
