@@ -19,6 +19,7 @@
 	column = true
 	lineNumber = true
 [status]
+	aheadBehind = true
 	short = true
 [url "git@github.com:"]
   insteadOf = gh:
