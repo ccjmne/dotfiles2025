@@ -31,6 +31,7 @@ function bak {
   done
 }
 
+function ssh { TERM=xterm-256color command ssh "$@" }
 function ls { command ls --classify=if-tty --group-directories-first --color=auto "$@" }
 alias ll='ls -l --almost-all --human-readable'
 
