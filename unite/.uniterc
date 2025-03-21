@@ -42,6 +42,7 @@ fi
 
 # sudo trust anchor --store ./.certs/*.crt --verbose
 
+# ASDF_DATA_DIR=/home/ccjmne/.local/share/mise # asdf -> mise
 # [[ $(trust list | grep -c Mercateo) -ne 2 ]] && sudo trust anchor --store ./.certs/* && sudo update-ca-trust
 # if [[ -d "$ASDF_DATA_DIR/installs/java" ]]; then
 #   for cert in ~/.certs/*; do
