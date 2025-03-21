@@ -8,8 +8,6 @@ HISTFILE="$ZDOTDIR/history"
 HISTSIZE=50000
 SAVEHIST=10000
 
-setopt hist_verify            # Show command with history expansion before running
-
 setopt hist_ignore_dups       # Ignore duplicate commands history list
 setopt hist_ignore_all_dups   # Delete old recorded dupes
 setopt hist_find_no_dups      # Do not display a line previously found
