@@ -3,6 +3,8 @@
 export PATH=$PATH:$HOME/git/gitutil
 export MERCATEO_DIR=$HOME/git.unite/mercateo
 export MERCATEO_CONF_DIR=$HOME/git.unite/mercateo-config
+export MERCATEO_BASE=/opt/mercateo
+export MERCATEO_BASE_VAR_LOG=${MERCATEO_BASE}/var/log
 
 if command -v mise > /dev/null; then
 	mkdir -p "$HOME/.m2"
