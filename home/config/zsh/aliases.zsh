@@ -46,6 +46,10 @@ alias fd='noglob fd'
 
 alias watch='watch --color'
 
+function fzf {
+  command fzf --style=minimal "$@"
+}
+
 function tmpd() {
   set -e
   cd $(mktemp --directory)
