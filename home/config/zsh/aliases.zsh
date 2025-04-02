@@ -21,6 +21,14 @@ alias -g .........='../../../../../../..'
 alias -g ..........='../../../../../../../..'
 alias -g ...........='../../../../../../../../..'
 
+function btop() {
+    read - "answer?Don't you want to use top instead? [Y/n] "
+    case "$answer" in
+        [Nn]*) command btop ;;
+        *)     command top ;;
+    esac
+}
+
 function bak {
   for arg; do
     if [[ "$arg" == *.bak ]]; then
