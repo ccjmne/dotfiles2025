@@ -22,7 +22,7 @@ alias -g ..........='../../../../../../../..'
 alias -g ...........='../../../../../../../../..'
 
 function btop() {
-    read - "answer?Don't you want to use top instead? [Y/n] "
+    read -q "answer?Don't you want to use top instead? [Y/n] "
     case "$answer" in
         [Nn]*) command btop ;;
         *)     command top ;;
