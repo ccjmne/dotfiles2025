@@ -1,0 +1,10 @@
+[Unit]
+Description=EasyEffects Audio Processing Service
+After=graphical-session.target pipewire.service
+
+[Service]
+ExecStart=/usr/bin/easyeffects --gapplication-service
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
