@@ -25,11 +25,11 @@ not be too excellent at recognising that you're editing files that are tracked
 by Git, if you like to keep an eye on these changes right in your editor, for
 example.
 
-If you're using VIM and Fugitive, you can:
+If you're using Vim and Fugitive, you can:
 
     :call FugitiveDetect('~/.d')
 
-If you aren't, you can: Use VIM and Fugitive.
+If you aren't, you can: Use Vim and Fugitive.
 
 Set up -------------------------------------------------------------------------
 
