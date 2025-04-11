@@ -14,6 +14,9 @@ source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 # TODO: Make these two my own, or at least understand precisely *all* that they do
 source "$OMZ_PLUGINS/completion.zsh"
 source "$OMZ_PLUGINS/key-bindings.zsh"
+# TODO: Better configure
+ZVM_CURSOR_STYLE_ENABLED=false
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 autoload -U compinit; compinit
 
