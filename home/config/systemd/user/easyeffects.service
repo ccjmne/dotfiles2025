@@ -4,7 +4,7 @@ ConditionPathExists=/usr/bin/easyeffects
 After=graphical-session.target pipewire.service
 
 [Service]
-ExecStart=/usr/bin/easyeffects --gapplication-service
+ExecStart=/usr/bin/easyeffects --gapplication-service --load-preset=dynamic-range-compression
 Restart=on-failure
 
 [Install]
