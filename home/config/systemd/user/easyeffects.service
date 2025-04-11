@@ -1,5 +1,6 @@
 [Unit]
 Description=EasyEffects Audio Processing Service
+ConditionPathExists=/usr/bin/easyeffects
 After=graphical-session.target pipewire.service
 
 [Service]
