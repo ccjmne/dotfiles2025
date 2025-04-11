@@ -4,6 +4,7 @@ bc
 brightnessctl
 btop
 certbot
+easyeffects
 efibootmgr
 entr
 fd
@@ -16,6 +17,7 @@ less
 linux
 linux-firmware
 linux-headers
+lsp-plugins
 man-db
 man-pages
 mkinitcpio
