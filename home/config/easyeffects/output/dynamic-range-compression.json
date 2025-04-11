@@ -11,7 +11,7 @@
         },
         "blocklist": [],
         "compressor#0": {
-            "attack": 10.0,
+            "attack": 20.0,
             "boost-amount": 6.0,
             "boost-threshold": -72.0,
             "bypass": false,
@@ -22,11 +22,11 @@
             "knee": -6.0,
             "lpf-frequency": 20000.0,
             "lpf-mode": "off",
-            "makeup": 8.0,
+            "makeup": 0.0,
             "mode": "Downward",
             "output-gain": 0.0,
-            "ratio": 6.0,
-            "release": 300.0,
+            "ratio": 4.0,
+            "release": 100.0,
             "release-threshold": -100.0,
             "sidechain": {
                 "lookahead": 0.0,
@@ -38,11 +38,11 @@
                 "type": "Feed-forward"
             },
             "stereo-split": false,
-            "threshold": -24.0,
+            "threshold": -12.0,
             "wet": 0.0
         },
         "limiter#0": {
-            "alr": true,
+            "alr": false,
             "alr-attack": 5.0,
             "alr-knee": 0.0,
             "alr-release": 50.0,
@@ -52,11 +52,11 @@
             "external-sidechain": false,
             "gain-boost": true,
             "input-gain": 0.0,
-            "lookahead": 10.0,
-            "mode": "Exp Thin",
+            "lookahead": 5.0,
+            "mode": "Herm Thin",
             "output-gain": 0.0,
             "oversampling": "None",
-            "release": 20.0,
+            "release": 5.0,
             "sidechain-preamp": 0.0,
             "stereo-link": 100.0,
             "threshold": 0.0
