@@ -1,3 +1,9 @@
 [submodule "home/config/nvim"]
 	path = home/config/nvim
 	url = git@github.com:ccjmne/nvim
+[submodule "home/config/tmux/plugins/tmux-resurrect"]
+	path = home/config/tmux/plugins/tmux-resurrect
+	url = git@github.com:tmux-plugins/tmux-resurrect
+[submodule "home/config/tmux/plugins/tmux-continuum"]
+	path = home/config/tmux/plugins/tmux-continuum
+	url = gh:tmux-plugins/tmux-continuum
