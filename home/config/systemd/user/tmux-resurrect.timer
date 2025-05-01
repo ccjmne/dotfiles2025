@@ -1,0 +1,10 @@
+[Unit]
+Description=Periodically save tmux session
+
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=15min
+Unit=tmux-resurrect.service
+
+[Install]
+WantedBy=timers.target

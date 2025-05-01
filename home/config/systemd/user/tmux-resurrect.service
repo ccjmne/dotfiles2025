@@ -1,0 +1,10 @@
+[Unit]
+Description=Save tmux session using tmux-resurrect
+Documentation=https://github.com/tmux-plugins/tmux-resurrect
+
+[Service]
+Type=oneshot
+Environment=RESURRECT_DIR=${XDG_DATA_HOME}/tmux/resurrect/
+ExecStart=/bin/sh ${XDG_CONFIG_HOME}/tmux/plugins/tmux-resurrect/scripts/save.sh
+# Retain only the last 8 snapshots
+ExecStopPost=/bin/sh -c 'ls -t ${RESURRECT_DIR} | tail -n+10 | xargs -I{} rm ${RESURRECT_DIR}{}'
