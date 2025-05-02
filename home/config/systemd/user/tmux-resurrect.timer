@@ -3,7 +3,7 @@ Description=Periodically save tmux session
 
 [Timer]
 OnBootSec=5min
-OnUnitActiveSec=15min
+OnUnitActiveSec=10min
 Unit=tmux-resurrect.service
 
 [Install]
