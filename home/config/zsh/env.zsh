@@ -16,3 +16,9 @@ if [[ $(command -v nvim) ]]; then
   export VISUAL="nvim"
   export MANPAGER='nvim +Man!'
 fi
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --prompt="> "
+  --preview-window="noborder"
+  --separator=""
+'
