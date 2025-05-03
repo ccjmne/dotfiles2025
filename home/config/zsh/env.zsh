@@ -1,3 +1,7 @@
+# TODO: Move all of this to ~/.zshenv
+# It's better to have a single file for all env variables, and that'll be loaded
+# before my zshrc, which spawns tmux; therefore loading these envs into tmux.
+
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'         # Avoid 'consuming' the space before a pipe or ampersand
 export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|" # TODO: Figure out how to make this available to nvim shell
 
