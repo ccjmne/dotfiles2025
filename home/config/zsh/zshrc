@@ -13,7 +13,6 @@ fi
 export LC_ALL=en_NZ.utf8
 [[ ! $(locale -a | grep -i $LC_ALL) ]] && sudo locale-gen $LC_ALL # Set up preferred locale if absent (on WSL for instance)
 
-source "$ZDOTDIR/env.zsh"
 source "$ZDOTDIR/opts.zsh"
 source "$ZDOTDIR/plugins.zsh"
 source "$ZDOTDIR/aliases.zsh"
