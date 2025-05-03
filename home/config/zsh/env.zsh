@@ -23,6 +23,9 @@ fi
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --prompt="> "
-  --preview-window="noborder"
-  --separator=""
+  --preview-window=noborder
+  --separator=
+  --scrollbar=█
+  --pointer=█
+  --marker=▌
 '
