@@ -24,13 +24,9 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}' `# Make the com
                                                                   # See https://zsh.sourceforge.io/Doc/Release/Completion-Widgets.html#Completion-Matching-Control
                                                                   # See https://stackoverflow.com/questions/7906078/how-does-the-matcher-list-arguments-work-in-zsh-zstyle-completion
 
-export GPG_TTY=$(tty)                                             # This entire block enables the use GPG keys for SSH authentication
-if [[ -n "$SSH_AGENT_PID" && -e "/proc/$SSH_AGENT_PID" ]]; then   #
-  systemctl --user disable --now ssh-agent                        # Fresh set-up:
-fi                                                                #
-systemctl --user enable --now gpg-agent                           #     > gpg --import publickeys.asc privatekeys.asc
-if [[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]]; then              #     > gpg --list-keys --with-keygrip
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"  #     > echo [keygrip] >> ~/.gnupg/sshcontrol
-fi                                                                #
+if [[ -n "$PS1" ]]; then                                          # One-time setup:
+  export GPG_TTY=$TTY                                             #   gpg --import publickeys.asc privatekeys.asc
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)    #   gpg --list-keys --with-keygrip
+fi                                                                #   echo [keygrip] >> ~/.gnupg/sshcontrol
 
 [[ -f ~/.uniterc ]] && source ~/.uniterc
