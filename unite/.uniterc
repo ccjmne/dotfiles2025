@@ -8,19 +8,14 @@ export MERCATEO_BASE_VAR_LOG=${MERCATEO_BASE}/var/log
 
 if command -v mise > /dev/null; then
 	mkdir -p "$HOME/.m2"
-	xml=$(<<-EOF
-		<?xml version="1.0" encoding="UTF-8"?>
-		<toolchains>
-		EOF
-	)
-
+	local toolchains=()
 	mise list java --json \
 		| jq '.[] | select(.installed) | "\(.version) \(.install_path)"' --raw-output \
 		| while read -r version home; do
 		vendor="${version%%-*}"
 		major="${version#*-}"
 		major="${major%%.*}"
-		xml+=$'\n'$(<<-EOF
+		toolchains+=$(<<-EOF
 			  <toolchain>
 			    <type>jdk</type>
 			    <provides>
@@ -31,12 +26,13 @@ if command -v mise > /dev/null; then
 			      <jdkHome>${home}</jdkHome>
 			    </configuration>
 			  </toolchain>
-			EOF
-		)
+			EOF)
 	done
 
 	echo "$(<<-EOF
-		${xml}
+		<?xml version="1.0" encoding="UTF-8"?>
+		<toolchains>
+		$(printf "%s\n" "${toolchains[@]}")
 		</toolchains>
 		EOF
 	)" > "$HOME/.m2/toolchains.xml"
