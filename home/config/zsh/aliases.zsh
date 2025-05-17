@@ -46,6 +46,7 @@ alias ll='ls -l --almost-all --human-readable'
 function less { command less --chop-long-lines "$@" }
 function xclip { command xclip -selection clipboard "$@" }
 
+alias sg='ast-grep'
 alias find='noglob find'
 alias git='noglob git'
 alias gitt='noglob git -c diff.external=difft'
