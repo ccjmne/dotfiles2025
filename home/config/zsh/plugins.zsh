@@ -22,7 +22,7 @@ autoload -U compinit; compinit
 
 [[ -d /usr/share/fzf ]] && source /usr/share/fzf/completion.zsh
 [[ -d /usr/share/fzf ]] && source /usr/share/fzf/key-bindings.zsh
-[[ $(command -v fzf) && $(command -v rg) ]] && export FZF_DEFAULT_COMMAND='rg --files --hidden'    # Search hidden files w/ fzf
-[[ $(command -v fzf) && $(command -v rg) ]] && export FZF_CTRL_T_COMMAND='rg --files 2> /dev/null' # ctrl-t searches only visible files
+[[ $(command -v fzf rg) ]] && export FZF_DEFAULT_COMMAND='rg --files --hidden'    # Search hidden files w/ fzf
+[[ $(command -v fzf rg) ]] && export FZF_CTRL_T_COMMAND='rg --files 2> /dev/null' # ctrl-t searches only visible files
 
 [[ $(command -v mise) ]] && eval "$(mise activate zsh)"
