@@ -1,39 +1,39 @@
 [user]
-	email = ccjmne@gmail.com
-	name = Éric NICOLAS
-	signingKey = 9B49C8C163B3320C!
+    email = ccjmne@gmail.com
+    name = Éric NICOLAS
+    signingKey = 9B49C8C163B3320C!
 
 [commit]
-	verbose = true
-	gpgsign = true
+    verbose = true
+    gpgsign = true
 [core]
-	editor = nvim +'set filetype=gitcommit textwidth=72 spell' +'normal $'
-	excludesfile = /home/ccjmne/.config/.gitignore-global
-	pager = less -SFX -x2
+    editor = nvim +'set filetype=gitcommit textwidth=72 spell' +'normal $'
+    excludesfile = /home/ccjmne/.config/.gitignore-global
+    pager = less -SFX -x2
 [diff]
-	algorithm = histogram
-	colorMoved = dimmed-zebra
+    algorithm = histogram
+    colorMoved = dimmed-zebra
 [gpg]
-	program = gpg2
+    program = gpg2
 [grep]
-	column = true
-	lineNumber = true
+    column = true
+    lineNumber = true
 [status]
-	aheadBehind = true
-	short = true
+    aheadBehind = true
+    short = true
 [url "git@github.com:"]
   insteadOf = gh:
 
 ; Naming things: it's famously hard, but here's my attempt nonetheless
 [checkout]
-	defaultRemote = upstream
+    defaultRemote = upstream
 [clone]
-	defaultRemoteName = upstream
+    defaultRemoteName = upstream
 [init]
-	defaultBranch = master
+    defaultBranch = master
 
 [includeIf "gitdir:~/git.unite/"]
-	path = ~/.gitconfig.unite
+    path = ~/.gitconfig.unite
 
 ; Experimental
 [rebase]
