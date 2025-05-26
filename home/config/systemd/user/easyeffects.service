@@ -1,5 +1,5 @@
 [Unit]
-Description=EasyEffects Audio Processing Service
+Description=EasyEffects audio processing service
 ConditionPathExists=/usr/bin/easyeffects
 After=pipewire.service
 
