@@ -7,7 +7,7 @@
     verbose = true
     gpgsign = true
 [core]
-    editor = nvim +'set filetype=gitcommit textwidth=72 spell' +'normal $'
+    editor = nvim +'set ft=gitcommit tw=72' +'normal $'
     excludesfile = /home/ccjmne/.config/.gitignore-global
     pager = less -SFX -x2
 [diff]
