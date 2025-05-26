@@ -1,7 +1,5 @@
 [user]
 	email = eric.nicolas@unite.eu
 	name = Eric Nicolas
-[init]
-	templatedir = /home/ccjmne/.git-templates.unite
 [maintenance]
 	repo = /home/ccjmne/git.unite/mercateo

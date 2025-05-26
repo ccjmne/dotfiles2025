@@ -1,0 +1,23 @@
+#! /usr/bin/env sh
+
+# See https://git-scm.com/docs/githooks#_prepare_commit_msg
+commit_msg_file=$1
+commit_source=$2
+sha1=$3
+
+# Prune unstaged/untracked content listing and hand-holding guidance
+sed -i.bak "$commit_msg_file" -e '
+    /^# Please enter the commit message/, /^#$/d                ;
+    /^# Do not modify or remove/,         /^[^#]/ { /^[^#]/!d } ;
+    /^# Changes not staged/,              /^#$/d                ;
+    /^# Untracked files/,                 /^#$/d                ;'
+
+# Add Jira ticket prefix to commit messages based on branch name (Unite convention)
+branch_name=$(git rev-parse --abbrev-ref HEAD)
+if [ "${commit_source}" != "merge" ]; then # Don't decorate merge commits
+    ref=$(pcregrep -oi '(TERMINUS|(?<=MAPLE_|FINDUS_)ITH?D|PI)-[0-9]+' <<< "$branch_name")
+    if [[ -n $ref ]]; then sed -E "1s/^($ref: )?/$ref: /" --in-place "$commit_msg_file"; fi
+    # Also add trailers w/ Jira ref and link (personal preference)
+    # TODO: Rather, configure these trailers in Git config
+    git interpret-trailers --if-exists addIfDifferent --trailer "Refs: $ref (https://jira.mercateo.lan/browse/$ref)" --in-place "$commit_msg_file"
+fi
