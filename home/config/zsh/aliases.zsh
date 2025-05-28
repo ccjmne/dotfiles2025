@@ -56,7 +56,7 @@ alias fd='noglob fd'
 alias watch='watch --color'
 
 function checkout {
-  command git branch --all | sed -E 's@^[* ] (remotes/[^/]+/)?@@' | fzf | xargs git checkout
+  command git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | fzf | xargs git checkout
 }
 
 function fzf {
