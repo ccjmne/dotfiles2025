@@ -16,8 +16,10 @@ sed -i.bak "$commit_msg_file" -e '
 branch_name=$(git rev-parse --abbrev-ref HEAD)
 if [ "${commit_source}" != "merge" ]; then # Don't decorate merge commits
     ref=$(pcregrep -oi '(TERMINUS|(?<=MAPLE_|FINDUS_)ITH?D|PI)-[0-9]+' <<< "$branch_name")
-    if [[ -n $ref ]]; then sed -E "1s/^($ref: )?/$ref: /" --in-place "$commit_msg_file"; fi
-    # Also add trailers w/ Jira ref and link (personal preference)
-    # TODO: Rather, configure these trailers in Git config
-    git interpret-trailers --if-exists addIfDifferent --trailer "Refs: $ref (https://jira.mercateo.lan/browse/$ref)" --in-place "$commit_msg_file"
+    if [[ -n $ref ]]; then
+        sed -E "1s/^($ref: )?/$ref: /" --in-place "$commit_msg_file"
+        # Also add trailers w/ Jira ref and link (personal preference)
+        # TODO: Rather, configure these trailers in Git config
+        git interpret-trailers --if-exists addIfDifferent --trailer "Refs: $ref (https://jira.mercateo.lan/browse/$ref)" --in-place "$commit_msg_file"
+    fi
 fi
