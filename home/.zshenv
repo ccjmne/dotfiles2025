@@ -15,7 +15,7 @@ export MISE_CONFIG_FILE="$XDG_CONFIG_HOME/mise.toml"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 path=(
-    "$HOME/.local/bin"
+    "$HOME/local/bin"
     $path
     "$CARGO_HOME/bin"
     "$XDG_DATA_HOME/nvim/mason/bin"
