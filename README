@@ -39,7 +39,11 @@ Stow and would rather master the few tools hanging at their belt.
 
 TODO ...........................................................................
 
-    Consider alternatives to Git submodules.  Git subtree was considered.
+1.  Consider smudging and cleaning stuff through Git filters.
+
+2.  Rewrite this using proper Vim `help` filetype syntax.
+
+3.  Consider alternatives to Git submodules.  Git subtree was considered.
     Git subrepo may be it.
 
                                                           vim: tw=80 sw=4 et sta
