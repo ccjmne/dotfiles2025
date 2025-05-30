@@ -21,6 +21,11 @@
     lineNumber = true
 [status]
     aheadBehind = true
+[merge]
+    conflictstyle = zdiff3
+[rebase]
+    autosquash = true
+    autostash = true
     short = true
 [url "git@github.com:"]
   insteadOf = gh:
@@ -36,12 +41,3 @@
 
 [includeIf "gitdir:~/git.unite/"]
     path = ~/.gitconfig.unite
-
-; Experimental
-[rebase]
-    autosquash = true
-    autostash = true
-[merge]
-    conflictstyle = zdiff3
-[color]
-    ui = true
