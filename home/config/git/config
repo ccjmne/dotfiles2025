@@ -1,43 +1,40 @@
-[user]
-    email = ccjmne@gmail.com
-    name = Éric NICOLAS
-    signingKey = 9B49C8C163B3320C!
-
+[checkout]
+    defaultremote = upstream
+[clone]
+    defaultremotename = upstream
 [commit]
-    verbose = true
-    gpgsign = true
+    gpgsign = yes
+    verbose = yes
 [core]
     editor = nvim +'set ft=gitcommit tw=72' +'normal $'
     excludesfile = /home/ccjmne/.config/.gitignore-global
     pager = less -SFX -x2
 [diff]
     algorithm = histogram
-    colorMoved = dimmed-zebra
-    mnemonicprefix = true
+    colormoved = dimmed-zebra
+    mnemonicprefix = yes
 [gpg]
     program = gpg2
 [grep]
-    column = true
-    lineNumber = true
-[status]
-    aheadBehind = true
+    column = yes
+    linenumber = yes
+[init]
+    defaultbranch = master
+    templatedir = ~/config/git/template
 [merge]
     conflictstyle = zdiff3
 [rebase]
-    autosquash = true
-    autostash = true
-    short = true
+    autosquash = yes
+    autostash = yes
+    short = yes
+[status]
+    aheadbehind = yes
 [url "git@github.com:"]
-  insteadOf = gh:
+    insteadof = gh:
+[user]
+    email = ccjmne@gmail.com
+    name = Éric NICOLAS
+    signingKey = 9B49C8C163B3320C!
 
-; Naming things: it's famously hard, but here's my attempt nonetheless
-[checkout]
-    defaultRemote = upstream
-[clone]
-    defaultRemoteName = upstream
-[init]
-    templatedir = ~/config/git/template
-    defaultBranch = master
-
-[includeIf "gitdir:~/git.unite/"]
+[includeif "gitdir:~/git.unite/"]
     path = ~/.gitconfig.unite
