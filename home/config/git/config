@@ -28,9 +28,9 @@
 [rebase]
     autosquash = yes
     autostash = yes
-    short = yes
 [status]
     aheadbehind = yes
+    short = yes
 [url "git@github.com:"]
     insteadof = gh:
 [user]
