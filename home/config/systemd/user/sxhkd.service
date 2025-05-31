@@ -1,0 +1,10 @@
+[Unit]
+Description=Simple X hotkey daemon
+ConditionPathExists=/usr/bin/sxhkd
+
+[Service]
+ExecStart=/usr/bin/sxhkd
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
