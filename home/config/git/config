@@ -23,6 +23,8 @@
     templatedir = ~/config/git/template
 [merge]
     conflictstyle = zdiff3
+[push]
+    default = upstream
 [rebase]
     autosquash = yes
     autostash = yes
