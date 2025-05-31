@@ -1,0 +1,2 @@
+super + alt + t
+    xdotool search --name '' | xargs -II sh -c 'xwininfo -id I | grep -q "geometry 160x20" && xdotool windowactivate I'
