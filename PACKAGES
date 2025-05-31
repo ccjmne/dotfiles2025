@@ -36,6 +36,7 @@ stow
 sudo
 systemd
 systemd-libs
+sxhkd
 tealdeer
 tmux
 traceroute
@@ -43,6 +44,7 @@ trash-cli
 tree
 wget
 wiggle
+xdotool
 yazi-git
 zip
 zsh
