@@ -1,0 +1,6 @@
+[Unit]
+Description=Restart systemd services from .path or .timer
+
+[Service]
+Type=oneshot
+ExecStart=systemctl --user restart %i.service
