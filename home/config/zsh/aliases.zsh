@@ -60,7 +60,10 @@ function checkout {
 }
 
 function fzf {
-  command fzf --style=minimal "$@"
+  command fzf --style=minimal \
+    --bind 'ctrl-h:deselect+down' \
+    --bind 'ctrl-l:select+down' \
+    "$@"
 }
 
 function tmpd() {
