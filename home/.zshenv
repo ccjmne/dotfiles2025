@@ -21,6 +21,8 @@ path=(
     "$XDG_DATA_HOME/nvim/mason/bin"
 )
 
+export MANWIDTH=100
+export MANOPT='--no-justification --no-hyphenation'
 if [[ $(command -v nvim) ]]; then
   export EDITOR="nvim"
   export VISUAL="nvim"
