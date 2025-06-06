@@ -30,6 +30,8 @@ if [[ $(command -v nvim) ]]; then
 fi
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --bind=ctrl-h:deselect+down
+  --bind=ctrl-l:select+down
   --prompt="> "
   --preview-window=noborder
   --separator=
