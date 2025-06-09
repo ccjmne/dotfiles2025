@@ -31,6 +31,8 @@
 [status]
     aheadbehind = yes
     short = yes
+[tag]
+    gpgsign = yes
 [url "git@github.com:"]
     insteadof = gh:
 [user]
