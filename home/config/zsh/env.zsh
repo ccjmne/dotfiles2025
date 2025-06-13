@@ -11,6 +11,7 @@ path=(
     $path
     "$CARGO_HOME/bin"
     "$XDG_DATA_HOME/nvim/mason/bin"
+    "$HOME/.luarocks/bin" # TODO: move luarocks stuff someplace else... (XDG_DATA_HOME/luarocks/bin ?)
 )
 
 export BROWSER="$(which google-chrome-stable)" # Just in case something might use it (like man --html)
