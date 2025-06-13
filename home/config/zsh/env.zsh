@@ -4,15 +4,21 @@ export ZLE_SPACE_SUFFIX_CHARS=$'&|'         # Avoid 'consuming' the space before
 export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|" # TODO: Figure out how to make this available to nvim shell
 
 export MISE_CONFIG_FILE="$XDG_CONFIG_HOME/mise.toml"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
 
 path=(
     "$HOME/local/bin"
     $path
-    "$CARGO_HOME/bin"
     "$XDG_DATA_HOME/nvim/mason/bin"
-    "$HOME/.luarocks/bin" # TODO: move luarocks stuff someplace else... (XDG_DATA_HOME/luarocks/bin ?)
 )
+
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+export LUAROCKS_HOME="$XDG_DATA_HOME/luarocks"
+export LUA_PATH="$LUAROCKS_HOME/share/lua/5.4/?.lua;$LUAROCKS_HOME/share/lua/5.4/?/init.lua;;"
+export LUA_CPATH="$LUAROCKS_HOME/lib/lua/5.4/?.so;;"
+[[ -d "$CARGO_HOME/bin"    ]] && path+=("$CARGO_HOME/bin")
+[[ -d "$PNPM_HOME/bin"     ]] && path+=("$PNPM_HOME/bin")
+[[ -d "$LUAROCKS_HOME/bin" ]] && path+=("$LUAROCKS_HOME/bin")
 
 export BROWSER="$(which google-chrome-stable)" # Just in case something might use it (like man --html)
 export MANWIDTH=100
