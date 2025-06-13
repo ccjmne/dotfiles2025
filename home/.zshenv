@@ -32,6 +32,7 @@ fi
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
   --bind=ctrl-h:deselect+down
   --bind=ctrl-l:select+down
+  --bind=ctrl-y:enter
   --prompt="> "
   --preview-window=noborder
   --separator=
