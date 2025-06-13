@@ -1,3 +1,5 @@
+source "$ZDOTDIR/env.zsh"
+
 if [[ -z "$TMUX" ]]; then
   exec tmux new-session -As "$USER" > /dev/null 2>&1
 fi
