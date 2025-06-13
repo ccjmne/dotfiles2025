@@ -21,6 +21,7 @@ path=(
     "$XDG_DATA_HOME/nvim/mason/bin"
 )
 
+export BROWSER="$(which google-chrome-stable)" # Just in case something might use it (like man --html)
 export MANWIDTH=100
 export MANOPT='--no-justification --no-hyphenation'
 if [[ $(command -v nvim) ]]; then
