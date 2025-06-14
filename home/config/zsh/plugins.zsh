@@ -4,11 +4,9 @@ export ZSH_HIGHLIGHT_STYLES[path]='fg=yellow,bold'
 export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=yellow'
 export ZSH_HIGHLIGHT_STYLES[comment]='fg=248' # 8-colours alternative: fg=8,bold
 
-ZSH_HOME="/usr/share/zsh"
-ZSH_PLUGINS="$ZSH_HOME/plugins"
+ZSH_PLUGINS="/usr/share/zsh/plugins"
 OMZ_PLUGINS="/usr/share/oh-my-zsh/lib"
 
-fpath=("$ZSH_HOME/site-functions" $fpath) # Prefer completions from zsh-completions
 source "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
