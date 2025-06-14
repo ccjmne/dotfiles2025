@@ -1,23 +1,5 @@
 alias -- -='cd -'
 
-function btop() {
-  read -q "answer?Don't you want to use top instead? [Y/n] "
-  case "$answer" in
-    [Nn]*) command btop ;;
-    *)     command top  ;;
-  esac
-}
-
-function bak {
-  for arg; do
-    if [[ "$arg" == *.bak ]]; then
-      mv "$arg" "${arg%.bak}"
-    else
-      mv "$arg" "$arg.bak"
-    fi
-  done
-}
-
 alias fd='noglob fd'
 alias find='noglob find'
 alias git='noglob git'
@@ -31,17 +13,26 @@ alias ssh='TERM=xterm-256color ssh'
 alias watch='watch --color'
 alias xclip='xclip -selection clipboard'
 
-[[ $(command -v fzf git) ]] && function checkout {
-  git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | awk '!M[$0]++' | fzf | xargs git checkout
+function bak {
+  for arg; do
+    if [[ "$arg" == *.bak ]]; then
+      mv "$arg" "${arg%.bak}"
+    else
+      mv "$arg" "$arg.bak"
+    fi
+  done
 }
 
-function tmpd {
-  set -e
-  cd $(mktemp --directory)
-  set +e
-  ( $SHELL )
-  rm -rf $(pwd)
-  cd -
+function btop() {
+  read -q "answer?Don't you want to use top instead? [Y/n] "
+  case "$answer" in
+    [Nn]*) command btop ;;
+    *)     command top  ;;
+  esac
+}
+
+[[ $(command -v fzf git) ]] && function checkout {
+  git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | awk '!M[$0]++' | fzf | xargs git checkout
 }
 
 [[ $(command -v stow) ]] && function stow {
@@ -57,4 +48,13 @@ function tmpd {
     return 1
   fi
   command stow --verbose "$@"
+}
+
+function tmpd {
+  set -e
+  cd $(mktemp --directory)
+  set +e
+  ( $SHELL )
+  rm -rf $(pwd)
+  cd -
 }
