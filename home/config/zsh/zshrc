@@ -25,6 +25,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}' `# Make the com
 if [[ -n "$PS1" ]]; then                                          # One-time setup:
   export GPG_TTY=$TTY                                             #   gpg --import publickeys.asc privatekeys.asc
   export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)    #   gpg --list-keys --with-keygrip
-fi                                                                #   echo [keygrip] >> ~/.gnupg/sshcontrol
+fi                                                                #   echo [keygrip] >> $GNUPGHOME/sshcontrol
 
 [[ -f ~/.uniterc ]] && source ~/.uniterc
