@@ -39,21 +39,18 @@ function bak {
   done
 }
 
-function ssh { TERM=xterm-256color command ssh "$@" }
-function ls { command ls --classify=if-tty --group-directories-first --color=auto "$@" }
-alias ll='ls -l --almost-all --human-readable'
-
-function less { command less --chop-long-lines "$@" }
-function xclip { command xclip -selection clipboard "$@" }
-
-alias sg='ast-grep'
+alias fd='noglob fd'
 alias find='noglob find'
 alias git='noglob git'
-alias gitt='noglob git -c diff.external=difft'
+alias gitt='git -c diff.external=difft'
+alias less='less --chop-long-lines'
+alias ll='ls -l --almost-all --human-readable'
+alias ls='ls --classify=if-tty --group-directories-first --color=auto'
 alias rg='noglob rg --no-heading --column'
-alias fd='noglob fd'
-
+alias sg='ast-grep'
+alias ssh='TERM=xterm-256color ssh'
 alias watch='watch --color'
+alias xclip='xclip -selection clipboard'
 
 function checkout {
   command git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | awk '!M[$0]++' | fzf | xargs git checkout
