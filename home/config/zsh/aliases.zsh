@@ -35,13 +35,6 @@ function checkout {
   command git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | awk '!M[$0]++' | fzf | xargs git checkout
 }
 
-function fzf {
-  command fzf --style=minimal \
-    --bind 'ctrl-h:deselect+down' \
-    --bind 'ctrl-l:select+down' \
-    "$@"
-}
-
 function tmpd() {
   set -e
   cd $(mktemp --directory)
