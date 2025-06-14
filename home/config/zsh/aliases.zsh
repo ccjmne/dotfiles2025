@@ -1,15 +1,5 @@
 alias -- -='cd -'
 
-alias -g ...='../..'
-alias -g ....='../..'
-alias -g .....='../../..'
-alias -g ......='../../../..'
-alias -g .......='../../../../..'
-alias -g ........='../../../../../..'
-alias -g .........='../../../../../../..'
-alias -g ..........='../../../../../../../..'
-alias -g ...........='../../../../../../../../..'
-
 function btop() {
     read -q "answer?Don't you want to use top instead? [Y/n] "
     case "$answer" in
