@@ -1,11 +1,11 @@
 alias -- -='cd -'
 
 function btop() {
-    read -q "answer?Don't you want to use top instead? [Y/n] "
-    case "$answer" in
-        [Nn]*) command btop ;;
-        *)     command top ;;
-    esac
+  read -q "answer?Don't you want to use top instead? [Y/n] "
+  case "$answer" in
+    [Nn]*) command btop ;;
+    *)     command top  ;;
+  esac
 }
 
 function bak {
@@ -31,11 +31,11 @@ alias ssh='TERM=xterm-256color ssh'
 alias watch='watch --color'
 alias xclip='xclip -selection clipboard'
 
-function checkout {
-  command git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | awk '!M[$0]++' | fzf | xargs git checkout
+[[ $(command -v fzf git) ]] && function checkout {
+  git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | awk '!M[$0]++' | fzf | xargs git checkout
 }
 
-function tmpd() {
+function tmpd {
   set -e
   cd $(mktemp --directory)
   set +e
