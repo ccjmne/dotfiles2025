@@ -17,7 +17,6 @@ function anchor {
   while [[ "$dir" != "/" ]]; do
     for anchor in "${anchor_files[@]}"; do
       if [[ -e "$dir/$anchor" ]]; then
-        echo "$dir"
         cd ${(q)dir}
         zle push-input
         BUFFER=''
