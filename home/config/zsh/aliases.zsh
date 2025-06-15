@@ -47,7 +47,7 @@ function btop() {
     echo "Error: '--target' option is required"
     return 1
   fi
-  command stow --verbose "$@"
+  command stow --dotfiles --verbose "$@"
 }
 
 function tmpd {
