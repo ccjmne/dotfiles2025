@@ -55,6 +55,6 @@ function tmpd {
   cd $(mktemp --directory)
   set +e
   ( $SHELL )
-  rm -rf $(pwd)
+  rm -r $(pwd)
   cd -
 }
