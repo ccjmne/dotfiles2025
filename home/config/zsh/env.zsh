@@ -33,11 +33,13 @@ fi
 # export VIM="$XDG_DATA_HOME/${EDITOR:-vim}" # VIMRUNTIME goes to $VIM/runtime (or other places), w/o considering $XDG_DATA_HOME
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --bind=change:first
   --bind=ctrl-h:deselect+down
   --bind=ctrl-l:select+down
-  --bind=ctrl-y:accept
-  --prompt="> "
   --preview-window=noborder
+  --style=minimal
+  --info=inline
+  --prompt="> "
   --separator=
   --scrollbar=█
   --pointer=█
