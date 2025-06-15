@@ -1,5 +1,6 @@
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 
+export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"  # Supposedly omz-only but others (like mise) appear to use it too
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'         # Avoid 'consuming' the space before a pipe or ampersand
 export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|" # TODO: Figure out how to make this available to nvim shell
 
