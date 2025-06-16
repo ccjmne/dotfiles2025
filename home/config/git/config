@@ -28,6 +28,8 @@
 [rebase]
     autosquash = yes
     autostash = yes
+[rerere]
+    enabled = yes
 [status]
     aheadbehind = yes
     short = yes
