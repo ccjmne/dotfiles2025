@@ -1,49 +1,55 @@
-Revisions: 3                   Personal Dotfiles                    Éric NICOLAS
-Latest: 2025-05-30             =================
+Revisions: 4                   Personal Dotfiles                    Éric NICOLAS
+Latest: 2025-06-16             =================
 
-                      -------- Usage w/ GNU Stow --------
+                           --- Usage w/ GNU Stow ---
 
-Using a symlinks farm.  Cool kids use chezmoi or whatever; sysadmins already use
-Stow and would rather master the few tools hanging at their belt.
+Less is more [1]; I use Git [2] and GNU Stow [3].
 
     git clone git@github.com:ccjmne/dotfiles2025 dots
-    STOW_DIR=dots stow --target ~ home
+    STOW_DIR=dots      stow --dotfiles --target ~ home
+    sudo STOW_DIR=dots stow --dotfiles --target / root
+    # STOW_DIR=dots    stow --dotfiles --target ~ <workplace>
 
--------------------------------------- >8 --------------------------------------
+TLDR: git, nvim, tmux, p10k
 
-                              Deprecated Procedure
+                         --- One treacherous nicety ---
 
-1.  Using a bare Git repo instead of symlinks.  It's rather neat, but your
-    tools may not be too excellent at recognising that you're editing files
-    that are tracked by Git, if you like to keep an eye on these changes
-    right in your editor, for example.
+Sets XDG paths spec. vars. [4] through the PAM [5] module so as to essentially
+bypass the ~/.local directory, and in general avoid using hidden files:
 
-    If you're using Vim and Fugitive, you can simply:
+    XDG_CONFIG_HOME DEFAULT=@{HOME}/config
+    XDG_CACHE_HOME  DEFAULT=@{HOME}/cache
+    XDG_DATA_HOME   DEFAULT=@{HOME}/share
+    XDG_STATE_HOME  DEFAULT=@{HOME}/state
+    ZDOTDIR         DEFAULT=@{XDG_CONFIG_HOME}/zsh
 
-        :call FugitiveDetect('~/.d')
+Philosophy .....................................................................
 
-2.  Set up
+    1.  I don't want on my screen information that I don't need.
+    2.  I don't want to install more software:
+        I'd rather master and compose [6] the underlying tools.
+    3.  Corollary: I don't want to tweak software to best suit my tastes,
+        I'd rather adopt their defaults if they're sane.
+    4.  I don't mind symlinks.
+    5.  There's a difference between newbie-friendly and user-friendly;
+        the very best tools are user-friendly.
+    6.  A project that receives (little to) no new issues and commits isn't
+        abandoned, it is *done*.
 
-    git clone --separate-git-dir=~/.d git@github.com:ccjmne/dotfiles2025 ~
-    alias dots='/usr/bin/git --git-dir=~/.d --work-tree=~'
-    dots config status.showUntrackedFiles no
-    dots update-index --assume-unchanged LICENSE README
-    rm ~/LICENSE ~/README
+References .....................................................................
 
-3.  Daily usage
-
-    dots status
-    dots add --update
-    dots commit
-    dots push
+    [1] https://en.wikipedia.org/wiki/Less_is_more
+    [2] https://git-scm.com/
+    [3] https://www.gnu.org/software/stow/
+    [4] https://specifications.freedesktop.org/basedir-spec/latest/
+    [5] https://wiki.archlinux.org/title/PAM
+    [6] https://en.wikipedia.org/wiki/Unix_philosophy
 
 TODO ...........................................................................
 
-1.  Consider smudging and cleaning stuff through Git filters.
-
-2.  Rewrite this using proper Vim `help` filetype syntax.
-
-3.  Consider alternatives to Git submodules.  Git subtree was considered.
-    Git subrepo may be it.
+    1.  Consider smudging and cleaning stuff through Git filters.
+    2.  Rewrite this using proper Vim `help` filetype syntax.
+    3.  Consider alternatives to Git submodules.  Git subtree was considered.
+        Git subrepo may be it.
 
                                                           vim: tw=80 sw=4 et sta
