@@ -52,4 +52,29 @@ TODO ...........................................................................
     3.  Consider alternatives to Git submodules.  Git subtree was considered.
         Git subrepo may be it.
 
+Deprecated Procedure --------------------------- >8 ----------------------------
+
+1.  Using a bare Git repo instead of symlinks.  It's rather neat, but your tools
+    may not be too excellent at recognising that you're editing files that are
+    tracked by Git.
+
+    If you're using Vim and Fugitive, you can simply:
+
+        :call FugitiveDetect('~/.d')
+
+2.  Set up
+
+    git clone --separate-git-dir=~/.d git@github.com:ccjmne/dotfiles2025 ~
+    alias dots='git --git-dir=~/.d --work-tree=~'
+    dots config status.showUntrackedFiles no
+    dots update-index --assume-unchanged LICENSE README
+    rm ~/LICENSE ~/README
+
+3.  Daily usage
+
+    dots status
+    dots add --update
+    dots commit
+    dots push
+
                                                           vim: tw=80 sw=4 et sta
