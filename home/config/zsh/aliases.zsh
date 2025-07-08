@@ -32,7 +32,7 @@ function btop() {
 }
 
 [[ $(command -v fzf git) ]] && function checkout {
-  git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | awk '!M[$0]++' | fzf | xargs git checkout
+  git branch --all | sed -E 's@^[*+ ] (remotes/[^/]+/)?@@' | awk '!M[$0]++' | fzf | xargs -r git checkout
 }
 
 [[ $(command -v stow) ]] && function stow {
