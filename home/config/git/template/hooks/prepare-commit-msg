@@ -20,6 +20,6 @@ if [ "${commit_source}" != "merge" ]; then # Don't decorate merge commits
         sed -E "1s/^($ref: )?/$ref: /" --in-place "$commit_msg_file"
         # Also add trailers w/ Jira ref and link (personal preference)
         # TODO: Rather, configure these trailers in Git config
-        git interpret-trailers --if-exists addIfDifferent --trailer "Refs: $ref (https://jira.mercateo.lan/browse/$ref)" --in-place "$commit_msg_file"
+        git interpret-trailers --if-exists addIfDifferent --trailer "Ref: $ref (https://jira.mercateo.lan/browse/$ref)" --in-place "$commit_msg_file"
     fi
 fi
