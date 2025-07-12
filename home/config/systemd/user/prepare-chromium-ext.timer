@@ -1,0 +1,9 @@
+[Unit]
+Description=Periodically maintain Chromium extensions unavailable in the Chrome Web Store
+
+[Timer]
+OnCalendar=daily
+Unit=prepare-chromium-ext.service
+
+[Install]
+WantedBy=timers.target

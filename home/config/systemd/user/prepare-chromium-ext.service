@@ -1,0 +1,8 @@
+[Unit]
+Description=Maintain Chromium extensions unavailable in the Chrome Web Store
+
+[Service]
+ExecStart=/bin/sh ${HOME}/bin/prepare-chromium-ext.sh
+
+[Install]
+WantedBy=default.target
