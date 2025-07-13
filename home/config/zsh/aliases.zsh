@@ -1,4 +1,6 @@
 alias -- -='cd -'
+alias -10='fc -10 -1'
+alias -100='fc -100 -1'
 
 alias fd='noglob fd'
 alias find='noglob find'
