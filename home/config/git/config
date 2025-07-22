@@ -13,6 +13,9 @@
     algorithm = histogram
     colormoved = dimmed-zebra
     mnemonicprefix = yes
+[filter "pgp"]
+    clean = "gpg --encrypt --armour --recipient ccjmne@gmail.com"
+    smudge = "gpg --decrypt"
 [gpg]
     program = gpg2
 [grep]
