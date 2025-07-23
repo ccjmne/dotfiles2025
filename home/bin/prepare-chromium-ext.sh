@@ -6,19 +6,17 @@ ko()  { echo "[1;31m$@[0m"; }
 
 install() {
     say Compile $1...
+    local out=
     if [ $(pwd | xargs basename) != $1 ]; then cd $1; fi
     case $1 in
         ublock)
             make clean chromium
-            ok Load unpacked from: $(pwd)/dist/build/uBlock0.chromium
+            out=$(realpath ./dist/build/uBlock0.chromium)
             ;;
-        twitch_alternate_player)
-            ok Load unpacked from: $(pwd)
-            ;;
-        *)
-            ko Missing compilation procedure for $1.
-            ;;
+        twitch_alternate_player) out=$(pwd) ;;
+        *)                       exit 1     ;;
     esac
+    ok Load $1 from: $out
 }
 
 WD=$XDG_DATA_HOME/chromium-ext
