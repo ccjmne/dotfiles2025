@@ -34,7 +34,7 @@ do (
     else
         say Update $repo...
         cd $DIR
-        if [ $(git fetch && git rev-list --count ...@{u}) -gt 0 ]; then
+        if [ $(git fetch && git rev-list --count ..@{u}) -gt 0 ]; then
             git merge @{u} --ff-only
             install $DIR
         else
