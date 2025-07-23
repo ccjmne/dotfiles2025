@@ -16,7 +16,8 @@ install() {
         twitch_alternate_player) out=$(pwd) ;;
         *)                       exit 1     ;;
     esac
-    ok Load $1 from: $out
+    ok Built $1 version: $(jq -r .version $out/manifest.json)
+    ok Load from: $out
 }
 
 WD=$XDG_DATA_HOME/chromium-ext
