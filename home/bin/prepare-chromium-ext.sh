@@ -20,22 +20,22 @@ install() {
     ok Load from: $out
 }
 
-WD=$XDG_DATA_HOME/chromium-ext
-mkdir -p $WD && cd $WD
+readonly wd=$XDG_DATA_HOME/chromium-ext
+mkdir -p $wd && cd $wd
 for repo in https://github.com/gorhill/ublock.git https://github.com/sevwren/twitch_alternate_player.git
 do (
     set -e
-    DIR=$(basename $repo .git)
-    if [ ! -d $DIR ]; then
-        say Clone $DIR...
+    readonly dir=$(basename $repo .git)
+    if [ ! -d $dir ]; then
+        say Clone $dir...
         git clone --depth 1 $repo
-        install $DIR
+        install $dir
     else
         say Update $repo...
-        cd $DIR
+        cd $dir
         if [ $(git fetch && git rev-list --count ..@{u}) -gt 0 ]; then
             git merge @{u} --ff-only
-            install $DIR
+            install $dir
         else
             say Already up to date.
         fi
