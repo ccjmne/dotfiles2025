@@ -8,7 +8,7 @@ install() {
     say Compile $1...
     if [ $(pwd | xargs basename) != $1 ]; then cd $1; fi
     case $1 in
-        uBlock)
+        ublock)
             make clean chromium
             ok Load unpacked from: $(pwd)/dist/build/uBlock0.chromium
             ;;
@@ -23,7 +23,7 @@ install() {
 
 WD=$XDG_DATA_HOME/chromium-ext
 mkdir -p $WD && cd $WD
-for repo in https://github.com/gorhill/uBlock.git https://github.com/sevwren/twitch_alternate_player.git
+for repo in https://github.com/gorhill/ublock.git https://github.com/sevwren/twitch_alternate_player.git
 do (
     set -e
     DIR=$(basename $repo .git)
