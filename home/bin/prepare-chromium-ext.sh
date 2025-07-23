@@ -1,8 +1,8 @@
 #! /bin/sh -u
 
-say() { echo "[1m$@[0m"   ; }
-ok()  { echo "[1;32m$@[0m"; }
-ko()  { echo "[1;31m$@[0m"; }
+say() {     echo "[1m$@[0m"   ; }
+ok()  {     echo "[1;32m$@[0m"; }
+ko()  { >&2 echo "[1;31m$@[0m"; }
 
 install() {
     say Compile $1...
