@@ -1,6 +1,5 @@
-#! /usr/bin/env bash
+#! /bin/sh -u
 
-set -e
 say() { echo "[1m$@[0m"   ; }
 ok()  { echo "[1;32m$@[0m"; }
 ko()  { echo "[1;31m$@[0m"; }
@@ -26,7 +25,7 @@ WD=$XDG_DATA_HOME/chromium-ext
 mkdir -p $WD && cd $WD
 for repo in https://github.com/gorhill/uBlock.git https://github.com/sevwren/twitch_alternate_player.git
 do (
-    set +e
+    set -e
     DIR=$(basename $repo .git)
     if [ ! -d $DIR ]; then
         say Clone $DIR...
