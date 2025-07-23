@@ -13,6 +13,9 @@ install() {
             make clean chromium
             ok Load unpacked from: $(pwd)/dist/build/uBlock0.chromium
             ;;
+        twitch_alternate_player)
+            ok Load unpacked from: $(pwd)
+            ;;
         *)
             ko Missing compilation procedure for $1.
             ;;
@@ -21,7 +24,7 @@ install() {
 
 WD=$XDG_DATA_HOME/chromium-ext
 mkdir -p $WD && cd $WD
-for repo in https://github.com/gorhill/uBlock.git
+for repo in https://github.com/gorhill/uBlock.git https://github.com/sevwren/twitch_alternate_player.git
 do (
     set +e
     DIR=$(basename $repo .git)
