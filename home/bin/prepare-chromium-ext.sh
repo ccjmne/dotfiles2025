@@ -41,5 +41,5 @@ do (
         fi
     fi
 )
-[ $? -ne 0 ] && ko Failed to process $repo
+[ $? -eq 0 ] || ko Failed to process $repo
 done
