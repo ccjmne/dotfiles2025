@@ -17,7 +17,7 @@ export LUAROCKS_HOME="$XDG_DATA_HOME/luarocks"
 export LUA_PATH="$LUAROCKS_HOME/share/lua/5.4/?.lua;$LUAROCKS_HOME/share/lua/5.4/?/init.lua;;"
 export LUA_CPATH="$LUAROCKS_HOME/lib/lua/5.4/?.so;;"
 [[ -d "$CARGO_HOME/bin" ]]    && path+="$CARGO_HOME/bin"
-[[ -d "$PNPM_HOME/bin" ]]     && path+="$PNPM_HOME/bin"
+[[ -d "$PNPM_HOME" ]]         && path+="$PNPM_HOME"
 [[ -d "$LUAROCKS_HOME/bin" ]] && path+="$LUAROCKS_HOME/bin"
 
 export BROWSER="$(which google-chrome-stable)" # Just in case something might use it (like man --html)
