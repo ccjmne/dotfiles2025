@@ -5,6 +5,7 @@ export ZLE_SPACE_SUFFIX_CHARS=$'&|'         # Avoid 'consuming' the space before
 export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|" # TODO: Figure out how to make this available to nvim shell
 export MISE_CONFIG_FILE="$XDG_CONFIG_HOME/mise.toml"
 
+typeset -U path
 path=(
     "$HOME/bin"
     $path
@@ -32,7 +33,7 @@ fi
 # TODO: Do I need the following?
 # export VIM="$XDG_DATA_HOME/${EDITOR:-vim}" # VIMRUNTIME goes to $VIM/runtime (or other places), w/o considering $XDG_DATA_HOME
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+export FZF_DEFAULT_OPTS='
   --bind=change:first
   --bind=ctrl-h:deselect+down
   --bind=ctrl-l:select+down
