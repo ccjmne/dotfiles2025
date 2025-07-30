@@ -29,6 +29,7 @@ if [[ $(command -v nvim) ]]; then
   export VISUAL="nvim"
   export MANPAGER='nvim +Man!'
 fi
+export FCEDIT="$EDITOR +'set ft=sh'"
 
 # TODO: Do I need the following?
 # export VIM="$XDG_DATA_HOME/${EDITOR:-vim}" # VIMRUNTIME goes to $VIM/runtime (or other places), w/o considering $XDG_DATA_HOME
