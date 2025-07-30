@@ -13,7 +13,7 @@ sed -i.bak "$commit_msg_file" -e '
     /^# Untracked files/,                 /^#$/d                ;'
 
 # Add Jira ticket prefix to commit messages based on branch name (Unite convention)
-branch_name=$(git rev-parse --abbrev-ref HEAD)
+branch_name=$(git branch --show-current)
 if [ "${commit_source}" != "merge" ] && ! pcregrep -q '^(fixup|squash)!' "$1"; then # Don't decorate merge, fixup or squash commits
     ref=$(pcregrep -oi '(TERMINUS|(?<=MAPLE_|FINDUS_)?ITH?D|PI)-[0-9]+' <<< "$branch_name")
     if [[ -n $ref ]]; then
