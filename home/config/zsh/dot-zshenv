@@ -2,7 +2,7 @@ export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"  # Supposedly omz-only but others (like mise) appear to use it too
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'         # Avoid 'consuming' the space before a pipe or ampersand
-export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|" # TODO: Figure out how to make this available to nvim shell
+export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|"
 export MISE_CONFIG_FILE="$XDG_CONFIG_HOME/mise.toml"
 
 typeset -U path
@@ -34,6 +34,7 @@ export FCEDIT="$EDITOR +'set ft=sh'"
 # TODO: Do I need the following?
 # export VIM="$XDG_DATA_HOME/${EDITOR:-vim}" # VIMRUNTIME goes to $VIM/runtime (or other places), w/o considering $XDG_DATA_HOME
 
+# TODO: Figure out how to incorporate --tiebreak=chunk,begin (probably?) except for C-t, M-c...
 export FZF_DEFAULT_OPTS='
   --bind=change:first
   --bind=ctrl-h:deselect+down
