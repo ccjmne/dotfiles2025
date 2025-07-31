@@ -4,6 +4,7 @@ bc
 brightnessctl
 btop
 certbot
+dive
 easyeffects
 efibootmgr
 entr
@@ -21,6 +22,7 @@ lsp-plugins
 man-db
 man-pages
 mkinitcpio
+moreutils
 ncdu
 oh-my-zsh-git
 par-git
@@ -34,10 +36,11 @@ sd
 sof-firmware
 stow
 sudo
+sxhkd
 systemd
 systemd-libs
-sxhkd
 tealdeer
+timew
 tmux
 traceroute
 trash-cli
@@ -47,6 +50,7 @@ wiggle
 xdotool
 yazi-git
 zip
+zola
 zsh
 zsh-autosuggestions
 zsh-completions
