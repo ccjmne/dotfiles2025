@@ -11,7 +11,7 @@
     pager = less -SFX -x2
 [diff]
     algorithm = histogram
-    colormoved = dimmed-zebra
+    colormoved = zebra
     mnemonicprefix = yes
 [filter "pgp"]
     clean = "gpg --encrypt --armour --recipient ccjmne@gmail.com"
