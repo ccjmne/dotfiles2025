@@ -5,6 +5,7 @@ Documentation=https://github.com/tmux-plugins/tmux-resurrect
 [Service]
 Type=oneshot
 Environment=RESURRECT_DIR=${XDG_DATA_HOME}/tmux/resurrect/
+ExecCondition=/bin/sh -c 'tmux list-clients | grep -q attached'
 ExecStart=/bin/sh ${XDG_CONFIG_HOME}/tmux/plugins/tmux-resurrect/scripts/save.sh quiet
 # Retain only the last 8 snapshots
 ExecStopPost=/bin/sh -c 'ls -t ${RESURRECT_DIR} | tail +10 | xargs -I{} rm ${RESURRECT_DIR}{}'
