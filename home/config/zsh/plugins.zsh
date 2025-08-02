@@ -25,3 +25,4 @@ autoload -U compinit && compinit
 [[ $(command -v fzf rg) ]] && export FZF_CTRL_T_COMMAND='rg --files 2> /dev/null' # Ctrl-T searches only visible files
 [[ $(command -v mise) ]]   && source <(mise activate zsh)
 [[ $(command -v zola) ]]   && source <(zola completion zsh)
+[[ $(command -v klog) ]]   && source <(klog completion -c zsh)
