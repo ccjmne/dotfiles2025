@@ -40,7 +40,7 @@ sxhkd
 systemd
 systemd-libs
 tealdeer
-timew
+klog-time-tracker-bin
 tmux
 traceroute
 trash-cli
