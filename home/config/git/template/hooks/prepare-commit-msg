@@ -7,14 +7,14 @@ sha1=$3
 
 # Prune unstaged/untracked content listing and hand-holding guidance
 sed -i "$commit_msg_file" -e '
-    /^# Please enter the commit message/, /^#$/d                ;
-    /^# Do not modify or remove/,         /^[^#]/ { /^[^#]/!d } ;
-    /^# Changes not staged/,              /^#$/d                ;
-    /^# Untracked files/,                 /^#$/d                ;'
+    /^# Changes not staged/,               /^#$/   d         ;
+    /^# Untracked files/,                  /^#$/   d         ;
+    /^# Please enter the commit message/,  /^#$/   d         ;
+    /^# Do not modify or remove the line/, /^[^#]/ { /^#/d } ;'
 
 # Add Jira ticket prefix to commit messages based on branch name (Unite convention)
 branch_name=$(git branch --show-current)
-if [ "${commit_source}" != "merge" ] && ! pcregrep -q '^(fixup|squash)!' "$1"; then # Don't decorate merge, fixup or squash commits
+if [ "$commit_source" != 'merge' ] && ! pcregrep -q '^(amend|fixup|squash)!' "$1"; then
     ref=$(pcregrep -oi '(TERMINUS|(?<=MAPLE_|FINDUS_)?ITH?D|PI)-[0-9]+' <<< "$branch_name")
     if [ -n "$ref" ]; then
         sed -E "1s/^($ref: )?/$ref: /" -i "$commit_msg_file"
