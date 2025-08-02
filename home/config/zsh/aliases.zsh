@@ -15,6 +15,11 @@ alias ssh='TERM=xterm-256color ssh'
 alias watch='watch --color'
 alias xclip='xclip -selection clipboard'
 
+findpoms='fd pom.xml --exact-depth 2 | xargs dirname | sort | fzf'
+prunegarbage='| sed -n "/--- dependency:/,/---/p" | sed "1d;\$d;s/.INFO. //"'
+alias mdt="$findpoms --preview 'cd {} && mvn dependency:tree    $prunegarbage'"
+alias mda="$findpoms --preview 'cd {} && mvn dependency:analyze $prunegarbage'"
+
 function bak {
   for arg; do
     if [[ "$arg" == *.bak ]]; then
