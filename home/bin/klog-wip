@@ -2,7 +2,7 @@
 
 summarise() {
     for bk in $(klog bookmarks list | grep -Eo '^[^ ]+'); do
-        klog tags $bk --today -vun --entry-type OPEN_RANGE --no-style --no-warn | sed -E "/\b0m/d; s/^\(untagged\)/$bk/; s/ +/ /g"
+        klog tags $bk --today -vun --entry-type OPEN_RANGE --no-style --no-warn | sed -E "/\b0m/d; s/^\(untagged\)/$bk/; s/ +/ /g; s/ *$//"
     done
 }
 summarise | paste -sd, | sed 's/ *,/, /g'
