@@ -68,7 +68,6 @@
     vim_shell               # vim shell indicator (:sh)
     timewarrior             # timewarrior tracking status (https://timewarrior.net/)
     taskwarrior             # taskwarrior task count (https://taskwarrior.org/)
-    klog                    # klog tracking status (https://klog.jotaen.net/)
     # =========================[ Line #2 ]=========================
     newline                 # \n
   )
