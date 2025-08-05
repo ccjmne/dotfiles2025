@@ -56,12 +56,3 @@ function btop() {
   fi
   command stow --dotfiles --verbose "$@"
 }
-
-function tmpd {
-  set -e
-  cd $(mktemp --directory)
-  set +e
-  ( $SHELL )
-  rm -r $(pwd)
-  cd -
-}
