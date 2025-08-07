@@ -1,0 +1,9 @@
+[Unit]
+Description=Periodically dump GNOME Shell extensions settings
+
+[Timer]
+OnCalendar=weekly
+Unit=dump-gnome-ext.service
+
+[Install]
+WantedBy=timers.target

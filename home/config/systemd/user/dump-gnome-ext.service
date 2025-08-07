@@ -1,0 +1,6 @@
+[Unit]
+Description=Dump GNOME Shell extensions settings
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'dconf dump /org/gnome/shell/extensions/ > "$XDG_CONFIG_HOME/gnome-ext/gnome-ext.ini"'
