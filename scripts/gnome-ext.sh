@@ -1,5 +1,10 @@
 #! /usr/bin/env bash
 
+# TODO: Install "weeks start on monday again"
+# TODO: Install "clipboard indicator"
+# TODO: Bring GNOME extensions configs. to this repository,
+#       Routinely dump them here with systemd
+
 declare -A extensions=(
     ["just-perfection-desktop@just-perfection"]="just-perfection"
     ["sound-output-device-chooser@kgshank.net"]=""
