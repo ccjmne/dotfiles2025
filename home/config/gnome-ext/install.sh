@@ -1,9 +1,7 @@
 #! /bin/sh
 
 while IFS=: read id name; do
-    if [ -e "$XDG_CONFIG_HOME/gnome-ext/$name.ini" ]; then
-        dconf load "/org/gnome/shell/extensions/$name/" < "$XDG_CONFIG_HOME/gnome-ext/$name.ini"
-    fi
+dconf load /org/gnome/shell/extensions/ < "$XDG_CONFIG_HOME/gnome-ext/gnome-ext.ini"
 
     status=$(gdbus call                \
         --session                      \
