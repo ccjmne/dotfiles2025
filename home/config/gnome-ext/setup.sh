@@ -1,16 +1,19 @@
 #! /bin/sh
 
-while IFS=: read id name; do
 dconf load /org/gnome/shell/extensions/ < "$XDG_CONFIG_HOME/gnome-ext/gnome-ext.ini"
-
+while read id; do
     status=$(gdbus call                \
         --session                      \
         --object-path /org/gnome/Shell \
         --dest        org.gnome.Shell  \
         --method      org.gnome.Shell.Extensions.InstallRemoteExtension "$id")
-
-    if ! echo "$status" | grep -q "cancelled"; then
-        gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.EnableExtension "$id" > /dev/null
+    if ! echo "$status" | grep -q cancelled; then
+        gdbus call                                                    \
+            --session                                                 \
+            --dest org.gnome.Shell                                    \
+            --object-path /org/gnome/Shell                            \
+            --method org.gnome.Shell.Extensions.EnableExtension "$id" \
+            > /dev/null
     fi
 done <<EOF
 awesome-tiles@velitasali.com
