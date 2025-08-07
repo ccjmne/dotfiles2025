@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 WD=$HOME/bin
 mkdir -p "$WD" && cd "$WD"
