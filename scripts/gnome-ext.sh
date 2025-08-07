@@ -23,6 +23,7 @@ done <<EOF
 awesome-tiles@velitasali.com
 clipboard-indicator@tudmotu.com
 just-perfection-desktop@just-perfection
+middleclickclose@paolo.tranquilli.gmail.com
 Vitals@CoreCoding.com
 weeks-start-on-monday@extensions.gnome-shell.fifi.org
 EOF
