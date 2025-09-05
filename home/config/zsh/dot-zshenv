@@ -37,8 +37,10 @@ export FCEDIT="$EDITOR +'set ft=sh'"
 # TODO: Figure out how to incorporate --tiebreak=chunk,begin (probably?) except for C-t, M-c...
 export FZF_DEFAULT_OPTS='
   --bind=change:first
-  --bind=ctrl-h:deselect+down
-  --bind=ctrl-l:select+down
+  --bind=alt-h:deselect+down
+  --bind=alt-j:down
+  --bind=alt-k:up
+  --bind=alt-l:select+down
   --preview-border=none
   --style=minimal
   --info=inline
