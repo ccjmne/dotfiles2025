@@ -1,0 +1,33 @@
+services:
+  db:
+    image: postgres:alpine
+    container_name: ttrss_db
+    restart: unless-stopped
+    volumes:
+      - ttrss_db_vol:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ttrss
+      POSTGRES_PASSWORD: ttrss
+    networks:
+      - ttrss_net
+
+  ttrss:
+    image: nventiveux/ttrss:latest
+    container_name: ttrss_app
+    restart: unless-stopped
+    depends_on:
+      - db
+    ports:
+      - 8432:80
+    environment:
+      TTRSS_DB_HOST: db
+      TTRSS_DB_TYPE: pgsql
+    networks:
+      - ttrss_net
+
+volumes:
+  ttrss_db_vol:
+
+networks:
+  ttrss_net:
+    driver: bridge
