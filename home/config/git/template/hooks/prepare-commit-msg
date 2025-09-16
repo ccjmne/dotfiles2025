@@ -18,6 +18,6 @@ if [ "$commit_src" != 'merge' ] && ! pcregrep -q '^(amend|fixup|squash)!' "$comm
         sed -E "1s/^($ref: )?/$ref: $sha1/" -i "$commit_msg"
         # Also add trailers w/ Jira ref and link (personal preference)
         # TODO: Rather, configure these trailers in Git config
-        git interpret-trailers --if-exists addIfDifferent --trailer "Ref: $ref (https://jira.mercateo.lan/browse/$ref)" --in-place "$commit_msg"
+        git interpret-trailers --if-exists addIfDifferent --trailer "Ref: $ref (https://unitetocollaborate.atlassian.net/browse/$ref)" --in-place "$commit_msg"
     fi
 fi
