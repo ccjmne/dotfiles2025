@@ -1,7 +1,7 @@
 window-decoration = none
 window-step-resize = true
 
-theme = dark:catppuccin-mocha,light:catppuccin-latte
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 
 cursor-style = block
 cursor-style-blink = false
