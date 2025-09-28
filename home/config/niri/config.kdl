@@ -550,3 +550,27 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+workspace "tty" {
+    open-on-output "DP-4"
+}
+
+workspace "chat" {
+    open-on-output "DP-5"
+}
+
+window-rule {
+    match app-id="com.mitchellh.ghostty"
+    open-on-workspace "tty"
+}
+
+window-rule {
+    match app-id="vesktop"
+    open-on-workspace "chat"
+}
+
+window-rule {
+    // MS Teams @ Unite
+    match app-id="chrome-cifhbcnohmdccbgoicgdjpfamggdegmo"
+    open-on-workspace "chat"
+}
