@@ -62,7 +62,7 @@ input {
 output "eDP-1" {
     mode "1920x1080@120.030"
     transform "normal"
-    position x=0 y=0
+    position x=-100 y=0
 }
 output "DP-4" {
     mode "1920x1080@120.030"
