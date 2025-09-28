@@ -79,6 +79,10 @@ output "DP-5" {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+    tab-indicator {
+        place-within-column
+    }
+
     // Set gaps around windows in logical pixels.
     gaps 0
 
