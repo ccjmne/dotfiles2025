@@ -85,7 +85,9 @@ vulkan-icd-loader
 vulkan-tools
 wget
 wiggle
+wl-clipboard
 xdotool
+xwayland-satellite
 yazi-git
 yq
 zig
