@@ -46,6 +46,8 @@ moreutils
 mpv
 ncdu
 networkmanager
+networkmanager-openconnect
+network-manager-applet
 niri
 nodejs
 noto-fonts
