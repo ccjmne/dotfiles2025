@@ -15,7 +15,7 @@ sed -i "$commit_msg" -e '
 if [ "$commit_src" != 'merge' ] && ! pcregrep -q '^(amend|fixup|squash)!' "$commit_msg"; then
     ref=$(git branch --show-current | pcregrep -oi '(TERMINUS|(?<=MAPLE_|FINDUS_)?ITH?D|PI)-[0-9]+')
     if [ -n "$ref" ]; then
-        sed -E "1s/^($ref: )?/$ref: $sha1/" -i "$commit_msg"
+        sed -E "1s/^($ref: )?/$ref: /" -i "$commit_msg"
         # Also add trailers w/ Jira ref and link (personal preference)
         # TODO: Rather, configure these trailers in Git config
         git interpret-trailers --if-exists addIfDifferent --trailer "Ref: $ref (https://unitetocollaborate.atlassian.net/browse/$ref)" --in-place "$commit_msg"
