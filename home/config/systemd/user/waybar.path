@@ -1,0 +1,9 @@
+[Unit]
+Description=Restart waybar on config changes
+
+[Path]
+PathChanged=%h/config/waybar/config
+Unit=restart@waybar.service
+
+[Install]
+WantedBy=default.target
