@@ -21,6 +21,7 @@ fasm
 fastfetch
 fd
 firefox
+fwupd
 fzf
 gdm
 ghostty
@@ -45,9 +46,9 @@ mkinitcpio
 moreutils
 mpv
 ncdu
+network-manager-applet
 networkmanager
 networkmanager-openconnect
-network-manager-applet
 niri
 nodejs
 noto-fonts
