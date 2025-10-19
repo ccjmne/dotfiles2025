@@ -1,4 +1,5 @@
 {
+    "output": "eDP-1",
     "modules-left": ["memory", "cpu", "temperature"],
     "modules-center": ["user"],
     "modules-right": ["battery", "clock"],
