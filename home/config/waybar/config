@@ -23,6 +23,7 @@
     "cpu": {
         "interval": 2,
         "format": "  {usage}%",
+        "on-click-right": "ghostty -e btop",
     },
     "temperature": {
         "format": " {temperatureC}°C",
