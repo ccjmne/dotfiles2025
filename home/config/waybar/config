@@ -1,7 +1,7 @@
 {
     "output": "eDP-1",
     "modules-left": ["pulseaudio", "memory", "cpu", "temperature", "custom/colourscheme"],
-    "modules-center": ["user"],
+    "modules-center": ["systemd-failed-units", "user"],
     "modules-right": ["battery", "clock"],
     "battery": {
         "format": "{icon}   {capacity}%",
