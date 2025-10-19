@@ -1,6 +1,6 @@
 {
     "output": "eDP-1",
-    "modules-left": ["memory", "cpu", "temperature", "custom/colourscheme"],
+    "modules-left": ["pulseaudio", "memory", "cpu", "temperature", "custom/colourscheme"],
     "modules-center": ["user"],
     "modules-right": ["battery", "clock"],
     "battery": {
@@ -9,6 +9,11 @@
     },
     "clock": {
         "format-alt": "{:%a, %d. %b  %H:%M}",
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰖁  Muted",
+        "scroll-step": 5,
     },
     "memory": {
         "interval": 2,
