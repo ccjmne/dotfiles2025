@@ -1,0 +1,22 @@
+{
+    "modules-left": ["memory", "cpu", "temperature"],
+    "modules-center": ["user"],
+    "modules-right": ["battery", "clock"],
+    "battery": {
+        "format": "{icon}   {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}",
+    },
+    "memory": {
+        "format": "  {total}%",
+        "format-alt": "  {used:0.1f} / {total:0.1f}GiB",
+    },
+    "cpu": {
+        "format": "  {usage}%",
+    },
+    "temperature": {
+        "format": " {temperatureC}°C",
+    },
+}
