@@ -1,0 +1,11 @@
+[Unit]
+Description=Fcitx5 Input Method
+ConditionPathExists=/usr/bin/fcitx5
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/fcitx5
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
