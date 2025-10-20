@@ -3,7 +3,7 @@ Description=Periodically maintain Chromium extensions unavailable in the Chrome 
 
 [Timer]
 OnCalendar=daily
-Unit=prepare-chromium-ext.service
+Unit=run@prepare-chromium-ext.service
 
 [Install]
 WantedBy=timers.target
