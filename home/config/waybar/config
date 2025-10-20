@@ -1,5 +1,6 @@
 {
     "output": "eDP-1",
+    "layer": "top",
     "modules-left": ["pulseaudio", "memory", "cpu", "temperature", "custom/colourscheme"],
     "modules-center": ["systemd-failed-units", "user"],
     "modules-right": ["battery", "clock", "tray"],
