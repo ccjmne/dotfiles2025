@@ -3,4 +3,4 @@ Description=Run script in $HOME/bin from .path or .timer
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c ${HOME}/bin/%i.sh
+ExecStart=/bin/bash -c ${HOME}/bin/%i

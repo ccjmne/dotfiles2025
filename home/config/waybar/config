@@ -44,7 +44,7 @@
     },
     "custom/colourscheme": {
         "exec": "dconf read /org/gnome/desktop/interface/color-scheme | sed 's/^.*prefer-dark.*$//g; s/^.*prefer-light.*$//g'",
-        "on-click": "toggle-colourscheme.sh",
+        "on-click": "toggle-colourscheme",
         "interval": 999,
     },
 }
