@@ -2,7 +2,7 @@
 Description=Restart waybar on config changes
 
 [Path]
-PathChanged=%h/config/waybar/config
+PathChanged=%h/config/waybar
 Unit=restart@waybar.service
 
 [Install]
