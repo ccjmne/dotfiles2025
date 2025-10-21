@@ -16,6 +16,7 @@
         "format-muted": "󰖁  Muted",
         "scroll-step": 5,
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "select-audio-sink",
     },
     "memory": {
         "interval": 2,
