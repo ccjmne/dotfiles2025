@@ -258,6 +258,15 @@ window-rule {
     default-column-width {}
 }
 
+window-rule {
+    match app-id="nm-openconnect-auth-dialog"
+    open-floating true
+    min-width 678
+    max-width 678
+    min-height 662
+    max-height 662
+}
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
