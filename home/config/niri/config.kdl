@@ -222,6 +222,7 @@ layout {
 // which may be more convenient to use.
 // See the binds section below for more spawn examples.
 
+spawn-at-startup "nm-applet" "--indicator"
 
 prefer-no-csd // Omit client-side decorations if possible
 
