@@ -550,6 +550,12 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 workspace "tty" {
     open-on-output "Dell Inc. DELL P2422H 1DY6QP3"
 }
