@@ -3,6 +3,10 @@ workspace "chat" {
 }
 
 window-rule {
+    clip-to-geometry true
+}
+
+window-rule {
     match app-id="org.gnome.Nautilus"
     open-floating true
     default-window-height { proportion 0.5; }
