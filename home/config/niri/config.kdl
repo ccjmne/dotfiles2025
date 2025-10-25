@@ -1,3 +1,5 @@
+include "windows.kdl"
+
 hotkey-overlay {
     skip-at-startup
 }
@@ -236,43 +238,6 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
     slowdown 0.5
-}
-
-window-rule {
-    match app-id="nm-openconnect-auth-dialog"
-    open-floating true
-    min-width 678
-    max-width 678
-    min-height 662
-    max-height 662
-}
-
-// Open the Firefox picture-in-picture player as floating by default.
-window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-}
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
-
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
 }
 
 binds {
@@ -534,19 +499,4 @@ gestures {
     hot-corners {
         off
     }
-}
-
-workspace "chat" {
-    open-on-output "Dell Inc. DELL P2422H 9KY6QP3"
-}
-
-window-rule {
-    match app-id="vesktop"
-    open-on-workspace "chat"
-}
-
-window-rule {
-    // MS Teams @ Unite
-    match app-id="chrome-cifhbcnohmdccbgoicgdjpfamggdegmo"
-    open-on-workspace "chat"
 }
