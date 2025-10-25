@@ -445,7 +445,7 @@ binds {
     //
     // For example, with 2 workspaces + 1 empty, indices 3, 4, 5 and so on
     // will all refer to the 3rd workspace.
-    Mod+1 { focus-workspace "tty"; }
+    Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
     Mod+4 { focus-workspace 4; }
@@ -557,17 +557,8 @@ gestures {
     }
 }
 
-workspace "tty" {
-    open-on-output "Dell Inc. DELL P2422H 1DY6QP3"
-}
-
 workspace "chat" {
     open-on-output "Dell Inc. DELL P2422H 9KY6QP3"
-}
-
-window-rule {
-    match app-id="com.mitchellh.ghostty"
-    open-on-workspace "tty"
 }
 
 window-rule {
