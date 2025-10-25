@@ -1,0 +1,40 @@
+workspace "chat" {
+    open-on-output "Dell Inc. DELL P2422H 9KY6QP3"
+}
+
+window-rule {
+    match app-id="org.gnome.Nautilus"
+    open-floating true
+    default-window-height { proportion 0.5; }
+    default-column-width  { proportion 0.5; }
+}
+
+window-rule {
+    match app-id="nm-openconnect-auth-dialog"
+    open-floating true
+    min-width 678
+    max-width 678
+    min-height 662
+    max-height 662
+}
+
+window-rule {
+    match app-id="vesktop"
+    open-on-workspace "chat"
+}
+
+window-rule {
+    // MS Teams @ Unite
+    match app-id="chrome-cifhbcnohmdccbgoicgdjpfamggdegmo"
+    open-on-workspace "chat"
+}
+
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
