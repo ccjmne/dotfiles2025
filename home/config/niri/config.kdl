@@ -312,9 +312,9 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
-    Mod+T hotkey-overlay-title="Raise-rotate or spawn terminal" { spawn "niri-run-or-raise-rotate" "com.mitchellh.ghostty"; }
-    Mod+Shift+T hotkey-overlay-title="Spawn new terminal" { spawn "ghostty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+M hotkey-overlay-title="Raise-rotate or spawn terminal" { spawn "niri-run-or-raise-rotate" "com.mitchellh.ghostty"; }
+    Mod+Shift+M hotkey-overlay-title="Spawn new terminal" { spawn "ghostty"; }
+    Mod+N hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+Z hotkey-overlay-title="Lock the session" { spawn "sh" "-c" "niri msg action power-off-monitors && swaylock"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
