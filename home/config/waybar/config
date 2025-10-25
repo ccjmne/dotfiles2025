@@ -14,6 +14,10 @@
     "pulseaudio": {
         "format": "{icon}  {volume}%",
         "format-muted": "󰖁  Muted",
+        "format-icons": {
+            "alsa_output.usb-Plantronics_Poly_BT700_871025DD65DA47A6A7591BA52B468FD5-00.iec958-stereo": "",
+            "default": ["󰕿", "󰖀", "󰕾"],
+        },
         "scroll-step": 5,
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
         "on-click-right": "select-audio-sink",
