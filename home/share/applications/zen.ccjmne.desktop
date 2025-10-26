@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=zen/ccjmne
+Exec=/opt/zen-browser-bin/zen-bin %u -P ccjmne
+Icon=zen-browser
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;application/pdf;application/json;
+StartupWMClass=zen
+Categories=Network;WebBrowser;
+StartupNotify=true
+Terminal=false
+X-MultipleArgs=false
+Keywords=Internet;WWW;Browser;Web;Explorer;
