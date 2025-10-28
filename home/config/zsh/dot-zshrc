@@ -2,6 +2,7 @@ if [[ -z "$TMUX" ]]; then
   exec tmux new-session -As "$USER" > /dev/null 2>&1
 fi
 
+# TODO: Figure out when it is I "lose" the socket in the first place, without niri properly crashing.
 if [ ! -S "$NIRI_SOCKET" ]; then
     socket=$(ls /run/user/$(id -u)/niri*.sock 2>/dev/null | head -1)
     [ -n "$socket" ] && export NIRI_SOCKET="$socket"
