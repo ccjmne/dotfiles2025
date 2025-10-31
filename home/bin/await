@@ -1,0 +1,11 @@
+#! /bin/sh
+
+# Usage: await <cmd> [args...]
+# Waits for a key press or mouse event before continuing
+
+"$@"
+
+# ?1000[h/l] enables/disables mouse reporting
+printf '\e[?1000h'
+read -n1
+printf '\e[?1000l'
