@@ -10,6 +10,7 @@
     },
     "clock": {
         "format": "  {:%a, %d %b %R}",
+        "on-click": "ghostty -e sh -c 'cal -w3; read -n1'",
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
