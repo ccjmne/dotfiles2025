@@ -9,7 +9,7 @@
         "format-icons": ["", "", "", "", ""],
     },
     "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}",
+        "format": "  {:%a, %d %b %R}",
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
