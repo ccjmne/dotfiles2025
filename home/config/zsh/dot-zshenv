@@ -50,3 +50,5 @@ export FZF_DEFAULT_OPTS='
   --pointer=█
   --marker=▌
 '
+
+eval $(dircolors)
