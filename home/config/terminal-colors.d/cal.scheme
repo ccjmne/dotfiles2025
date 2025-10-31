@@ -1,0 +1,7 @@
+# vim:ft=sh
+     today  1;7;36  # bold; reverse; cyan  # the current day
+weeknumber  1;7;36  # bold; reverse; cyan  # the week number requested by the --week=<number> command line option
+     weeks  3;34    # italic; blue         # the number of the week
+    header  4;36    # underline; cyan      # the header of a month
+   workday  0       # default              # days that fall within the work-week
+   weekend  2       # dim                  # days that fall outside the work-week
