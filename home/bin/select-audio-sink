@@ -1,6 +1,6 @@
 #! /bin/sh
 
 pactl --format=json list sinks \
-  | jq --raw-output '.[] | .name + "\t" + .properties["device.description"]' \
+  | jq --raw-output '.[] | select(.state != "RUNNING") | .name + "\t" + .properties["device.description"]' \
   | ifne fuzzel --anchor top-left --dmenu --accept-nth=1 --with-nth=2 \
   | ifne xargs pactl set-default-sink
