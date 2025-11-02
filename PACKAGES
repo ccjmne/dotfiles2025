@@ -75,6 +75,7 @@ stow
 sudo
 swaylock
 sxhkd
+syncthing
 systemd
 systemd-libs
 terminal-to-html

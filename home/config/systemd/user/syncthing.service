@@ -1,0 +1,11 @@
+[Unit]
+Description=Syncthing daemon
+ConditionPathExists=/usr/bin/syncthing
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/syncthing --no-browser
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
