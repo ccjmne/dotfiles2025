@@ -186,6 +186,7 @@ binds {
     Mod+Shift+M hotkey-overlay-title="Spawn new terminal" { spawn "ghostty"; }
     Mod+N hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+Z hotkey-overlay-title="Lock the session" { spawn "sh" "-c" "niri msg action power-off-monitors && swaylock"; }
+    Mod+Tab hotkey-overlay-title="Focus window" { spawn "sh" "-c" "niri msg --json windows | jq --raw-output '.[] | .title + \"\t\" + (.id | tostring)' | fuzzel --dmenu --with-nth=1 --accept-nth=2 | xargs niri msg action focus-window --id"; }
     Alt+Tab hotkey-overlay-title="Switch to previous window" { focus-window-previous; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
