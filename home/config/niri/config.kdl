@@ -29,6 +29,8 @@ output "Dell Inc. DELL P2422H 9KY6QP3" {
 layout {
     gaps 4
 
+    empty-workspace-above-first
+
     center-focused-column "on-overflow"
 
     preset-column-widths {
