@@ -1,0 +1,12 @@
+[Default Applications]
+application/vnd.ms-excel=ghostty+nvim.desktop
+application/xhtml+xml=google-chrome.desktop
+text/html=google-chrome.desktop
+text/plain=ghostty+nvim.desktop
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+x-scheme-handler/chrome=google-chrome.desktop
+x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/terminal=com.mitchellh.ghostty.desktop
