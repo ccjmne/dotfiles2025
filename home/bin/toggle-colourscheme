@@ -1,6 +1,5 @@
 #! /bin/sh
 
 dconf read /org/gnome/desktop/interface/color-scheme \
-    | sed '/-dark/ clight' \
-    | sed '/-light/ cdark' \
-    | xargs -II dconf write /org/gnome/desktop/interface/color-scheme '"prefer-I"'
+    | sed '/dark/{s/dark/light/;b};s/light/dark/'    \
+    | xargs -0 dconf write /org/gnome/desktop/interface/color-scheme
