@@ -26,3 +26,4 @@ autoload -U compinit && compinit
 [[ $(command -v mise) ]]   && source <(mise activate zsh)
 [[ $(command -v zola) ]]   && source <(zola completion zsh)
 [[ $(command -v klog) ]]   && source <(klog completion -c zsh)
+[[ $(command -v niri) ]]   && source <(niri completions zsh)
