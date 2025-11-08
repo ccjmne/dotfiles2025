@@ -175,13 +175,14 @@ binds {
 
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+M       { spawn "niri-run-or-raise-rotate" "com.mitchellh.ghostty"; }
-    Mod+Shift+M { spawn "ghostty"; }
-    Mod+N       { spawn "fuzzel"; }
-    Mod+Z       { spawn "sh" "-c" "niri msg action power-off-monitors && swaylock"; }
-    Mod+Tab     { spawn "sh" "-c" "niri msg --json windows | jq --raw-output '.[] | .title + \"\t\" + (.id | tostring)' | fuzzel --dmenu --with-nth=1 --accept-nth=2 | xargs niri msg action focus-window --id"; }
-    Alt+Tab     { focus-window-previous; }
-    Mod+P       { spawn "ghostty" "-e" "top"; }
+    Mod+M          { spawn "niri-run-or-raise-rotate" "com.mitchellh.ghostty"; }
+    Mod+Shift+M    { spawn "ghostty"; }
+    Mod+N          { spawn "fuzzel"; }
+    Mod+Z          { spawn "sh" "-c" "niri msg action power-off-monitors && swaylock"; }
+    Mod+Tab        { spawn "sh" "-c" "niri msg --json windows | jq --raw-output '.[] | .title + \"\t\" + (.id | tostring)' | fuzzel --dmenu --with-nth=1 --accept-nth=2 | xargs niri msg action focus-window --id"; }
+    Alt+Tab        { focus-window-previous; }
+    Mod+P          { spawn "ghostty" "-e" "top"; }
+    Mod+Apostrophe { spawn "kpfz"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
