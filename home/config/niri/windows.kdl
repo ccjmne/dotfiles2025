@@ -28,6 +28,14 @@ window-rule {
 }
 
 window-rule {
+    match          app-id="scrcpy"
+    min-width      540
+    max-width      540
+    min-height     960
+    max-height     960
+}
+
+window-rule {
     match app-id="vesktop"
     open-on-workspace "chat"
 }
