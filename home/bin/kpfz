@@ -1,11 +1,8 @@
 #! /bin/sh
 
-pass=$(fuzzel --dmenu --password --lines=0)
-if [ -z "$pass" ]; then exit 0; fi
-item=$(echo "$pass" | keepassxc-cli ls ~/main.kdbx | fuzzel --dmenu)
-if [ -z "$item" ]; then exit 0; fi
-attr=$(echo "$pass" | keepassxc-cli show ~/main.kdbx "$item" \
-    | sed -n '/^Password:/{p;b};H;${g;s/\n//p}' `# [p]rint Password; [H]old the rest until $` \
-    | fuzzel --dmenu --nth-delimiter=: --accept-nth=1)
-if [ -z "$attr" ]; then exit 0; fi
-echo "$pass"        | keepassxc-cli clip ~/main.kdbx "$item" --attribute "${attr}"
+pass=$(fuzzel --dmenu --password --lines=0)                                                    || exit 0
+item=$(echo "$pass" | keepassxc-cli ls   "$HOME/main.kdbx" | ifne fuzzel --dmenu --only-match) || exit 0
+attr=$(echo "$pass" | keepassxc-cli show "$HOME/main.kdbx" "$item"                             \
+    | sed -n '/^Password:/{p;b};H;${g;s/\n//p}' `# [p]rint Password; [H]old the rest until $`  \
+    | ifne fuzzel --dmenu --nth-delimiter=: --accept-nth=1 --only-match)                       || exit 0
+echo "$pass"        | keepassxc-cli clip "$HOME/main.kdbx" "$item" --attribute="$attr" 0
