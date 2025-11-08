@@ -1,0 +1,5 @@
+#! /bin/sh
+
+readonly cfg=~/git/dotfiles2025/home/config/niri/config.kdl
+readonly s="$(grep -q '^output.*9KY6QP3.*off' $cfg && echo 's/ off$//' || echo 's/$/ off/')"
+sed -i $cfg -e "/^output .* 9KY6QP3/ $s"

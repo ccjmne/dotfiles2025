@@ -2,7 +2,7 @@
     "output": "eDP-1",
     "layer": "top",
     "modules-left": ["pulseaudio", "memory", "cpu", "temperature", "custom/colourscheme"],
-    "modules-center": ["systemd-failed-units", "user"],
+    "modules-center": ["systemd-failed-units", "user", "custom/monitors"],
     "modules-right": ["battery", "clock", "tray"],
     "battery": {
         "format": "{icon}   {capacity}%",
@@ -53,5 +53,10 @@
         "exec": "dconf read /org/gnome/desktop/interface/color-scheme | sed 's/^.*prefer-dark.*$//g; s/^.*prefer-light.*$//g'",
         "on-click": "toggle-colourscheme",
         "interval": 999,
+    },
+    "custom/monitors": {
+        "exec": "echo -n '󰍹  '; niri msg --json outputs | jq '.[] | select (.current_mode != null) | .name' | wc -l",
+        "on-click": "disconnect-monitors; sleep 2; echo -n '󰍹  '; niri msg --json outputs | jq '.[] | select (.current_mode != null) | .name' | wc -l",
+        "interval": 3600,
     },
 }
