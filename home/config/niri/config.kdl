@@ -177,7 +177,7 @@ binds {
 
     Mod+M          { spawn "niri-run-or-raise-rotate" "com.mitchellh.ghostty"; }
     Mod+Shift+M    { spawn "ghostty"; }
-    Mod+N          { spawn "fuzzel"; }
+    Mod+N          { spawn "fuzzel" "--terminal" "ghostty"; }
     Mod+Z          { spawn "sh" "-c" "niri msg action power-off-monitors && swaylock"; }
     Mod+Tab        { spawn "sh" "-c" "niri msg --json windows | jq --raw-output '.[] | .title + \"\t\" + (.id | tostring)' | fuzzel --dmenu --with-nth=1 --accept-nth=2 | xargs niri msg action focus-window --id"; }
     Alt+Tab        { focus-window-previous; }
