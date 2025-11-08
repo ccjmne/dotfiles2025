@@ -29,6 +29,7 @@ window-rule {
 
 window-rule {
     match          app-id="scrcpy"
+    open-floating  false
     min-width      540
     max-width      540
     min-height     960
