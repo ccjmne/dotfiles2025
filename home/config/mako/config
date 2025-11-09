@@ -1,0 +1,15 @@
+# vim: ft=dosini
+
+# Behaviour
+layer=overlay
+output=eDP-1
+
+# Appearance
+border-size=4
+# norm jdV}:r!curl -Ls https://github.com/catppuccin/mako/raw/refs/heads/main/themes/catppuccin-mocha/catppuccin-mocha-peach | sed '/^[^\#]/\!d'
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#fab387
+progress-color=over #313244
+[urgency=high]
+border-color=#fab387
