@@ -10,8 +10,8 @@
     },
     "clock": {
         "format": "  {:%a, %d %b %R}",
-        "on-click":       "ghostty --title=cal -e sh -c 'await cal -w3'",
-        "on-click-right": "ghostty --title=cal -e sh -c 'await cal -wy'",
+        "on-click":       "ghostty --title=cal -e sh -c 'ack cal -w3'",
+        "on-click-right": "ghostty --title=cal -e sh -c 'ack cal -wy'",
     },
     "pulseaudio": {
         "format": "{icon}  {volume}%",
