@@ -42,14 +42,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id="vesktop"
-    open-on-workspace "chat"
-}
-
-window-rule {
-    // MS Teams @ Unite
-    match app-id="chrome-cifhbcnohmdccbgoicgdjpfamggdegmo"
-    open-on-workspace "chat"
+    open-on-workspace  "chat"
+    match              app-id="vesktop"
+    match              app-id="chrome-cifhbcnohmdccbgoicgdjpfamggdegmo"  // MS Teams @ Unite
 }
 
 /-window-rule {
