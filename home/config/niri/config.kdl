@@ -30,7 +30,7 @@ output "Dell Inc. DELL P2422H 9KY6QP3" {
 }
 
 layout {
-    gaps 4
+    gaps 1
 
     empty-workspace-above-first
 
@@ -54,7 +54,7 @@ layout {
     // You can change how the focus ring looks.
     focus-ring {
         // Uncomment this line to disable the focus ring.
-        // off
+        off
 
         // How many logical pixels the ring extends out from the windows.
         width 4
@@ -143,10 +143,10 @@ layout {
     // Top and bottom struts will simply add outer gaps in addition to the area occupied by
     // layer-shell panels and regular gaps.
     struts {
-        // left 64
-        // right 64
-        // top 64
-        // bottom 64
+        left -1
+        right -1
+        top -1
+        bottom -1
     }
 }
 
