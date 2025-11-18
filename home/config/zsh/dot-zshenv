@@ -52,3 +52,6 @@ export FZF_DEFAULT_OPTS='
 '
 
 eval $(dircolors)
+export BAT_THEME_DARK='Catppuccin Mocha'
+export BAT_THEME_LIGHT='Catppuccin Latte'
+export BAT_STYLE=plain
