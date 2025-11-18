@@ -1,0 +1,9 @@
+[Unit]
+Description=Periodically look for updates to various Catppuccin themes
+
+[Timer]
+OnCalendar=daily
+Unit=run@upd-catppuccin.service
+
+[Install]
+WantedBy=timers.target
