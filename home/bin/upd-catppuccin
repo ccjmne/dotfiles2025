@@ -1,20 +1,23 @@
 #! /bin/sh -u
 
+# TODO: Polish this a bit.
+# Shouldn't output these colours if outside a tty?
+# Shouldn't rely on echo?  Find out how to have !% in vim interpret these escape codes.
 say() {     echo "[1m$@[0m"   ; }
 ok()  {     echo "[1;32m$@[0m"; }
 ko()  { >&2 echo "[1;31m$@[0m"; }
 
 install() {
-    say Update $1...
+    say Install $1...
     case $1 in
         fcitx5)
-            mkdir -p "$XDG_DATA_HOME/fcitx5/themes"
+            mkdir -p                          "$XDG_DATA_HOME/fcitx5/themes"
             cp -r src/catppuccin-latte-yellow "$XDG_DATA_HOME/fcitx5/themes/default"
             cp -r src/catppuccin-mocha-yellow "$XDG_DATA_HOME/fcitx5/themes/default-dark"
             ;;
-        *) echo huh; exit 1 ;;
+        *) exit 1 ;;
     esac
-    ok Updated $1
+    ok Installed $1.
 }
 
 mkdir -p "$XDG_DATA_HOME/$(basename $0)" && cd "$XDG_DATA_HOME/$(basename $0)"
@@ -37,5 +40,5 @@ do (
         fi
     fi
 )
-[ $? -eq 0 ] || ko Failed to process $repo
+[ $? -eq 0 ] || ko Failed to process $repo.
 done
