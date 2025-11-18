@@ -8,8 +8,9 @@ install() {
     say Update $1...
     case $1 in
         fcitx5)
-            mkdir -p "$XDG_DATA_HOME/fcitx5/themes" && cp -r src/* "$XDG_DATA_HOME/fcitx5/themes"
-            systemctl --user restart fcitx5.service
+            mkdir -p "$XDG_DATA_HOME/fcitx5/themes"
+            cp -r src/catppuccin-latte-yellow "$XDG_DATA_HOME/fcitx5/themes/default"
+            cp -r src/catppuccin-mocha-yellow "$XDG_DATA_HOME/fcitx5/themes/default-dark"
             ;;
         *) echo huh; exit 1 ;;
     esac

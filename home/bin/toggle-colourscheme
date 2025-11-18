@@ -3,3 +3,15 @@
 dconf read /org/gnome/desktop/interface/color-scheme \
     | sed '/dark/{s/dark/light/;b};s/light/dark/'    \
     | xargs -0 dconf write /org/gnome/desktop/interface/color-scheme
+
+# https://github.com/fcitx/fcitx5/issues/900
+# TODO: Would be quite grand to understand that incantation below, someday.  Not
+#       only *understand* it, obviously; but also figure out how I could have
+#       figured the right method to invoke, etc. on my own.
+fcitx5=$(dconf read /org/gnome/desktop/interface/color-scheme | sed '/dark/{s/.*/True/;b};s/.*/False/')
+gdbus call                                              \
+    --session                                           \
+    --dest        org.fcitx.Fcitx5                      \
+    --object-path /controller                           \
+    --method      org.fcitx.Fcitx.Controller1.SetConfig \
+    fcitx://config/addon/classicui "<{'UseDarkTheme': <'$fcitx5'>}>"
