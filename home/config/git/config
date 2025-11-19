@@ -13,6 +13,7 @@
     algorithm = histogram
     colormoved = zebra
     mnemonicprefix = yes
+    tool = nvimdiff
 [gpg]
     program = gpg2
 [grep]
@@ -23,6 +24,7 @@
     templatedir = ~/config/git/template
 [merge]
     conflictstyle = zdiff3
+    tool = nvimdiff
 [push]
     default = upstream
 [rebase]
