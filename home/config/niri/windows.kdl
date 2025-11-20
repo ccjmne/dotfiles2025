@@ -11,6 +11,11 @@ window-rule {
 }
 
 window-rule {
+    match is-focused=false
+    opacity 0.75
+}
+
+window-rule {
     match title="cal"
     open-floating true
 }
