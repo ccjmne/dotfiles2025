@@ -5,4 +5,4 @@ item=$(echo "$pass" | keepassxc-cli ls   "$XDG_DATA_HOME/main.kdbx" | ifne fuzze
 attr=$(echo "$pass" | keepassxc-cli show "$XDG_DATA_HOME/main.kdbx" "$item"                             \
     | sed -n '/^Password:/{p;b};H;${g;s/\n//p}' `# [p]rint Password; [H]old the rest until $`           \
     | ifne fuzzel --dmenu --nth-delimiter=: --accept-nth=1 --only-match)                                || exit 0
-echo "$pass"        | keepassxc-cli clip "$XDG_DATA_HOME/main.kdbx" "$item" --attribute="$attr" 0
+echo "$pass"        | keepassxc-cli clip "$XDG_DATA_HOME/main.kdbx" "$item" --attribute="$attr"
