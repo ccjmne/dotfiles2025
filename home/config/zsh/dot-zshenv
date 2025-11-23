@@ -31,6 +31,8 @@ if [[ $(command -v nvim) ]]; then
 fi
 export FCEDIT="$EDITOR +'set ft=sh'"
 
+[[ $(command -v ghostty) ]] && export TERMINAL=ghostty  # For fuzzel to handle Terminal=true \.desktop entries, for instance
+
 # TODO: Do I need the following?
 # export VIM="$XDG_DATA_HOME/${EDITOR:-vim}" # VIMRUNTIME goes to $VIM/runtime (or other places), w/o considering $XDG_DATA_HOME
 
