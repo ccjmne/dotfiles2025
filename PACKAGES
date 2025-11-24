@@ -29,6 +29,7 @@ ghostty
 git
 git-filter-repo
 google-chrome
+grim
 imagemagick
 jq
 keepassxc
@@ -69,8 +70,10 @@ qbittorrent
 ripgrep
 rsync
 rustup
+satty
 scrcpy
 seahorse
+slurp
 sof-firmware
 steam
 stow

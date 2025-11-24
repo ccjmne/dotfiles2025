@@ -373,9 +373,9 @@ binds {
     // Mod+Space       { switch-layout "next"; }
     // Mod+Shift+Space { switch-layout "prev"; }
 
-    Print { screenshot; }
+    Print      { spawn "sh" "-c" "grim -t ppm -g \"$(slurp -d)\" - | satty --filename - --initial-tool=arrow --copy-command=wl-copy --actions-on-right-click='save-to-clipboard' --actions-on-escape='save-to-clipboard,exit' --brush-smooth-history-size=5 --disable-notifications --corner-roundness=0"; }
     Ctrl+Print { screenshot-screen; }
-    Alt+Print { screenshot-window; }
+    Alt+Print  { screenshot-window; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
