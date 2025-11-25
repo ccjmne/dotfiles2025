@@ -13,7 +13,7 @@ overview {
 output "eDP-1" {
     mode "1920x1080@120.030"
     transform "normal"
-    position x=-100 y=0
+    position x=-1 y=0
 }
 output "Dell Inc. DELL P2422H 1DY6QP3" {
     mode "1920x1080@120.030"
