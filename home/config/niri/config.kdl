@@ -34,8 +34,6 @@ layout {
 
     empty-workspace-above-first
 
-    center-focused-column "on-overflow"
-
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
