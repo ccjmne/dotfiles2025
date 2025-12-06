@@ -97,9 +97,9 @@ vulkan-tools
 wget
 wiggle
 wl-clipboard
-xdotool
 xwayland-satellite
 yazi-git
+ydotool
 yq
 yt-dlp
 zig
