@@ -1,0 +1,13 @@
+#! /bin/sh
+
+readonly lock=/tmp/click.lock
+exec 9<> $lock
+if flock --nonblock 9; then
+	trap 'ydotool click 0x80' EXIT INT TERM # mouseup on exit, kill, ctrl-c
+	ydotool click 0xc0 --repeat=10000000 &
+	readonly pid=$!
+	echo $pid 1>&9
+	wait $pid
+else
+	kill $(cat $lock)
+fi
