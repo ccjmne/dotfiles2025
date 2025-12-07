@@ -166,6 +166,13 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
     slowdown 0.5
+    window-open {
+        duration-ms 300
+    }
+
+    window-close {
+        duration-ms 300
+    }
 }
 
 binds {
