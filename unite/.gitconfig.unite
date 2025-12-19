@@ -3,3 +3,5 @@
 	name = Eric Nicolas
 [maintenance]
 	repo = /home/ccjmne/git.unite/mercateo
+[credential]
+    helper = store
