@@ -61,12 +61,7 @@ window-rule {
     match              app-id="chrome-cifhbcnohmdccbgoicgdjpfamggdegmo"  // MS Teams @ Unite
 }
 
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
+window-rule {
+    match          app-id="org.keepassxc.KeePassXC"
     block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
 }
