@@ -1,9 +1,0 @@
-[Unit]
-Description=Restart sxhkd on config changes
-
-[Path]
-PathChanged=%h/config/sxhkd/sxhkdrc
-Unit=restart@sxhkd.service
-
-[Install]
-WantedBy=default.target
