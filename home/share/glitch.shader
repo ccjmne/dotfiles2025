@@ -51,7 +51,7 @@ float4 mainImage(VertData v_in): TARGET {
     float2 uv = v_in.uv;
 
     // Periodicity, see https://www.desmos.com/calculator/ygwb3sguu1
-    float AMP = AMPL * sin(max(0.0, (mod(iTime / PERI, 1.0) - (1.0 - DUTY)) / DUTY) * 2.0 * PI - PI / 2.0) / 2.0 + 0.5;
+    float AMP = AMPL * (sin(max(0.0, (mod(elapsed_time / PERI, 1.0) - (1.0 - DUTY)) / DUTY) * 2.0 * PI - PI / 2.0) / 2.0 + 0.5);
 
     float4 outCol = image.Sample(textureSampler, uv);
 
