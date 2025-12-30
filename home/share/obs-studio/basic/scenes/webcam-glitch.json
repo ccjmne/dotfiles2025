@@ -1,0 +1,313 @@
+{
+    "DesktopAudioDevice1": {
+        "prev_ver": 536870914,
+        "name": "Desktop Audio",
+        "uuid": "94d95daa-ac29-499a-a095-34173fc60459",
+        "id": "pulse_output_capture",
+        "versioned_id": "pulse_output_capture",
+        "settings": {
+            "device_id": "default"
+        },
+        "mixers": 255,
+        "sync": 0,
+        "flags": 0,
+        "volume": 1.0,
+        "balance": 0.5,
+        "enabled": true,
+        "muted": false,
+        "push-to-mute": false,
+        "push-to-mute-delay": 0,
+        "push-to-talk": false,
+        "push-to-talk-delay": 0,
+        "hotkeys": {
+            "libobs.mute": [],
+            "libobs.unmute": [],
+            "libobs.push-to-mute": [],
+            "libobs.push-to-talk": []
+        },
+        "deinterlace_mode": 0,
+        "deinterlace_field_order": 0,
+        "monitoring_type": 0,
+        "private_settings": {}
+    },
+    "AuxAudioDevice1": {
+        "prev_ver": 536870914,
+        "name": "Mic/Aux",
+        "uuid": "61549c55-4f76-44e9-a1ce-296ea428d160",
+        "id": "pulse_input_capture",
+        "versioned_id": "pulse_input_capture",
+        "settings": {
+            "device_id": "default"
+        },
+        "mixers": 255,
+        "sync": 0,
+        "flags": 0,
+        "volume": 1.0,
+        "balance": 0.5,
+        "enabled": true,
+        "muted": false,
+        "push-to-mute": false,
+        "push-to-mute-delay": 0,
+        "push-to-talk": false,
+        "push-to-talk-delay": 0,
+        "hotkeys": {
+            "libobs.mute": [],
+            "libobs.unmute": [],
+            "libobs.push-to-mute": [],
+            "libobs.push-to-talk": []
+        },
+        "deinterlace_mode": 0,
+        "deinterlace_field_order": 0,
+        "monitoring_type": 0,
+        "private_settings": {}
+    },
+    "current_scene": "Scene",
+    "current_program_scene": "Scene",
+    "scene_order": [
+        {
+            "name": "Scene"
+        }
+    ],
+    "name": "Webcam Glitch",
+    "sources": [
+        {
+            "prev_ver": 536870914,
+            "name": "Scene",
+            "uuid": "b4c3f3f5-06ae-4de5-a4f9-d35ae65906ef",
+            "id": "scene",
+            "versioned_id": "scene",
+            "settings": {
+                "custom_size": false,
+                "id_counter": 1,
+                "items": [
+                    {
+                        "name": "Webcam",
+                        "source_uuid": "22281912-65cc-4232-93d5-8b574b4d184b",
+                        "visible": true,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1280.0,
+                            "y": 720.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 1,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    }
+                ]
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "OBSBasic.SelectScene": [],
+                "libobs.show_scene_item.1": [],
+                "libobs.hide_scene_item.1": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "canvas_uuid": "6c69626f-6273-4c00-9d88-c5136d61696e",
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 536870914,
+            "name": "Webcam",
+            "uuid": "22281912-65cc-4232-93d5-8b574b4d184b",
+            "id": "pipewire-camera-source",
+            "versioned_id": "pipewire-camera-source",
+            "settings": {
+                "format": "{\"encoded\":false,\"video_format\":4,\"width\":1280,\"height\":720}",
+                "framerate": "{\"framerate\":{\"numerator\":10.0,\"denominator\":1.0}}",
+                "device_id": "v4l2_input.pci-0000_00_14.0-usb-0_4_1.0"
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {},
+            "filters": [
+                {
+                    "prev_ver": 536870914,
+                    "name": "Periodic Glitch",
+                    "uuid": "c3923679-854f-41be-93be-e185bf100f76",
+                    "id": "shader_filter",
+                    "versioned_id": "shader_filter",
+                    "settings": {
+                        "color_drift_amount": 51.5,
+                        "color_drift_speed": 50.64,
+                        "from_file": false,
+                        "horizontal_shake": 69.56,
+                        "override_entire_effect": false,
+                        "pulse_speed_percent": 45,
+                        "vertical_jump_amount": 80.26,
+                        "vertical_speed": 84.98,
+                        "shader_text": "// Port of: https://www.shadertoy.com/view/WfVfDh\n\n#define PI 3.14159265359\n\n/*           For visual explanation of the paramters, see            */\n/*           https://www.desmos.com/calculator/vezu1wyqma            */\n/*                                                                   */\n/*  Period        How often a glitch occurs  (in seconds)  0–?       */\n/*  Duration      How long a glitch lasts    (in seconds)  0–Period  */\n/*  Amplitude     How intense a glitch is                  0–1       */\n/*  Scratchiness  How jittery a glitch is                  0–1       */\n\nuniform float PERI<\n    string label       = \"Period\";\n    string widget_type = \"slider\";\n    float minimum      = 1.;\n    float maximum      = 60.;\n    float step         = 1.;\n> = 6.;\n\nuniform float DURA<\n    string label       = \"Duration\";\n    string widget_type = \"slider\";\n    float minimum      = 0.;\n    float maximum      = 60.;\n    float step         = .01;\n> = .5;\n\nuniform float AMPL<\n    string label       = \"Amplitude\";\n    string widget_type = \"slider\";\n    float minimum      = 0.;\n    float maximum      = 1.;\n    float step         = .01;\n> = .15;\n\nuniform float SCRA<\n    string label       = \"Scratchiness\";\n    string widget_type = \"slider\";\n    float minimum      = 0.;\n    float maximum      = 1.;\n    float step         = .01;\n> = .2;\n\nfloat random2d(float2 n) {\n    return frac(sin(dot(n, float2(12.9898, 4.1414))) * 43758.5453);\n}\n\nfloat randomRange(in float2 seed, in float lo, in float hi) {\n    return lo + random2d(seed) * (hi - lo);\n}\n\nfloat insideRange(float v, float bottom, float top) {\n    return step(bottom, v) - step(top, v);\n}\n\nfloat4 mainImage(VertData v_in): TARGET {\n    float time = floor(elapsed_time * SCRA * 60.);\n    float2 uv = v_in.uv;\n\n    // Periodic intermittence\n    float AMP = AMPL * (cos(2. * PI * max(0., (mod(-elapsed_time / PERI, 1.) - 1.) * PERI / DURA + 1.)) * -.5 + .5);\n\n    float4 outCol = image.Sample(textureSampler, uv);\n\n    // Randomly offset slices horizontally\n    float offsetMax = AMP / 2.;\n    for (float i = 0.; i < 10. * AMP; i += 1.) {\n        float sliceY =  random2d(   float2(time, 2345. + i));\n        float sliceH =  random2d(   float2(time, 9035. + i)) * .25;\n        float offsetH = randomRange(float2(time, 9625. + i), -offsetMax, offsetMax);\n        float2 uvOff = uv;\n        uvOff.x += offsetH;\n        if (insideRange(uv.y, sliceY, frac(sliceY + sliceH)) == 1.) {\n            outCol = image.Sample(textureSampler, uvOff);\n        }\n    }\n\n    // Slightly offset one entire channel\n    offsetMax = AMP / 6.;\n    float2 colOff = float2(\n        randomRange(float2(time, 9545.), -offsetMax, offsetMax),\n        randomRange(float2(time, 7205.), -offsetMax, offsetMax)\n    );\n    float rnd = random2d(float2(time , 9545.));\n    if      (rnd < .33) outCol.r = image.Sample(textureSampler, uv + colOff).r;\n    else if (rnd < .66) outCol.g = image.Sample(textureSampler, uv + colOff).g;\n    else                outCol.b = image.Sample(textureSampler, uv + colOff).b;\n\n    return outCol;\n}\n",
+                        "PERI": 60,
+                        "DURA": 0.75,
+                        "AMPL": 0.15,
+                        "SCRA": 0.6
+                    },
+                    "mixers": 0,
+                    "sync": 0,
+                    "flags": 0,
+                    "volume": 1.0,
+                    "balance": 0.5,
+                    "enabled": true,
+                    "muted": false,
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "hotkeys": {},
+                    "deinterlace_mode": 0,
+                    "deinterlace_field_order": 0,
+                    "monitoring_type": 0,
+                    "private_settings": {}
+                },
+                {
+                    "prev_ver": 536870914,
+                    "name": "Glitch",
+                    "uuid": "43ccb692-f27d-4eb3-9288-90426a76bed4",
+                    "id": "shader_filter",
+                    "versioned_id": "shader_filter",
+                    "settings": {
+                        "shader_text": "//based on https://www.shadertoy.com/view/MtXBDs\n//inputs\nuniform float AMT<\n    string label = \"AMT\";\n    string widget_type = \"slider\";\n    float minimum = 0.0;\n    float maximum = 1.0;\n    float step = 0.01;\n> = 0.2; //0 - 1 glitch amount\nuniform float SPEED<\n    string label = \"Speed\";\n    string widget_type = \"slider\";\n    float minimum = 0.0;\n    float maximum = 1.0;\n    float step = 0.01;\n> = 0.6; //0 - 1 speed\n\n//2D (returns 0 - 1)\nfloat random2d(float2 n) { \n    return frac(sin(dot(n, float2(12.9898, 4.1414))) * 43758.5453);\n}\n\nfloat randomRange (in float2 seed, in float min, in float max) {\n\t\treturn min + random2d(seed) * (max - min);\n}\n\n// return 1 if v inside 1d range\nfloat insideRange(float v, float bottom, float top) {\n   return step(bottom, v) - step(top, v);\n}\n\n\n   \nfloat4 mainImage(VertData v_in) : TARGET\n{\n    \n    float time = floor(elapsed_time * SPEED * 60.0);    \n\tfloat2 uv = v_in.uv;\n    \n    //copy orig\n    float4 outCol = image.Sample(textureSampler, uv);\n    \n    //randomly offset slices horizontally\n    float maxOffset = AMT/2.0;\n    for (float i = 0.0; i < 10.0 * AMT; i += 1.0) {\n        float sliceY = random2d(float2(time , 2345.0 + float(i)));\n        float sliceH = random2d(float2(time , 9035.0 + float(i))) * 0.25;\n        float hOffset = randomRange(float2(time , 9625.0 + float(i)), -maxOffset, maxOffset);\n        float2 uvOff = uv;\n        uvOff.x += hOffset;\n        if (insideRange(uv.y, sliceY, frac(sliceY+sliceH)) == 1.0 ){\n        \toutCol = image.Sample(textureSampler, uvOff);\n        }\n    }\n    \n    //do slight offset on one entire channel\n    float maxColOffset = AMT/6.0;\n    float rnd = random2d(float2(time , 9545.0));\n    float2 colOffset = float2(randomRange(float2(time , 9545.0),-maxColOffset,maxColOffset), \n                       randomRange(float2(time , 7205.0),-maxColOffset,maxColOffset));\n    if (rnd < 0.33){\n        outCol.r = image.Sample(textureSampler, uv + colOffset).r;\n        \n    }else if (rnd < 0.66){\n        outCol.g = image.Sample(textureSampler, uv + colOffset).g;\n        \n    } else{\n        outCol.b = image.Sample(textureSampler, uv + colOffset).b;  \n    }\n       \n\treturn outCol;\n}"
+                    },
+                    "mixers": 0,
+                    "sync": 0,
+                    "flags": 0,
+                    "volume": 1.0,
+                    "balance": 0.5,
+                    "enabled": false,
+                    "muted": false,
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "hotkeys": {},
+                    "deinterlace_mode": 0,
+                    "deinterlace_field_order": 0,
+                    "monitoring_type": 0,
+                    "private_settings": {}
+                }
+            ]
+        }
+    ],
+    "groups": [],
+    "quick_transitions": [
+        {
+            "name": "Cut",
+            "duration": 300,
+            "hotkeys": [],
+            "id": 1,
+            "fade_to_black": false
+        },
+        {
+            "name": "Fade",
+            "duration": 300,
+            "hotkeys": [],
+            "id": 2,
+            "fade_to_black": false
+        },
+        {
+            "name": "Fade",
+            "duration": 300,
+            "hotkeys": [],
+            "id": 3,
+            "fade_to_black": true
+        }
+    ],
+    "transitions": [],
+    "saved_projectors": [],
+    "canvases": [],
+    "current_transition": "Fade",
+    "transition_duration": 300,
+    "preview_locked": false,
+    "scaling_enabled": false,
+    "scaling_level": -5,
+    "scaling_off_x": 0.0,
+    "scaling_off_y": 0.0,
+    "virtual-camera": {
+        "type2": 3
+    },
+    "modules": {
+        "output-timer": {
+            "streamTimerHours": 0,
+            "streamTimerMinutes": 0,
+            "streamTimerSeconds": 30,
+            "recordTimerHours": 0,
+            "recordTimerMinutes": 0,
+            "recordTimerSeconds": 30,
+            "autoStartStreamTimer": false,
+            "autoStartRecordTimer": false,
+            "pauseRecordTimer": true
+        },
+        "scripts-tool": []
+    },
+    "resolution": {
+        "x": 1280,
+        "y": 720
+    },
+    "version": 2
+}
