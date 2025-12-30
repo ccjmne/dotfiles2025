@@ -1,4 +1,6 @@
-// Port of: https://www.shadertoy.com/view/WfVfDh
+// Created by Éric Nicolas (ccjmne) for use with obs-shaderfilter 12/2025
+// Port of:                https://www.shadertoy.com/view/WfVfDh
+// Originally forked from: https://www.shadertoy.com/view/MtXBDs
 
 #define PI 3.14159265359
 

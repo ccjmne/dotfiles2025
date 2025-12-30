@@ -196,7 +196,7 @@
                     "settings": {
                         "color_drift_amount": 51.5,
                         "color_drift_speed": 50.64,
-                        "from_file": false,
+                        "from_file": true,
                         "horizontal_shake": 69.56,
                         "override_entire_effect": false,
                         "pulse_speed_percent": 45,
@@ -206,7 +206,8 @@
                         "PERI": 60,
                         "DURA": 0.75,
                         "AMPL": 0.15,
-                        "SCRA": 0.6
+                        "SCRA": 0.6,
+                        "shader_file_name": "/home/ccjmne/share/obs-studio/shaders/glitch-periodic.shader"
                     },
                     "mixers": 0,
                     "sync": 0,
