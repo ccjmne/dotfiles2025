@@ -11,8 +11,8 @@ float random2d(vec2 n) {
     return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
 }
 
-float randomRange(in vec2 seed, in float min, in float max) {
-    return min + random2d(seed) * (max - min);
+float randomRange(in vec2 seed, in float lo, in float hi) {
+    return lo + random2d(seed) * (hi - lo);
 }
 
 float insideRange(float v, float bottom, float top) {
@@ -29,11 +29,11 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 outCol = texture(iChannel0, uv).rgb;
 
     // Randomly offset slices horizontally
-    float maxOffset = AMPL / 2.;
+    float offsetMax = AMPL / 2.;
     for (float i = 0.; i < 10. * AMPL; i += 1.) {
         float sliceY =  random2d(vec2(time, 2345. + float(i)));
         float sliceH =  random2d(vec2(time, 9035. + float(i))) * .25;
-        float offsetH = randomRange(vec2(time, 9625. + float(i)), -maxOffset, maxOffset);
+        float offsetH = randomRange(vec2(time, 9625. + float(i)), -offsetMax, offsetMax);
         vec2 uvOff = uv;
         uvOff.x += offsetH;
         if (insideRange(uv.y, sliceY, fract(sliceY + sliceH)) == 1.) {
@@ -42,15 +42,15 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     }
 
     // Slightly offset one entire channel
-    float maxOffsetCol = AMPL / 6.;
-    float rnd = random2d(vec2(time, 9545.));
-    vec2 colOffset = vec2(
-        randomRange(vec2(time, 9545.), -maxOffsetCol, maxOffsetCol),
-        randomRange(vec2(time, 7205.), -maxOffsetCol, maxOffsetCol)
+    offsetMax = AMPL / 6.;
+    vec2 colOff = vec2(
+        randomRange(vec2(time, 9545.), -offsetMax, offsetMax),
+        randomRange(vec2(time, 7205.), -offsetMax, offsetMax)
     );
-    if      (rnd < .33) outCol.r = texture(iChannel0, uv + colOffset).r;
-    else if (rnd < .66) outCol.g = texture(iChannel0, uv + colOffset).g;
-    else                outCol.b = texture(iChannel0, uv + colOffset).b;
+    float rnd = random2d(vec2(time, 9545.));
+    if      (rnd < .33) outCol.r = texture(iChannel0, uv + colOff).r;
+    else if (rnd < .66) outCol.g = texture(iChannel0, uv + colOff).g;
+    else                outCol.b = texture(iChannel0, uv + colOff).b;
 
     fragColor = vec4(outCol, 1.);
 }
