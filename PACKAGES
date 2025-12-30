@@ -60,6 +60,8 @@ noto-fonts-extra
 nvidia-dkms
 nvidia-settings
 nvidia-utils
+obs-shaderfilter-git
+obs-studio
 oh-my-zsh-git
 otf-commit-mono-nerd
 par-git
@@ -91,6 +93,7 @@ traceroute
 trash-cli
 tree
 uni
+v4l2loopback-dkms
 vesktop-bin
 vulkan-headers
 vulkan-icd-loader
