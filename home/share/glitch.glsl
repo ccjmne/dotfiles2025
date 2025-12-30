@@ -2,10 +2,10 @@
 
 const float PI = 3.14159265359;
 
-float AMPL = 0.15; // 0–1  Amplitude     How intense a glitch is
-float SCRA = 0.2;  // 0–1  Scratchiness  How "jumpy" a glitch is
-float PERI = 3.0;  // 0–?  Period        How often a glitch occurs (in seconds)
-float DUTY = 0.15; // 0–1  Duty cycle    How much of that period is glitchy
+float AMPL = 0.15; // 0–1       Amplitude     How intense a glitch is
+float SCRA = 0.2;  // 0–1       Scratchiness  How "jumpy" a glitch is
+float PERI = 3.0;  // 0–?       Period        How often a glitch occurs    (in seconds)
+float DURA = 0.33; // 0–Period  Duration      How long does a glitch last  (in seconds)
 
 float random2d(vec2 n) {
     return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
@@ -24,7 +24,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec2 uv = fragCoord.xy / iResolution.xy;
 
     // Periodicity, see https://www.desmos.com/calculator/ygwb3sguu1
-    AMPL *= sin(max(0.0, (mod(iTime / PERI, 1.0) - (1.0 - DUTY)) / DUTY) * 2.0 * PI - PI / 2.0) / 2.0 + 0.5;
+    AMPL *= cos(2.0 * PI * max(0.0, (mod(-iTime / PERI, 1.0) - 1.0) * PERI / DURA + 1.0)) * -0.5 + 0.5;
 
     vec3 outCol = texture(iChannel0, uv).rgb;
 
