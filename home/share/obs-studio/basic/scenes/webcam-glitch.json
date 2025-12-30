@@ -189,6 +189,32 @@
             "filters": [
                 {
                     "prev_ver": 536870914,
+                    "name": "Gamma Correction",
+                    "uuid": "81f5f6e9-7895-475b-a557-66b7ec31dbd9",
+                    "id": "color_filter",
+                    "versioned_id": "color_filter_v2",
+                    "settings": {
+                        "gamma": 1.0
+                    },
+                    "mixers": 0,
+                    "sync": 0,
+                    "flags": 0,
+                    "volume": 1.0,
+                    "balance": 0.5,
+                    "enabled": true,
+                    "muted": false,
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "hotkeys": {},
+                    "deinterlace_mode": 0,
+                    "deinterlace_field_order": 0,
+                    "monitoring_type": 0,
+                    "private_settings": {}
+                },
+                {
+                    "prev_ver": 536870914,
                     "name": "Periodic Glitch",
                     "uuid": "c3923679-854f-41be-93be-e185bf100f76",
                     "id": "shader_filter",
