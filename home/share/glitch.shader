@@ -46,7 +46,7 @@ float random2d(float2 n) {
     return frac(sin(dot(n, float2(12.9898, 4.1414))) * 43758.5453);
 }
 
-float randomRange (in float2 seed, in float lo, in float hi) {
+float randomRange(in float2 seed, in float lo, in float hi) {
     return lo + random2d(seed) * (hi - lo);
 }
 
@@ -66,9 +66,9 @@ float4 mainImage(VertData v_in): TARGET {
     // Randomly offset slices horizontally
     float offsetMax = AMP / 2.;
     for (float i = 0.; i < 10. * AMP; i += 1.) {
-        float sliceY =  random2d(float2(time, 2345. + float(i)));
-        float sliceH =  random2d(float2(time, 9035. + float(i))) * .25;
-        float offsetH = randomRange(float2(time, 9625. + float(i)), -offsetMax, offsetMax);
+        float sliceY =  random2d(   float2(time, 2345. + i));
+        float sliceH =  random2d(   float2(time, 9035. + i)) * .25;
+        float offsetH = randomRange(float2(time, 9625. + i), -offsetMax, offsetMax);
         float2 uvOff = uv;
         uvOff.x += offsetH;
         if (insideRange(uv.y, sliceY, frac(sliceY + sliceH)) == 1.) {

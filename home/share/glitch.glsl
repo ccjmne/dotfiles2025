@@ -34,9 +34,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     // Randomly offset slices horizontally
     float offsetMax = AMPL / 2.;
     for (float i = 0.; i < 10. * AMPL; i += 1.) {
-        float sliceY =  random2d(vec2(time, 2345. + float(i)));
-        float sliceH =  random2d(vec2(time, 9035. + float(i))) * .25;
-        float offsetH = randomRange(vec2(time, 9625. + float(i)), -offsetMax, offsetMax);
+        float sliceY =  random2d(   vec2(time, 2345. + i));
+        float sliceH =  random2d(   vec2(time, 9035. + i)) * .25;
+        float offsetH = randomRange(vec2(time, 9625. + i), -offsetMax, offsetMax);
         vec2 uvOff = uv;
         uvOff.x += offsetH;
         if (insideRange(uv.y, sliceY, fract(sliceY + sliceH)) == 1.) {
