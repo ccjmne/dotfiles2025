@@ -1,0 +1,12 @@
+[Unit]
+Description=Periodically check for firmware updates
+
+[Timer]
+OnCalendar=monthly
+RandomizedOffsetSec=2 weeks
+AccuracySec=1 day
+Persistent=true
+Unit=run@fwupd-check.service
+
+[Install]
+WantedBy=timers.target
