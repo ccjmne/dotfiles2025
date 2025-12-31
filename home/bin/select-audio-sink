@@ -1,8 +1,10 @@
 #! /bin/sh
 
+readonly cache="$XDG_CACHE_HOME/fuzzel+/$(basename $0)"
+mkdir -p $cache
 pactl --format=json list sinks                                                                             \
   | jq --raw-output '.[] | select(.state != "RUNNING") | .name + "\t" + .properties["device.description"]' \
   | ifne fuzzel --dmenu --accept-nth=1 --with-nth=2                                                        \
                 --anchor=top-left --hide-prompt                                                            \
-                --cache="$XDG_CACHE_HOME/fuzzel/$(basename $0)/$(pactl get-default-sink)"                  \
+                --cache="$cache/$(pactl get-default-sink)"                                                 \
   | ifne xargs pactl set-default-sink
