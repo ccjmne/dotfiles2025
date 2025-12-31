@@ -3,6 +3,7 @@
 # Behaviour
 layer=overlay
 output=eDP-1
+on-button-middle=exec makoctl menu fuzzel -- --dmenu --anchor=top-right --hide-prompt
 
 # Appearance
 border-size=4
