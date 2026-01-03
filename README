@@ -1,5 +1,5 @@
-Revisions: 5                   Personal Dotfiles                    Éric NICOLAS
-Latest: 2025-10-19             =================
+Revisions: 6                   Personal Dotfiles                    Éric NICOLAS
+Latest: 2026-01-03             =================
 
                            --- Usage w/ GNU Stow ---
 
@@ -41,7 +41,7 @@ Post-install ...................................................................
     Enable systemd units:
 
         home/config/systemd/user/all.sh enable --now
-        sudo systemctl enable --now tlp.service
+        sudo ./system-services     # for system-wide systemd services, timers...
 
 References .....................................................................
 

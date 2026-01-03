@@ -1,0 +1,6 @@
+#! /bin/sh
+
+xargs systemctl enable --now <<-EOF
+	docker.service
+	tlp.service
+EOF
