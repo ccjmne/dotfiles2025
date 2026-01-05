@@ -13,7 +13,7 @@ shell-integration-features = no-cursor
 
 # w/ smart kerning, alt i, alt 6 & 9, dotted 0, alt ilatics aefgy
 font-family  = CommitMono Nerd Font Mono
-font-size    = 11
+font-size    = 10
 font-feature = +ss05
 font-feature = +cv04,+cv06,+cv07,+cv08
 # CommitMono requires one extra pixel at the bottom, keep cursor in line w/ cell
