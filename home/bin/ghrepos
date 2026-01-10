@@ -1,0 +1,5 @@
+#! /bin/sh
+
+gh search repos --limit 1000 --owner ccjmne --sort updated --json name,url \
+    | jq '.[] | [.name, .url] | @tsv' -r \
+    | fzf --with-nth=1 --accept-nth=2
