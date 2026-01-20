@@ -1,6 +1,10 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "catppuccin",
+  "keybinds": {
+    "messages_next": "meta+j",
+    "messages_previous": "meta+k"
+  },
   "provider": {
     "langdock-openai": {
       "npm": "@ai-sdk/openai-compatible",
