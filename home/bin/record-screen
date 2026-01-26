@@ -4,12 +4,8 @@ obs-cmd scene-collection switch 'Game Recording'
 obs-cmd recording status | grep -qi 'active:\s*true'
 before=$?
 
-action=${1:-toggle}
-if [ $action = 'stop' ] || [ $action = 'start' ]
-then obs-cmd recording $action
-else obs-cmd recording toggle
-fi
-
+obs-cmd recording "${*:-toggle}"
+[ $? -ne 0 ] && notify-send "failed to do $*"
 sleep .5
 
 obs-cmd recording status | grep -qi 'active:\s*true'
