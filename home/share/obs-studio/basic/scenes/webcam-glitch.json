@@ -1,6 +1,6 @@
 {
     "DesktopAudioDevice1": {
-        "prev_ver": 536870914,
+        "prev_ver": 536870916,
         "name": "Desktop Audio",
         "uuid": "94d95daa-ac29-499a-a095-34173fc60459",
         "id": "pulse_output_capture",
@@ -31,7 +31,7 @@
         "private_settings": {}
     },
     "AuxAudioDevice1": {
-        "prev_ver": 536870914,
+        "prev_ver": 536870916,
         "name": "Mic/Aux",
         "uuid": "61549c55-4f76-44e9-a1ce-296ea428d160",
         "id": "pulse_input_capture",
@@ -71,7 +71,7 @@
     "name": "Webcam Glitch",
     "sources": [
         {
-            "prev_ver": 536870914,
+            "prev_ver": 536870916,
             "name": "Scene",
             "uuid": "b4c3f3f5-06ae-4de5-a4f9-d35ae65906ef",
             "id": "scene",
@@ -109,8 +109,8 @@
                             "y": -1.0
                         },
                         "scale": {
-                            "x": 1.0,
-                            "y": 1.0
+                            "x": 1.5,
+                            "y": 1.5
                         },
                         "scale_rel": {
                             "x": 1.0,
@@ -160,7 +160,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 536870914,
+            "prev_ver": 536870916,
             "name": "Webcam",
             "uuid": "22281912-65cc-4232-93d5-8b574b4d184b",
             "id": "pipewire-camera-source",
@@ -188,7 +188,7 @@
             "private_settings": {},
             "filters": [
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 536870916,
                     "name": "Gamma Correction",
                     "uuid": "81f5f6e9-7895-475b-a557-66b7ec31dbd9",
                     "id": "color_filter",
@@ -214,7 +214,7 @@
                     "private_settings": {}
                 },
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 536870916,
                     "name": "Periodic Glitch",
                     "uuid": "c3923679-854f-41be-93be-e185bf100f76",
                     "id": "shader_filter",
@@ -228,12 +228,12 @@
                         "pulse_speed_percent": 45,
                         "vertical_jump_amount": 80.26,
                         "vertical_speed": 84.98,
+                        "shader_file_name": "/home/ccjmne/share/obs-studio/shaders/glitch-periodic.shader",
                         "shader_text": "// Port of: https://www.shadertoy.com/view/WfVfDh\n\n#define PI 3.14159265359\n\n/*           For visual explanation of the paramters, see            */\n/*           https://www.desmos.com/calculator/vezu1wyqma            */\n/*                                                                   */\n/*  Period        How often a glitch occurs  (in seconds)  0–?       */\n/*  Duration      How long a glitch lasts    (in seconds)  0–Period  */\n/*  Amplitude     How intense a glitch is                  0–1       */\n/*  Scratchiness  How jittery a glitch is                  0–1       */\n\nuniform float PERI<\n    string label       = \"Period\";\n    string widget_type = \"slider\";\n    float minimum      = 1.;\n    float maximum      = 60.;\n    float step         = 1.;\n> = 6.;\n\nuniform float DURA<\n    string label       = \"Duration\";\n    string widget_type = \"slider\";\n    float minimum      = 0.;\n    float maximum      = 60.;\n    float step         = .01;\n> = .5;\n\nuniform float AMPL<\n    string label       = \"Amplitude\";\n    string widget_type = \"slider\";\n    float minimum      = 0.;\n    float maximum      = 1.;\n    float step         = .01;\n> = .15;\n\nuniform float SCRA<\n    string label       = \"Scratchiness\";\n    string widget_type = \"slider\";\n    float minimum      = 0.;\n    float maximum      = 1.;\n    float step         = .01;\n> = .2;\n\nfloat random2d(float2 n) {\n    return frac(sin(dot(n, float2(12.9898, 4.1414))) * 43758.5453);\n}\n\nfloat randomRange(in float2 seed, in float lo, in float hi) {\n    return lo + random2d(seed) * (hi - lo);\n}\n\nfloat insideRange(float v, float bottom, float top) {\n    return step(bottom, v) - step(top, v);\n}\n\nfloat4 mainImage(VertData v_in): TARGET {\n    float time = floor(elapsed_time * SCRA * 60.);\n    float2 uv = v_in.uv;\n\n    // Periodic intermittence\n    float AMP = AMPL * (cos(2. * PI * max(0., (mod(-elapsed_time / PERI, 1.) - 1.) * PERI / DURA + 1.)) * -.5 + .5);\n\n    float4 outCol = image.Sample(textureSampler, uv);\n\n    // Randomly offset slices horizontally\n    float offsetMax = AMP / 2.;\n    for (float i = 0.; i < 10. * AMP; i += 1.) {\n        float sliceY =  random2d(   float2(time, 2345. + i));\n        float sliceH =  random2d(   float2(time, 9035. + i)) * .25;\n        float offsetH = randomRange(float2(time, 9625. + i), -offsetMax, offsetMax);\n        float2 uvOff = uv;\n        uvOff.x += offsetH;\n        if (insideRange(uv.y, sliceY, frac(sliceY + sliceH)) == 1.) {\n            outCol = image.Sample(textureSampler, uvOff);\n        }\n    }\n\n    // Slightly offset one entire channel\n    offsetMax = AMP / 6.;\n    float2 colOff = float2(\n        randomRange(float2(time, 9545.), -offsetMax, offsetMax),\n        randomRange(float2(time, 7205.), -offsetMax, offsetMax)\n    );\n    float rnd = random2d(float2(time , 9545.));\n    if      (rnd < .33) outCol.r = image.Sample(textureSampler, uv + colOff).r;\n    else if (rnd < .66) outCol.g = image.Sample(textureSampler, uv + colOff).g;\n    else                outCol.b = image.Sample(textureSampler, uv + colOff).b;\n\n    return outCol;\n}\n",
-                        "PERI": 60,
+                        "PERI": 60.0,
                         "DURA": 0.75,
                         "AMPL": 0.15,
-                        "SCRA": 0.6,
-                        "shader_file_name": "/home/ccjmne/share/obs-studio/shaders/glitch-periodic.shader"
+                        "SCRA": 0.6
                     },
                     "mixers": 0,
                     "sync": 0,
@@ -253,7 +253,7 @@
                     "private_settings": {}
                 },
                 {
-                    "prev_ver": 536870914,
+                    "prev_ver": 536870916,
                     "name": "Glitch",
                     "uuid": "43ccb692-f27d-4eb3-9288-90426a76bed4",
                     "id": "shader_filter",
@@ -312,12 +312,9 @@
     "transition_duration": 300,
     "preview_locked": false,
     "scaling_enabled": false,
-    "scaling_level": -5,
+    "scaling_level": -8,
     "scaling_off_x": 0.0,
     "scaling_off_y": 0.0,
-    "virtual-camera": {
-        "type2": 3
-    },
     "modules": {
         "output-timer": {
             "streamTimerHours": 0,
