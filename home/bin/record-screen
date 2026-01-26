@@ -1,0 +1,22 @@
+#! /bin/sh
+
+obs-cmd recording status | grep -qi 'active:\s*true'
+before=$?
+
+action=${1:-toggle}
+if [ $action = 'stop' ] || [ $action = 'start' ]
+then obs-cmd recording $action
+else obs-cmd recording toggle
+fi
+
+sleep .5
+
+obs-cmd recording status | grep -qi 'active:\s*true'
+after=$?
+if   [ $after -eq 0 ] && [ $before -eq 1 ]; then
+	notify-send 'Recording started' "Click to stop" --action='default=Finish recording' | ifne $0 stop
+elif [ $after -eq 1 ] && [ $before -eq 0 ]; then
+	dir=$(obs-cmd record-directory get | grep -oP '(?<=Current record directory:\s).*')
+	file="$(ls -t "$dir"/*.mp4 | head -1)"
+	notify-send 'Recording complete' "Saved to $file" --action='default=Open the recording' | ifne xdg-open "$file"
+fi

@@ -60,6 +60,7 @@ noto-fonts-extra
 nvidia-dkms
 nvidia-settings
 nvidia-utils
+obs-cmd
 obs-shaderfilter-git
 obs-studio
 oh-my-zsh-git
