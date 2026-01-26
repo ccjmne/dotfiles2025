@@ -1,5 +1,6 @@
 #! /bin/sh
 
+pgrep --exact obs || obs --minimize-to-tray &
 obs-cmd scene-collection switch 'Game Recording'
 obs-cmd recording status | grep -qi 'active:\s*true'
 before=$?
