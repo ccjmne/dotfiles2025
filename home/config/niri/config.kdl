@@ -194,7 +194,7 @@ binds {
     Mod+U          { swap-window-left; }
     Mod+I          { swap-window-right; }
     Mod+E          { spawn "toggle-colourscheme"; }
-    Mod+S          { spawn "click"; }
+    Mod+S          { spawn "ghostty" "-e" "calc"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
