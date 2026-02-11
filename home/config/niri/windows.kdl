@@ -16,7 +16,7 @@ window-rule {
 }
 
 window-rule {
-    match title="cal"
+    match title=r#"calc?"#
     open-floating true
 }
 
