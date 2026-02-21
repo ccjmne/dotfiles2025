@@ -37,6 +37,8 @@
     short = yes
 [tag]
     gpgsign = yes
+[url "gitlab.build-unite.unite.eu"]
+    insteadof = glue:
 [url "git@github.com:"]
     insteadof = gh:
 [user]
