@@ -188,8 +188,6 @@ binds {
     Mod+Shift+M    { spawn "ghostty"; }
     Mod+N          { spawn "fuzzel" "--terminal" "ghostty"; }
     Mod+Z          { spawn "sh" "-c" "niri msg action power-off-monitors && swaylock"; }
-    Mod+Tab        { spawn "sh" "-c" "niri msg --json windows | jq --raw-output '.[] | .title + \"\t\" + (.id | tostring)' | fuzzel --dmenu --with-nth=1 --accept-nth=2 | xargs niri msg action focus-window --id"; }
-    Alt+Tab        { focus-window-previous; }
     Mod+P          { spawn "ghostty" "-e" "top"; }
     Mod+T          { spawn "scrcpy" "--turn-screen-off"; }
     Mod+Apostrophe { spawn "kpfz"; }
@@ -400,6 +398,24 @@ binds {
     // The quit action will show a confirmation dialog to avoid accidental exits.
     Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
+}
+
+recent-windows {
+    highlight {
+        padding 0
+    }
+
+    binds {
+        Alt+Tab         { next-window                     scope="output"; }
+        Alt+Shift+Tab   { previous-window                 scope="output"; }
+        Alt+grave       { next-window     filter="app-id" scope="output"; }
+        Alt+Shift+grave { previous-window filter="app-id" scope="output"; }
+
+        Mod+Tab         { next-window                     scope="all"; }
+        Mod+Shift+Tab   { previous-window                 scope="all"; }
+        Mod+grave       { next-window     filter="app-id" scope="all"; }
+        Mod+Shift+grave { previous-window filter="app-id" scope="all"; }
+    }
 }
 
 debug {
