@@ -12,6 +12,10 @@ path=(
     "$XDG_DATA_HOME/nvim/mason/bin"
 )
 
+export CALCRC="$XDG_CONFIG_HOME/calc/calcrc"
+export CALCPATH=".:$XDG_DATA_HOME/calc:$XDG_CONFIG_HOME/calc:/usr/share/calc:/usr/share/calc/custom"
+export CALCHISTFILE="$XDG_STATE_HOME/calc/history"
+
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export LUAROCKS_HOME="$XDG_DATA_HOME/luarocks"
