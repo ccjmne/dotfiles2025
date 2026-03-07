@@ -1,0 +1,6 @@
+#! /bin/sh
+
+idx=$(niri msg --json workspaces | jq '.[] | select (.is_focused) | .idx')
+niri msg action move-window-to-workspace 99
+[ "$1" = above ]
+niri msg action move-workspace-to-index $(( idx + $? ))

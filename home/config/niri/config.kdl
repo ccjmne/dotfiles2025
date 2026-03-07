@@ -193,6 +193,7 @@ binds {
     Mod+Apostrophe { spawn "kpfz"; }
     Mod+U          { swap-window-left; }
     Mod+I          { swap-window-right; }
+    Mod+Y          { spawn "move-to-new-workspace" "below"; }
     Mod+E          { spawn "toggle-colourscheme"; }
     Mod+S          { spawn "ghostty" "--title=calc" "-e" "zsh" "-c" "calc -d"; }
 
