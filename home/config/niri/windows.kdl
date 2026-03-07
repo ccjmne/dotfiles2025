@@ -16,8 +16,10 @@ window-rule {
 }
 
 window-rule {
-    match title=r#"calc?"#
     open-floating true
+    match         title="^cal$"
+    match         title="^calc$"
+    match         app-id="QjackCtl"
 }
 
 window-rule {
@@ -34,11 +36,6 @@ window-rule {
     max-width 678
     min-height 662
     max-height 662
-}
-
-window-rule {
-    match          title=r#"^\(default\).*"# app-id="QjackCtl"
-    open-floating  true
 }
 
 window-rule {
