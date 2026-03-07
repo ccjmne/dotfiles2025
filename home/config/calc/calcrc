@@ -1,0 +1,5 @@
+config("complex_space",  1),;
+config("fraction_space", 1),;
+config("resource_debug", 0),;
+config("tilde",          1),;
+config("tilde_space",    1),;
