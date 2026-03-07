@@ -49,12 +49,12 @@ export FZF_DEFAULT_OPTS='
   --bind=alt-l:select+down
   --preview-border=none
   --style=minimal
+  --no-unicode
   --info=inline
-  --prompt="> "
   --separator=
   --scrollbar=█
-  --pointer=█
   --marker=▌
+  --color="bw,header:cyan,prompt:yellow,pointer:yellow,marker:yellow"
 '
 
 eval $(dircolors)
