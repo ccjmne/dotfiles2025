@@ -1,6 +1,6 @@
 #! /bin/sh
 
-readonly cache="$XDG_CACHE_HOME/fuzzel+/$(basename $0)"
+readonly cache="$XDG_CACHE_HOME/fuzzel/$(basename $0)"
 mkdir -p $cache
 pactl --format=json list sinks                                                                             \
   | jq --raw-output '.[] | select(.state != "RUNNING") | .name + "\t" + .properties["device.description"]' \
