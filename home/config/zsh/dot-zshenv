@@ -54,7 +54,7 @@ export FZF_DEFAULT_OPTS='
   --separator=
   --scrollbar=█
   --marker=▌
-  --color="bw,header:cyan,prompt:yellow,pointer:yellow,marker:yellow"
+  --color="bw,header:cyan,prompt:yellow,pointer:yellow,marker:yellow,border:-1"
 '
 
 eval $(dircolors)
