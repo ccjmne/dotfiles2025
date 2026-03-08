@@ -1,0 +1,8 @@
+#! /bin/sh
+
+printf '' | fzf-tmux -p 80%                              \
+	--print-query --query .                          \
+	--preview "cat \"${1}\" | jq --color-output {q}" \
+	--no-preview-border --no-info --no-header        \
+	--layout reverse-list --preview-window up:999999 \
+	--height 0
