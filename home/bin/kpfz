@@ -5,7 +5,7 @@ until [[ -n "$item" && ! "$item" =~ /$ ]]; do item=$(echo "$pass" \
     | keepassxc-cli ls "$XDG_DATA_HOME/main.kdbx" "$item"         \
     | ifne fuzzel --dmenu --only-match
 ); done
-attr=$(echo "$pass" | keepassxc-cli show --all "$XDG_DATA_HOME/main.kdbx" "$item"             \
-    | sed -n '/^Password:/{p;b};H;${g;s/\n//p}' `# [p]rint Password; [H]old the rest until $` \
+attr=$(echo "$pass" | keepassxc-cli show --all "$XDG_DATA_HOME/main.kdbx" "$item" \
+    | sed -n '/^Password:/!H;/^Password:/p;${g;s/\n//p}'                          \
     | ifne fuzzel --dmenu --nth-delimiter=: --accept-nth=1 --only-match)
 echo "$pass" | keepassxc-cli clip "$XDG_DATA_HOME/main.kdbx" "$item" --attribute="$attr"
