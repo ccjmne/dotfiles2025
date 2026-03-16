@@ -1,8 +1,9 @@
 #! /bin/sh
 
-printf '' | fzf-tmux -p 80%                              \
-	--print-query --query .                          \
-	--preview "cat \"${1}\" | jq --color-output {q}" \
-	--no-preview-border --no-info --no-header        \
-	--layout reverse-list --preview-window up:999999 \
-	--height 0
+# TODO: slurp ${1} once and reuse it, so as to possibly support: fjq <(curl xxx)
+printf '' | fzf-tmux -p 80%                                                    \
+    --print-query                                                              \
+    --preview "cat \"${1}\" | if [ -n {q} ]; then jq -C {q}; else jq -C .; fi" \
+    --no-preview-border --no-info --no-header                                  \
+    --layout reverse-list --preview-window up:999999                           \
+    --height 0
