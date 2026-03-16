@@ -3,7 +3,6 @@ ast-grep
 base
 base-devel
 bat
-bc
 brightnessctl
 btop
 calc
@@ -19,7 +18,6 @@ efibootmgr
 entr
 extension-manager
 fasm
-fastfetch
 fcitx5
 fd
 firefox
