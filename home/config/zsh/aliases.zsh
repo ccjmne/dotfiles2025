@@ -19,7 +19,7 @@ findpoms='fd pom.xml --exact-depth 2 | xargs dirname | sort | fzf'
 prunegarbage='| sed -n "/--- dependency:/,/---/p" | sed "1d;\$d;s/.INFO. //"'
 alias mdt="$findpoms --preview 'cd {} && mvn dependency:tree    $prunegarbage'"
 alias mda="$findpoms --preview 'cd {} && mvn dependency:analyze $prunegarbage'"
-alias owner='sed "/^\//!d" ~/git.unite/mercateo/CODEOWNERS | fzf'
+alias owner='sed "/^\[/{h;d};/^\//!d;G;s/\n/:/;s/\s\s*/:/" ~/git.unite/mercateo/CODEOWNERS | column -ts: -H3 | fzf'
 
 function bak {
   for arg; do
