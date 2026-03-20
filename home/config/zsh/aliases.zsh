@@ -16,9 +16,10 @@ alias watch='watch --color'
 alias xclip='xclip -selection clipboard'
 
 findpoms='fd pom.xml --exact-depth 2 | xargs dirname | sort | fzf'
-prunegarbage='| sed -n "/--- dependency:/,/---/p" | sed "1d;\$d;s/.INFO. //"'
-alias mdt="$findpoms --preview 'cd {} && mvn dependency:tree    $prunegarbage'"
-alias mda="$findpoms --preview 'cd {} && mvn dependency:analyze $prunegarbage'"
+prunegarbage='| sed "/--- dependency:/,/---/!d" | sed "1d;\$d;s/.INFO. //"'
+mvncache='/tmp/mvncache'
+alias mdt="$findpoms --preview 'cd {} && mvn dependency:tree    $prunegarbage | tee $mvncache' --bind 'enter:become(cat $mvncache)+abort'"
+alias mda="$findpoms --preview 'cd {} && mvn dependency:analyze $prunegarbage | tee $mvncache' --bind 'enter:become(cat $mvncache)+abort'"
 alias owner='sed "/^\[/{h;d};/^\//!d;G;s/\n/:/;s/\s\s*/:/" ~/git.unite/mercateo/CODEOWNERS | column -ts: -H3 | fzf'
 
 function bak {
