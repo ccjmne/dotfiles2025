@@ -4,7 +4,7 @@
 layer=overlay
 output=eDP-1
 on-notify=exec paplay ~/config/theme/beep.ogg
-on-button-middle=exec makoctl menu fuzzel -- --dmenu --anchor=top-right --hide-prompt
+on-button-middle=exec makoctl menu -n$id fuzzel -- --dmenu --anchor=top-right --hide-prompt
 
 # Appearance
 border-size=4
