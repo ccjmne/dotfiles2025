@@ -1,0 +1,11 @@
+[Unit]
+Description=BitTorrent Daemon
+ConditionPathExists=/usr/bin/qbittorrent-nox
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/qbittorrent-nox
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
