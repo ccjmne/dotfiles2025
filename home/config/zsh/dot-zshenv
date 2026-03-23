@@ -61,3 +61,6 @@ eval $(dircolors)
 export BAT_THEME_DARK='Catppuccin Mocha'
 export BAT_THEME_LIGHT='Catppuccin Latte'
 export BAT_STYLE=plain
+function bat() { # needs to be in .zshenv for non-interactive invocations
+  command bat --theme="$(dconf read /org/gnome/desktop/interface/color-scheme | sed "/dark/s/.*/$BAT_THEME_DARK/;t;s/.*/$BAT_THEME_LIGHT/")" "$@"
+}
