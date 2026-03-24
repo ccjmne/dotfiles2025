@@ -191,6 +191,7 @@ binds {
     Mod+P          { spawn "ghostty" "-e" "top"; }
     Mod+T          { spawn "scrcpy" "--turn-screen-off"; }
     Mod+Apostrophe { spawn "kpfz"; }
+    Mod+Shift+Apostrophe { spawn "kpfz" "otp"; }
     Mod+U          { swap-window-left; }
     Mod+I          { swap-window-right; }
     Mod+Y          { spawn "move-to-new-workspace" "below"; }

@@ -1,11 +1,17 @@
 #! /bin/sh -e
 
 pass=$(fuzzel --dmenu --password --lines=0)
-until [[ -n "$item" && ! "$item" =~ /$ ]]; do item=$(echo "$pass" \
-    | keepassxc-cli ls "$XDG_DATA_HOME/main.kdbx" "$item"         \
-    | ifne fuzzel --dmenu --only-match
-); done
-attr=$(echo "$pass" | keepassxc-cli show --all "$XDG_DATA_HOME/main.kdbx" "$item"      \
-    | sed -n '/^otp:/s/^/t/;/^Password:\|^totp:/!H;/^Password:\|^totp:/p;${g;s/\n//p}' \
-    | ifne fuzzel --dmenu --nth-delimiter=: --accept-nth=1 --only-match)
+if [ "$1" = otp ]; then
+    item=$(echo "$pass" | keepassxc-cli search "$XDG_DATA_HOME/main.kdbx" "+attr:otp" \
+        | ifne fuzzel --dmenu --nth-delimiter=: --accept-nth=1 --only-match)
+    attr=totp
+else
+    until [[ -n "$item" && ! "$item" =~ /$ ]]; do item=$(echo "$pass" \
+        | keepassxc-cli ls "$XDG_DATA_HOME/main.kdbx" "$item"         \
+        | ifne fuzzel --dmenu --only-match
+    ); done
+    attr=$(echo "$pass" | keepassxc-cli show --all "$XDG_DATA_HOME/main.kdbx" "$item"      \
+        | sed -n '/^otp:/s/^/t/;/^Password:\|^totp:/!H;/^Password:\|^totp:/p;${g;s/\n//p}' \
+        | ifne fuzzel --dmenu --nth-delimiter=: --accept-nth=1 --only-match)
+fi
 echo "$pass" | keepassxc-cli clip "$XDG_DATA_HOME/main.kdbx" "$item" --attribute="$attr"
