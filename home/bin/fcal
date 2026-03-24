@@ -1,0 +1,29 @@
+#! /usr/bin/env zsh
+
+args='--color=always -w'
+fzf-tmux -p                                                             \
+    --preview "if [ -n {} ]; then cal {} $args; else cal {q} $args; fi" \
+    --no-preview-border --no-info --no-header                           \
+    --layout reverse-list --preview-window up:999999                    \
+    --height 0 <<-EOF
+	-3
+	-y
+
+	tomorrow
+	yesterday
+
+	+ 1 week
+
+	january
+	february
+	march
+	april
+	may
+	june
+	july
+	august
+	september
+	october
+	november
+	december
+EOF

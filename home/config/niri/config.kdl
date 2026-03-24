@@ -196,7 +196,8 @@ binds {
     Mod+I          { swap-window-right; }
     Mod+Y          { spawn "move-to-new-workspace" "below"; }
     Mod+E          { spawn "toggle-colourscheme"; }
-    Mod+S          { spawn "ghostty" "--title=calc" "-e" "zsh" "-c" "calc -d"; }
+    Mod+D          { spawn "ghostty" "--title=calc" "-e" "zsh" "-c" "calc -d"; }
+    Mod+Shift+D    { spawn "ghostty" "--title=cal" "-e" "fcal"; }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
