@@ -18,7 +18,7 @@ binds {
     Mod+4 { focus-workspace "game"; }
 }
 window-rule {
-    open-on-workspace "gaming"
+    open-on-workspace "game"
     match             app-id=r#"^steam(\b|_)"#
 }
 window-rule {
