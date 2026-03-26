@@ -196,6 +196,7 @@ binds {
     Mod+I          { swap-window-right; }
     Mod+Y          { spawn "move-to-new-workspace" "below"; }
     Mod+E          { spawn "toggle-colourscheme"; }
+    Mod+Shift+E    { spawn "select-audio-sink" "center"; }
     Mod+D          { spawn "ghostty" "--title=calc" "-e" "zsh" "-c" "calc -d"; }
     Mod+Shift+D    { spawn "ghostty" "--title=cal" "-e" "fcal"; }
 
@@ -398,8 +399,6 @@ binds {
     // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
     Ctrl+Alt+Delete { quit; }
 }
 

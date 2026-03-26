@@ -5,6 +5,6 @@ mkdir -p $cache
 pactl --format=json list sinks                                                                             \
   | jq --raw-output '.[] | select(.state != "RUNNING") | .name + "\t" + .properties["device.description"]' \
   | ifne fuzzel --dmenu --accept-nth=1 --with-nth=2                                                        \
-                --anchor=top-left --hide-prompt                                                            \
+                --anchor="${1:-top-left}" --hide-prompt                                                    \
                 --cache="$cache/$(pactl get-default-sink)"                                                 \
   | ifne xargs pactl set-default-sink
