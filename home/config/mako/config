@@ -7,15 +7,18 @@ on-notify=exec paplay ~/config/theme/beep.ogg
 on-button-middle=exec makoctl menu -n$id fuzzel -- --dmenu --anchor=top-right --hide-prompt
 
 # Appearance
-border-size=4
-# norm jdV}:r!curl -Ls https://github.com/catppuccin/mako/raw/refs/heads/main/themes/catppuccin-mocha/catppuccin-mocha-peach | sed '/^[^\#]/\!d'
+border-size=1
+padding=5,15
 background-color=#1e1e2e
 text-color=#cdd6f4
-border-color=#fab387
+border-color=#6c7086
 progress-color=over #313244
 
-[urgency=low]
-on-notify=none
+# [urgency=low]
+# on-notify=none
+# border-color=#a6adc8
+# text-color=#a6adc8
 
 [urgency=high]
-border-color=#fab387
+border-color=#f9e2af
+text-color=#f9e2af
