@@ -2,11 +2,15 @@ if [[ -z "$TMUX" ]]; then
   exec tmux new-session -As "$USER" -f no-detach-on-destroy > /dev/null 2>&1
 fi
 
-# TODO: Figure out when it is I "lose" the socket in the first place, without niri properly crashing.
-if [ ! -S "$NIRI_SOCKET" ]; then
-    socket=$(ls /run/user/$(id -u)/niri*.sock 2>/dev/null | head -1)
-    [ -n "$socket" ] && export NIRI_SOCKET="$socket"
-fi
+# let's wait until it's been 2 full months without any need for this.
+# It's probably been at least one week, but let's count from now on:
+# 2026-03-23
+#
+# # TODO: Figure out when it is I "lose" the socket in the first place, without niri properly crashing.
+# if [ ! -S "$NIRI_SOCKET" ]; then
+#     socket=$(ls /run/user/$(id -u)/niri*.sock 2>/dev/null | head -1)
+#     [ -n "$socket" ] && export NIRI_SOCKET="$socket"
+# fi
 
 [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]] && source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
 [[ -f "$ZDOTDIR/p10k.zsh" ]]                                  && source "$ZDOTDIR/p10k.zsh"
