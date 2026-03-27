@@ -6,8 +6,8 @@ if [ "$1" = otp ]; then
         | ifne fuzzel --dmenu --nth-delimiter=: --accept-nth=1 --only-match)
     attr=totp
 else
-    until [[ -n "$item" && ! "$item" =~ /$ ]]; do item=$(echo "$pass" \
-        | keepassxc-cli ls "$XDG_DATA_HOME/main.kdbx" "$item"         \
+    until [ -n "$item" ] && [ "${item%/}" = "$item" ]; do item=$(echo "$pass" \
+        | keepassxc-cli ls "$XDG_DATA_HOME/main.kdbx" "$item"                 \
         | ifne fuzzel --dmenu --only-match
     ); done
     attr=$(echo "$pass" | keepassxc-cli show --all "$XDG_DATA_HOME/main.kdbx" "$item"      \
