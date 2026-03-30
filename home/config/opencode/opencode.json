@@ -1,3 +1,4 @@
+// vim: set ft=jsonc
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "catppuccin",
@@ -64,18 +65,22 @@
       "options": {
         "baseURL": "https://api.langdock.com/anthropic/eu/v1/"
       },
+      // curl https://api.langdock.com/anthropic/eu/v1/models -H "Authorization: Bearer $LANGDOCK_API_KEY" | jq '.data | map({ (.id): { name:.id } }) | add'
       "models": {
+        "claude-sonnet-4-6-default": {
+          "name": "claude-sonnet-4-6-default"
+        },
         "claude-sonnet-4-5-20250929": {
           "name": "claude-sonnet-4-5-20250929"
         },
-        "claude-sonnet-4-20250514": {
-          "name": "claude-sonnet-4-20250514"
+        "claude-opus-4-6-default": {
+          "name": "claude-opus-4-6-default"
         },
-        "claude-3-7-sonnet-20250219": {
-          "name": "claude-3-7-sonnet-20250219"
+        "claude-haiku-4-5-20251001": {
+          "name": "claude-haiku-4-5-20251001"
         },
-        "claude-3-5-sonnet-20240620": {
-          "name": "claude-3-5-sonnet-20240620"
+        "claude-opus-4-5-20251101": {
+          "name": "claude-opus-4-5-20251101"
         }
       }
     },
