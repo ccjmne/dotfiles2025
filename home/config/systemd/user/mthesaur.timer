@@ -1,0 +1,12 @@
+[Unit]
+Description=Periodically update local copy of Guthenberg project thesaurus
+
+[Timer]
+OnCalendar=monthly
+RandomizedOffsetSec=2 weeks
+AccuracySec=1 day
+Persistent=true
+Unit=run@mthesaur.service
+
+[Install]
+WantedBy=timers.target

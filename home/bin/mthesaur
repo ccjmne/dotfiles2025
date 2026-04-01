@@ -1,0 +1,4 @@
+#! /bin/sh
+
+curl https://www.gutenberg.org/files/3202/files/mthesaur.txt | tr -d '\r' \
+	> "$XDG_DATA_HOME/nvim/mthesaur.txt"
