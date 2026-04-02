@@ -11,7 +11,6 @@ setopt hist_ignore_dups       # Ignore duplicate commands history list
 setopt hist_ignore_all_dups   # Delete old recorded dupes
 setopt hist_find_no_dups      # Do not display a line previously found
 setopt hist_save_no_dups      # Don't write duplicate entries in the history file
-setopt hist_expire_dups_first # Expire a duplicate first when trimming history
 
 setopt hist_reduce_blanks     # Remove superfluous blanks from history entries
 setopt appendhistory          # Append history to the history file (no overwriting)
