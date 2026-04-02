@@ -1,5 +1,5 @@
-Revisions: 6                   Personal Dotfiles                    Éric NICOLAS
-Latest: 2026-01-03             =================
+Revisions: 7                   Personal Dotfiles                    Éric NICOLAS
+Latest: 2026-04-01             =================
 
                            --- Usage w/ GNU Stow ---
 
@@ -10,7 +10,7 @@ Less is more [1]; I use Git [2] and GNU Stow [3].
     sudo STOW_DIR=dots stow --dotfiles --target / root
     # STOW_DIR=dots    stow --dotfiles --target ~ <workplace>
 
-TLDR: git, nvim, tmux, p10k
+TL;DR: fzf, git, niri, nvim, tmux, zsh
 
                          --- One treacherous nicety ---
 
@@ -38,6 +38,10 @@ Philosophy .....................................................................
 
 Post-install ...................................................................
 
+    Install packages:
+
+        sudo xargs -a PACKAGES pacman -Syu
+
     Enable systemd units:
 
         home/config/systemd/user/all.sh enable --now
@@ -54,10 +58,8 @@ References .....................................................................
 
 TODO ...........................................................................
 
-    1.  Consider smudging and cleaning stuff through Git filters.
-    2.  Rewrite this using proper Vim `help` filetype syntax.
-    3.  Consider alternatives to Git submodules.  Git subtree was considered.
-        Git subrepo may be it.
+    1.  Rewrite this using proper Vim `help` filetype syntax.
+    2.  Prefer OpenRC to systemd?
 
 Deprecated Procedure --------------------------- >8 ----------------------------
 
