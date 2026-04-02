@@ -29,3 +29,18 @@ function anchor {
 }
 zle -N anchor
 bindkey '^A' anchor
+
+# Vi Mode Configuration --------------------------------------------------------
+bindkey -v
+bindkey -M vicmd  'v' edit-command-line  # disable visual mode, deferring to edit-command-line instead
+bindkey -M vicmd '^V' edit-command-line
+bindkey -M viins '^V' edit-command-line
+export KEYTIMEOUT=1 # 1/100th of a second, faster transition between Vi modes
+bindkey -M vicmd  '?' history-incremental-pattern-search-backward
+bindkey -M vicmd  '/' history-incremental-pattern-search-forward
+bindkey          '^R' history-incremental-search-backward
+bindkey          '^F' history-incremental-search-forward
+bindkey          '^P' history-search-backward
+bindkey          '^N' history-search-forward
+bindkey          '^A' beginning-of-line
+bindkey          '^E' end-of-line
