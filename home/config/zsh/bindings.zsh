@@ -1,6 +1,4 @@
-# TODO: rename to "bindings" or something in that vein
-
-export KEYTIMEOUT=1 # 1/100th of a second, essentially disabling keymaps timeout
+export KEYTIMEOUT=1 # 1/100th of a second, essentially disabling binding timeout
 
 # Insert mode bindings
 # --------------------

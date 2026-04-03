@@ -22,7 +22,7 @@ export LC_ALL=en_NZ.utf8
 source "$ZDOTDIR/opts.zsh"
 source "$ZDOTDIR/plugins.zsh"
 source "$ZDOTDIR/aliases.zsh"
-source "$ZDOTDIR/hotkeys.zsh"
+source "$ZDOTDIR/bindings.zsh"
 source "$ZDOTDIR/hooks.zsh"
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}' `# Make the completion case- and [-_]- insensitive` \
