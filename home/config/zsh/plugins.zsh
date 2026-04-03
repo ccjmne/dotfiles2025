@@ -4,12 +4,9 @@ ZSH_HIGHLIGHT_STYLES[path]='fg=yellow,bold'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=yellow'
 ZSH_HIGHLIGHT_STYLES[comment]='fg=248' # 8-colours alternative: fg=8,bold
 
-# ZVM_CURSOR_STYLE_ENABLED=false
-
 ZSH_PLUGINS="/usr/share/zsh/plugins"
 OMZ_PLUGINS="/usr/share/oh-my-zsh/lib"
 
-# source "$ZSH_PLUGINS/zsh-vi-mode/zsh-vi-mode.plugin.zsh" # TODO: Better configure
 # source "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
