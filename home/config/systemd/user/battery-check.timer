@@ -2,8 +2,8 @@
 Description=Periodically check for low battery
 
 [Timer]
-OnBootSec=0
-OnUnitActiveSec=5min
+# Every 2 minutes
+OnCalendar=*:0/2
 Unit=run@battery-check.service
 
 [Install]
