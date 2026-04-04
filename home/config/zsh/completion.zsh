@@ -7,10 +7,10 @@ bindkey -M menuselect  '/'   history-incremental-search-forward
 bindkey -M menuselect  '?'   history-incremental-search-backward
 bindkey               '^I'   zle-expand-any           # Tab also expands aliases
 
-bindkey -M menuselect h    vi-backward-char         # navigate options grid with Meta-[hjkl]
-bindkey -M menuselect k    vi-up-line-or-history    #
-bindkey -M menuselect l    vi-forward-char          #
-bindkey -M menuselect j    vi-down-line-or-history  #
+bindkey -M menuselect '^[h'  vi-backward-char         # navigate options grid with Meta-[hjkl]
+bindkey -M menuselect '^[k'  vi-up-line-or-history    #
+bindkey -M menuselect '^[l'  vi-forward-char          #
+bindkey -M menuselect '^[j'  vi-down-line-or-history  #
 bindkey -M menuselect '^N'   vi-down-line-or-history  # navigate otpions grid with ^N, ^P
 bindkey -M menuselect '^P'   vi-up-line-or-history    #
 bindkey -M menuselect '^I'   vi-down-line-or-history  # navigate otpions grid with Tab, S-Tab
