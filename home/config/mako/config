@@ -22,3 +22,6 @@ progress-color=over #313244
 [urgency=high]
 border-color=#f9e2af
 text-color=#f9e2af
+
+[category=update]
+on-notify=exec true
