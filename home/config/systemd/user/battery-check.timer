@@ -1,0 +1,10 @@
+[Unit]
+Description=Periodically check for low battery
+
+[Timer]
+OnBootSec=0
+OnUnitActiveSec=5min
+Unit=run@battery-check.service
+
+[Install]
+WantedBy=timers.target

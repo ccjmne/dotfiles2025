@@ -1,0 +1,46 @@
+#! /bin/sh
+
+readonly threshold=20
+readonly bat=/sys/class/power_supply/BAT0
+readonly lock="$XDG_RUNTIME_DIR/${0##*/}.lock"
+
+notify() {
+	readonly cap=$1
+	readonly id=$2
+	if [ -n "$id" ]; then
+		readonly replace=--replace-id=$id
+		readonly category=--hint=STRING:category:update
+	else
+		readonly wait=--wait
+	fi
+	notify-send --urgency=critical --hint="INT:value:$cap" \
+		'Battery low' "Currently at $cap%"             \
+		--print-id $replace $category $wait
+}
+
+monitor() {
+	cur=$(cat $bat/capacity)
+	status=$(cat $bat/status)
+	id=$1
+	while [ "$cur" -le "$threshold" ]; do
+		cur=$(cat $bat/capacity)
+		status=$(cat $bat/status)
+		id=$(notify $cur $id)
+		sleep 10
+	done
+}
+
+exec 9<> $lock
+if flock --nonblock 9; then
+	cur=$(cat $bat/capacity)
+	status=$(cat $bat/status)
+	if [ "$status" = "Discharging" ] && [ "$cur" -le "$threshold" ]; then
+		notify $cur > $lock &
+		pid=$!
+		sleep .1
+		monitor $(cat $lock) &
+		upid=$!
+		wait $pid
+		kill $upid 2>/dev/null
+	fi
+fi
