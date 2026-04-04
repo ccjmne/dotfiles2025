@@ -6,7 +6,8 @@ readonly lock="$XDG_RUNTIME_DIR/${0##*/}.lock"
 
 notify() {
 	cap=$1
-	id=$2
+	status=$2
+	id=$3
 	if [ -n "$id" ]; then
 		replace=--replace-id=$id
 		category=--hint=STRING:category:update
@@ -20,8 +21,8 @@ notify() {
 		title='Battery status'
 		urgency=--urgency=normal
 	fi
-	notify-send "$title" "Currently at $cap%" \
-		$urgency --hint="INT:value:$cap"  \
+	notify-send "$title" "$status, currently at $cap%" \
+		$urgency --hint="INT:value:$cap"           \
 		--print-id $replace $category $wait
 }
 
@@ -29,10 +30,10 @@ monitor() {
 	cur=$(cat $bat/capacity)
 	status=$(cat $bat/status)
 	id=$1
-	while [ "$cur" -le "$threshold" ]; do
+	while true; do
 		cur=$(cat $bat/capacity)
 		status=$(cat $bat/status)
-		id=$(notify $cur $id)
+		id=$(notify $cur $status $id)
 		sleep 10
 	done
 }
@@ -42,12 +43,12 @@ if flock --nonblock 9; then
 	cur=$(cat $bat/capacity)
 	status=$(cat $bat/status)
 	if [ "$status" = "Discharging" ] && [ "$cur" -le "$threshold" ]; then
-		notify $cur > $lock &
+		notify $cur $status > $lock &
 		pid=$!
 		sleep .1
 		monitor $(cat $lock) &
 		upid=$!
 		wait $pid
-		kill $upid 2>/dev/null
+		kill $upid 2>/dev/null || true
 	fi
 fi
