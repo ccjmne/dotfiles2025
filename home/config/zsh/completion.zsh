@@ -1,0 +1,27 @@
+zmodload zsh/complist
+autoload -U compinit && compinit
+
+bindkey -M menuselect '^?'   backward-delete-char     # let Backspace behave in isearch
+bindkey -M menuselect '^H'   backward-delete-char     # let ^H        behave in isearch
+bindkey -M menuselect  '/'   history-incremental-search-forward
+bindkey -M menuselect  '?'   history-incremental-search-backward
+bindkey               '^I'   zle-expand-any           # Tab also expands aliases
+
+bindkey -M menuselect h    vi-backward-char         # navigate options grid with Meta-[hjkl]
+bindkey -M menuselect k    vi-up-line-or-history    #
+bindkey -M menuselect l    vi-forward-char          #
+bindkey -M menuselect j    vi-down-line-or-history  #
+bindkey -M menuselect '^N'   vi-down-line-or-history  # navigate otpions grid with ^N, ^P
+bindkey -M menuselect '^P'   vi-up-line-or-history    #
+bindkey -M menuselect '^I'   vi-down-line-or-history  # navigate otpions grid with Tab, S-Tab
+bindkey -M menuselect '^[[Z' vi-up-line-or-history    #
+
+autoload -U _generic
+zle -C zle-expand-any complete-word _generic
+
+zstyle ':completion:zle-expand-any:*' completer _expand_alias _complete _ignored
+zstyle ':completion:*' menu yes select                            # Auto-confirm and enter menu mode
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}' `# Make the completion case- and [-_]- insensitive` \
+                                       '+l:|=* r:|=*'             # match sub-strings
+                                                                  # See https://zsh.sourceforge.io/Doc/Release/Completion-Widgets.html#Completion-Matching-Control
+                                                                  # See https://stackoverflow.com/questions/7906078/how-does-the-matcher-list-arguments-work-in-zsh-zstyle-completion

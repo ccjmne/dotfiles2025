@@ -20,15 +20,11 @@ export LC_ALL=en_NZ.utf8
 [[ ! $(locale -a | grep -i $LC_ALL) ]] && sudo locale-gen $LC_ALL # Set up preferred locale if absent (on WSL for instance)
 
 source "$ZDOTDIR/opts.zsh"
+source "$ZDOTDIR/completion.zsh"
 source "$ZDOTDIR/plugins.zsh"
 source "$ZDOTDIR/aliases.zsh"
 source "$ZDOTDIR/bindings.zsh"
 source "$ZDOTDIR/hooks.zsh"
-
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}' `# Make the completion case- and [-_]- insensitive` \
-                                       '+l:|=* r:|=*'             # match sub-strings
-                                                                  # See https://zsh.sourceforge.io/Doc/Release/Completion-Widgets.html#Completion-Matching-Control
-                                                                  # See https://stackoverflow.com/questions/7906078/how-does-the-matcher-list-arguments-work-in-zsh-zstyle-completion
 
 if [[ -n "$PS1" ]]; then                                          # One-time setup:
   export GPG_TTY=$TTY                                             #   gpg --import publickeys.asc privatekeys.asc
