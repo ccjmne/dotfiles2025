@@ -12,12 +12,9 @@ dive
 docker
 docker-buildx
 docker-compose
-dos2unix
 easyeffects-git
 efibootmgr
 entr
-extension-manager
-fasm
 fcitx5
 fd
 firefox
@@ -57,13 +54,12 @@ nodejs
 noto-fonts
 noto-fonts-cjk
 noto-fonts-extra
-nvidia-dkms
+nvidia-open-dkms
 nvidia-settings
 nvidia-utils
 obs-cmd
 obs-shaderfilter-git
 obs-studio
-oh-my-zsh-git
 otf-commit-mono-nerd
 par-git
 paru-git
@@ -93,7 +89,6 @@ tmux-git
 traceroute
 trash-cli
 tree
-uni
 v4l2loopback-dkms
 vesktop-bin
 vulkan-headers
