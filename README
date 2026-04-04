@@ -17,11 +17,13 @@ TL;DR: fzf, git, niri, nvim, tmux, zsh
 Sets XDG paths spec. vars. [4] through the PAM [5] module so as to essentially
 bypass the ~/.local directory, and in general avoid using hidden files:
 
-    XDG_CONFIG_HOME DEFAULT=@{HOME}/config
     XDG_CACHE_HOME  DEFAULT=@{HOME}/cache
+    XDG_CONFIG_HOME DEFAULT=@{HOME}/config
     XDG_DATA_HOME   DEFAULT=@{HOME}/share
     XDG_STATE_HOME  DEFAULT=@{HOME}/state
     ZDOTDIR         DEFAULT=${XDG_CONFIG_HOME}/zsh
+
+    The runtime directory shall remain /run/user/$(id -u).
 
 Philosophy .....................................................................
 
@@ -38,14 +40,16 @@ Philosophy .....................................................................
 
 Post-install ...................................................................
 
+    Log out and back in for PAM to pick up and propagate desired configuration.
+
     Install packages:
 
-        sudo xargs -a PACKAGES pacman -Syu
+        sudo xargs pacman -Syu < PACKAGES
 
     Enable systemd units:
 
         home/config/systemd/user/all.sh enable --now
-        sudo ./system-services     # for system-wide systemd services, timers...
+        sudo ./system-services                 # for non --user systemd services
 
 References .....................................................................
 
@@ -59,7 +63,7 @@ References .....................................................................
 TODO ...........................................................................
 
     1.  Rewrite this using proper Vim `help` filetype syntax.
-    2.  Prefer OpenRC to systemd?
+    2.  Prefer OpenRC to systemd?  Would likely call for Artix.
 
 Deprecated Procedure --------------------------- >8 ----------------------------
 
