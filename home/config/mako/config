@@ -12,7 +12,7 @@ padding=5,15
 background-color=#1e1e2e
 text-color=#cdd6f4
 border-color=#6c7086
-progress-color=over #313244
+progress-color=source #313244
 
 # [urgency=low]
 # on-notify=none
@@ -22,6 +22,7 @@ progress-color=over #313244
 [urgency=high]
 border-color=#f9e2af
 text-color=#f9e2af
+progress-color=source #3c362a
 
 [category=update]
 on-notify=exec true
