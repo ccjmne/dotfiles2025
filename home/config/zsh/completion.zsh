@@ -20,7 +20,7 @@ autoload -U _generic
 zle -C zle-expand-any complete-word _generic
 
 zstyle ':completion:zle-expand-any:*' completer _expand_alias _complete _ignored
-zstyle ':completion:*' menu yes select                            # Auto-confirm and enter menu mode
+zstyle ':completion:*' menu select                                # enter menu mode when Tab again after options were displayed
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}' `# Make the completion case- and [-_]- insensitive` \
                                        '+l:|=* r:|=*'             # match sub-strings
                                                                   # See https://zsh.sourceforge.io/Doc/Release/Completion-Widgets.html#Completion-Matching-Control
