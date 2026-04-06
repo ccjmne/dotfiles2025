@@ -1,54 +1,36 @@
-#! /bin/sh
+#! /bin/sh -e
 
 readonly threshold=20
-readonly bat=/sys/class/power_supply/BAT0
-readonly lock="$XDG_RUNTIME_DIR/${0##*/}.lock"
+readonly bat=/sys/class/power_supply/${1-BAT0}
+readonly fifo=$XDG_RUNTIME_DIR/${0##*/}.fifo
 
 notify() {
-	cap=$1
-	status=$2
-	id=$3
-	if [ -n "$id" ]; then
-		replace=--replace-id=$id
-		category=--hint=STRING:category:update
-	else
-		wait=--wait
+	cur=$1; status=$2; id=$3
+	if [ -n "$id" ]
+	then persistence="--replace-id=$id --hint=STRING:category:update"
+	else persistence='--wait --print-id'
 	fi
-	if [ "$cap" -le "$threshold" ]; then
-		title='Battery low'
-		urgency=--urgency=critical
-	else
-		title='Battery status'
-		urgency=--urgency=normal
+	if [ $cur -le $threshold ]
+	then title='Battery low';    urgency=critical
+	else title='Battery status'; urgency=normal
 	fi
-	notify-send "$title" "$status, currently at $cap%" \
-		$urgency --hint="INT:value:$cap"           \
-		--print-id $replace $category $wait
+	notify-send "$title" "$status, currently at $cur%" \
+		--hint=INT:value:$cur --urgency=$urgency $persistence
 }
 
-monitor() {
-	cur=$(cat $bat/capacity)
-	status=$(cat $bat/status)
-	id=$1
-	while true; do
-		cur=$(cat $bat/capacity)
-		status=$(cat $bat/status)
-		id=$(notify $cur $status $id)
+[ -p $fifo ] && exit
+mkfifo $fifo
+trap 'rm $fifo; [ -n "$loop" ] && kill $loop' EXIT
+cur=$(cat $bat/capacity)
+status=$(cat $bat/status)
+if [ "$status" = "Discharging" ] && [ $cur -le $threshold ]; then
+	notify $cur "$status" > $fifo &
+	notif=$!
+	read id < $fifo
+	while :; do
 		sleep 10
-	done
-}
-
-exec 9<> $lock
-if flock --nonblock 9; then
-	cur=$(cat $bat/capacity)
-	status=$(cat $bat/status)
-	if [ "$status" = "Discharging" ] && [ "$cur" -le "$threshold" ]; then
-		notify $cur $status > $lock &
-		pid=$!
-		sleep .1
-		monitor $(cat $lock) &
-		upid=$!
-		wait $pid
-		kill $upid 2>/dev/null || true
-	fi
+		notify $(cat $bat/capacity) "$(cat $bat/status)" $id
+	done &
+	loop=$!
+	wait $notif
 fi
