@@ -17,7 +17,7 @@ bindkey -M menuselect '^I'   vi-down-line-or-history  # navigate otpions grid wi
 bindkey -M menuselect '^[[Z' vi-up-line-or-history    #
 
 autoload -U _generic
-zle -C zle-expand-any complete-word _generic
+zle -C zle-expand-any expand-or-complete _generic
 
 zstyle ':completion:zle-expand-any:*' completer _expand_alias _complete _ignored
 zstyle ':completion:*' menu select                                # enter menu mode when Tab again after options were displayed
