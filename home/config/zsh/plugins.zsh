@@ -2,7 +2,7 @@
 ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=yellow,bold'
 ZSH_HIGHLIGHT_STYLES[path]='fg=yellow,bold'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[comment]='fg=248' # 8-colours alternative: fg=8,bold
+ZSH_HIGHLIGHT_STYLES[comment]='fg=8'
 
 ZSH_PLUGINS="/usr/share/zsh/plugins"
 
