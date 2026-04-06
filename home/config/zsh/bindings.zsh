@@ -11,6 +11,7 @@ bindkey  ^F history-incremental-search-forward
 bindkey  ^_ undo                   # Ctrl-/ undoes changes, such as *expansions*
 bindkey  ^Z zle-resume                         # Ctrl-Z to resume background job
 bindkey a zle-anchor                    # Meta-A to jump to the nearest anchor
+bindkey  ^X zle-time-zsh                          # time zsh interactive startup
 
 # Vi mode configuration
 # ---------------------
@@ -43,3 +44,6 @@ function zle-anchor {
   done
 }
 zle -N zle-anchor
+
+function zle-time-zsh { BUFFER='time zsh -ic exit'; zle accept-line }
+zle -N zle-time-zsh
