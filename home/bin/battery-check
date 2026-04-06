@@ -2,6 +2,7 @@
 
 readonly threshold=20
 readonly bat=/sys/class/power_supply/${1-BAT0}
+readonly lock=$XDG_RUNTIME_DIR/${0##*/}.lock
 readonly fifo=$XDG_RUNTIME_DIR/${0##*/}.fifo
 
 notify() {
@@ -18,12 +19,11 @@ notify() {
 		--hint=INT:value:$cur --urgency=$urgency $persistence
 }
 
-[ -p $fifo ] && exit
-mkfifo $fifo
-trap 'rm $fifo; [ -n "$loop" ] && kill $loop' EXIT
+exec 9> $lock && flock -n 9
 cur=$(cat $bat/capacity)
 status=$(cat $bat/status)
-if [ "$status" = "Discharging" ] && [ $cur -le $threshold ]; then
+if [ $cur -le $threshold ]; then
+	rm -f "$fifo" && mkfifo $fifo
 	notify $cur "$status" > $fifo &
 	notif=$!
 	read id < $fifo
@@ -31,6 +31,6 @@ if [ "$status" = "Discharging" ] && [ $cur -le $threshold ]; then
 		sleep 10
 		notify $(cat $bat/capacity) "$(cat $bat/status)" $id
 	done &
-	loop=$!
+	trap "kill $!" EXIT
 	wait $notif
 fi
