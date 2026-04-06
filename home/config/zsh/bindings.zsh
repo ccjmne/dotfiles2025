@@ -13,6 +13,12 @@ bindkey  ^Z zle-resume                         # Ctrl-Z to resume background job
 bindkey a zle-anchor                    # Meta-A to jump to the nearest anchor
 bindkey  ^X zle-time-zsh                          # time zsh interactive startup
 
+# Incremental search bindings
+# ---------------------------
+bindkey -M isearch    ^X^J accept-search  # trampoline enabling isearch bindings
+bindkey -M isearch -s   ^J ^X^J              # Ctrl-J, Ctrl-[ exit search mode
+bindkey -M isearch -s    ^X^J              #                 and enter vicmd
+
 # Vi mode configuration
 # ---------------------
 autoload -U edit-command-line && zle -N edit-command-line
