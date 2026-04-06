@@ -1,10 +1,10 @@
 #! /bin/sh
 
-readonly lock=/tmp/click.lock
+readonly lock=$XDG_RUNTIME_DIR/${0##*/}.lock
 exec 9<> $lock
 if flock --nonblock 9; then
-	trap 'ydotool click 0x80' EXIT INT TERM # mouseup on exit, kill, ctrl-c
-	ydotool click 0xc0 --repeat=10000000 &
+	trap 'ydotool click 0x80' EXIT
+	ydotool click 0xc0 --repeat=99999999 &
 	readonly pid=$!
 	echo $pid 1>&9
 	wait $pid
