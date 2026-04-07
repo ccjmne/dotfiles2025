@@ -13,7 +13,7 @@ sed -i "$commit_msg" -e '
 
 # Add Jira ticket prefix to commit messages based on branch name (Unite convention)
 if [ "$commit_src" != 'merge' ] && ! pcregrep -q '^(amend|fixup|squash)!' "$commit_msg"; then
-    ref=$(git branch --show-current | pcregrep -oi '(TERMINUS|(?<=MAPLE_|FINDUS_)?ITH?D|PI)-[0-9]+' | sed 's/.*/\U&/')
+    ref=$(git branch --show-current | pcregrep -oi '(TERMINUS|SKY|(?<=MAPLE_|FINDUS_)?ITH?D|PI)-[0-9]+' | sed 's/.*/\U&/')
     if [ -n "$ref" ]; then
         sed -E "1s/^($ref: )?/$ref: /i" -i "$commit_msg"
         # Also add trailers w/ Jira ref and link (personal preference)
