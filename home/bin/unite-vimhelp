@@ -1,0 +1,6 @@
+#!/bin/sh -eu
+
+readonly udoc=$XDG_DATA_HOME/nvim/runtime/pack/unite/start/git.unite/doc
+mkdir -p $udoc; rm -f -- $udoc/*
+cp $HOME/git.unite/*/doc/*.txt $udoc
+nvim --headless +"helptags $udoc" +q
