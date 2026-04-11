@@ -3,12 +3,11 @@ autoload -U compinit && compinit
 autoload -U _generic
 zle -C zle-expand-omni expand-or-complete _generic
 
-zstyle ':completion:zle-expand-omni:*' completer _expand_alias _complete _ignored
-zstyle ':completion:*' menu select                                # enter menu mode when Tab again after options were displayed
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z-_}={A-Za-z_-}' `# Make the completion case- and [-_]- insensitive` \
-                                       '+l:|=* r:|=*'             # match sub-strings
-                                                                  # See https://zsh.sourceforge.io/Doc/Release/Completion-Widgets.html#Completion-Matching-Control
-                                                                  # See https://stackoverflow.com/questions/7906078/how-does-the-matcher-list-arguments-work-in-zsh-zstyle-completion
+zstyle ':completion:zle-expand-omni:*' completer _expand_alias _complete _approximate
+zstyle ':completion:*' menu select                    # enter menu mode when Tab again after options were displayed
+zstyle ':completion:*' matcher-list ''                    `# plain `            \
+                                    'm:{a-zA-Z}={A-Za-z}' `# case-insensitive ` \
+                                    '+r:|[-_./]=* r:|=*'  `# +partial-word `
 
 bindkey               '^I'   zle-expand-omni          # Tab also expands aliases
 bindkey -M menuselect '^?'   backward-delete-char     # let Backspace behave in isearch
