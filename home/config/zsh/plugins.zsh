@@ -7,7 +7,8 @@ ZSH_HIGHLIGHT_STYLES[comment]='fg=8'
 ZSH_PLUGINS="/usr/share/zsh/plugins"
 
 # source "$ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+# source "$ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[[ $(command -v zsh-patina) ]] && source <(zsh-patina activate)
 
 # [[ -d /usr/share/fzf ]]    && source /usr/share/fzf/completion.zsh
 [[ -d /usr/share/fzf ]]    && source /usr/share/fzf/key-bindings.zsh
