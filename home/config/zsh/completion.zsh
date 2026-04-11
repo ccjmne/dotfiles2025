@@ -1,5 +1,5 @@
 zmodload zsh/complist
-autoload -U compinit && compinit
+autoload -U compinit && compinit -C
 autoload -U _generic
 zle -C zle-expand-omni expand-or-complete _generic
 

@@ -1,0 +1,5 @@
+#! /usr/bin/env zsh
+
+readonly dumpfile=$ZDOTDIR/.zcompdump
+[ -f $dumpfile ]     && rm $dumpfile
+autoload -U compinit && compinit -d $dumpfile

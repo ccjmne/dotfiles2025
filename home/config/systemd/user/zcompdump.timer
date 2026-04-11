@@ -1,0 +1,9 @@
+[Unit]
+Description=daily Zsh completion dump update
+
+[Timer]
+OnCalendar=daily
+Unit=run@zcompdump.service
+
+[Install]
+WantedBy=timers.target
