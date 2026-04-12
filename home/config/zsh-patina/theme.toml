@@ -1,0 +1,47 @@
+# Variety
+# -------
+"comment"            = 8
+"string"             = "green"
+"keyword"            = "magenta"  # repeat, for, while, case, if...
+"constant.character" = "blue"     # escape chars
+
+# Variables
+# ---------
+"storage"                         = "yellow"  # variable assignment
+"variable"                        = "yellow"
+"variable.other"                  = "yellow"  # env. var.
+"variable.function"               = 15        # notably, affixes in ${VAR-PATTERN}
+"variable.parameter"              = "yellow"  # --something, -s
+"punctuation.definition.variable" = "yellow"  # dollar-sign
+"punctuation.section"             = "yellow"  # braces in ${, $(
+
+# Expanding bits
+# --------------
+"keyword.operator.regexp"            = { bold = true, underline = true }  # asterisk in glob, in case...
+"meta.group.expansion.history.shell" = { bold = true, underline = true }  # history expansion
+
+# Standouts
+# ---------
+"support"                = "blue"   # [[, let, while...
+"constant"               = "green"  # fd numbers, repeat count
+"keyword.operator"       = "green"  # ||, &&, >, ;, =
+"punctuation.terminator" = "green"  # terminators (e.g. ";;" after a case item)
+
+# Paths
+# -----
+"dynamic.path"              = { bold = true }
+"variable.language.tilde"   = { bold = true }
+
+# Utilities
+# ---------
+"entity.name.function"      = { foreground = "blue", bold = true }
+"dynamic.callable"          = { foreground = "blue" }
+"dynamic.callable.alias"    = { foreground = "blue", bold = true }
+"dynamic.callable.builtin"  = { foreground = "blue", underline = true }
+"dynamic.callable.command"  = { foreground = "blue" }
+"dynamic.callable.function" = { foreground = "blue", bold = true }
+"dynamic.callable.missing"  = "red"
+
+# Unknown
+# -------
+"storage.modifier" = { foreground = "red", underline = true }
