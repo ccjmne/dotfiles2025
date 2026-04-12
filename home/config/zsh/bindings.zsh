@@ -31,6 +31,17 @@ bindkey -M vicmd  V edit-command-line                  #   but invoke fc instead
 bindkey -M vicmd ^V edit-command-line
 bindkey          ^V edit-command-line
 
+# Surround bindings
+# -----------------
+autoload -U surround
+zle -N add-surround    surround
+zle -N change-surround surround
+zle -N delete-surround surround
+bindkey -M vicmd  cs change-surround
+bindkey -M vicmd  ds delete-surround
+bindkey -M vicmd  ys add-surround
+bindkey -M visual  S add-surround
+
 # Custom ZLE Widgets
 # ------------------
 function zle-resume { fg; zle push-input; BUFFER=''; zle accept-line }
