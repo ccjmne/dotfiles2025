@@ -12,6 +12,9 @@ path=(
     "$XDG_DATA_HOME/nvim/mason/bin"
 )
 
+typeset -U fpath
+fpath+="$XDG_DATA_HOME/zsh/site-functions"
+
 export CALCRC="$XDG_CONFIG_HOME/calc/calcrc"
 export CALCPATH=".:$XDG_DATA_HOME/calc:$XDG_CONFIG_HOME/calc:/usr/share/calc:/usr/share/calc/custom"
 export CALCHISTFILE="$XDG_STATE_HOME/calc/history"

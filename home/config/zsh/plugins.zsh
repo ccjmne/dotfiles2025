@@ -14,5 +14,3 @@ ZSH_PLUGINS="/usr/share/zsh/plugins"
 [[ -d /usr/share/fzf ]]    && source /usr/share/fzf/key-bindings.zsh
 [[ $(command -v fzf rg) ]] && export FZF_DEFAULT_COMMAND='rg --files --hidden'    # Search hidden files w/ fzf
 [[ $(command -v fzf rg) ]] && export FZF_CTRL_T_COMMAND='rg --files 2> /dev/null' # Ctrl-T searches only visible files
-[[ $(command -v klog) ]]   && source <(klog completion -c zsh)
-[[ $(command -v niri) ]]   && source <(niri completions zsh)
