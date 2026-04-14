@@ -1,0 +1,17 @@
+exit =                ["Control+c", "Q"]
+toggle_help =         ["?"]
+toggle_filter_popup = ["/"]
+filter_subaction =    ["Control+/"]
+close_active_window = ["q"]
+
+next_item =     ["Tab"]
+previous_item = ["BackTab", "Shift+BackTab"]
+
+interact =  ["Enter", " "]
+subaction = ["c"]
+copy =      ["y"]
+
+backward =  ["h", "Left"]
+down =      ["j", "Down"]
+up =        ["k", "Up"]
+forward =   ["l", "Right"]
