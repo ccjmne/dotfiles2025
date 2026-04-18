@@ -1,19 +1,20 @@
 # Variety
 # -------
-"comment"            = 8
-"string"             = "green"
+"comment" = 8
+"string"  = "green"
+
+# Built-ins
+# ---------
 "keyword"            = "magenta"  # repeat, for, while, case, if...
-"constant.character" = "blue"     # escape chars
+"storage.modifier"   = "magenta"  # readonly, local
+"support.function"   = "magenta"  # let, alias...
 
 # Variables
 # ---------
-"storage"                         = "yellow"  # variable assignment
-"variable"                        = "yellow"
-"variable.other"                  = "yellow"  # env. var.
-"variable.function"               = 15        # notably, affixes in ${VAR-PATTERN}
-"variable.parameter"              = "yellow"  # --something, -s
-"punctuation.definition.variable" = "yellow"  # dollar-sign
-"punctuation.section"             = "yellow"  # braces in ${, $(
+"keyword.operator.assignment.shell"    = { bold = true } # = in ASDF=1, :- in ${ASDF:-1}
+"meta.group.expansion.parameter.shell" = "yellow"        # variables
+"variable.other.readwrite"             = "yellow"        # left-hand in assignments
+"variable.parameter"                   = "cyan"          # flags
 
 # Expanding bits
 # --------------
@@ -22,10 +23,10 @@
 
 # Standouts
 # ---------
-"support"                = "blue"   # [[, let, while...
-"constant"               = "green"  # fd numbers, repeat count
-"keyword.operator"       = "green"  # ||, &&, >, ;, =
-"punctuation.terminator" = "green"  # terminators (e.g. ";;" after a case item)
+"constant"               = "blue"  # fd numbers, repeat count
+"keyword.operator"       = "blue"  # ||, &&, >, ;, =
+"punctuation.terminator" = "blue"  # terminators (e.g. ";;" after a case item)
+"support"                = "blue"  # [[, let...
 
 # Paths
 # -----
@@ -34,14 +35,10 @@
 
 # Utilities
 # ---------
-"entity.name.function"      = { foreground = "blue", bold = true }
-"dynamic.callable"          = { foreground = "blue" }
-"dynamic.callable.alias"    = { foreground = "blue", bold = true }
-"dynamic.callable.builtin"  = { foreground = "blue", underline = true }
-"dynamic.callable.command"  = { foreground = "blue" }
-"dynamic.callable.function" = { foreground = "blue", bold = true }
-"dynamic.callable.missing"  = "red"
-
-# Unknown
-# -------
-"storage.modifier" = { foreground = "red", underline = true }
+"entity.name.function"      = { foreground = "green", underline = true }
+"dynamic.callable"          = { foreground = "green" }
+"dynamic.callable.alias"    = { foreground = "green", underline = true }
+"dynamic.callable.builtin"  = { foreground = "green", bold = true }
+"dynamic.callable.command"  = { foreground = "green" }
+"dynamic.callable.function" = { foreground = "green", underline = true }
+"dynamic.callable.missing"  = { foreground = "red" }

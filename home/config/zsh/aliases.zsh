@@ -12,6 +12,7 @@ alias ls='ls --group-directories-first --classify=if-tty --color=if-tty'
 alias rg='noglob rg --hidden --glob="!.git" --smart-case'
 alias sg='ast-grep'
 alias ssh='TERM=xterm-256color ssh'
+alias tokenise='zsh-patina tokenize'
 alias watch='watch --color'
 alias xclip='xclip -selection clipboard'
 
