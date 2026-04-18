@@ -31,6 +31,9 @@ bindkey -M vicmd  v edit-command-line                  # never enter visual mode
 bindkey -M vicmd  V edit-command-line                  #   but invoke fc instead
 bindkey -M vicmd ^V edit-command-line
 bindkey          ^V edit-command-line
+zle -A backward-delete-char vi-backward-delete-char   # Ctrl-H may move past ins
+zle -A backward-kill-word vi-backward-kill-word       # Ctrl-W may move past ins
+zle -A kill-whole-line vi-kill-line                   # Ctrl-U may move past ins
 
 # Surround bindings
 # -----------------
