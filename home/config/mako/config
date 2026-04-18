@@ -3,7 +3,7 @@
 # Behaviour
 layer=overlay
 output=eDP-1
-on-notify=exec paplay ~/config/theme/beep.ogg
+on-notify=exec paplay --volume $((2**15)) $XDG_CONFIG_HOME/theme/beep.ogg
 on-button-middle=exec makoctl menu -n$id fuzzel -- --dmenu --anchor=top-right --hide-prompt
 
 # Appearance
@@ -23,6 +23,7 @@ progress-color=source #313244
 border-color=#f9e2af
 text-color=#f9e2af
 progress-color=source #3c362a
+on-notify=exec paplay --volume $((2**16)) $XDG_CONFIG_HOME/theme/beep.ogg
 
 [category=update]
 on-notify=exec true
