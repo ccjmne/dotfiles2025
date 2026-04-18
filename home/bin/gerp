@@ -1,0 +1,14 @@
+#! /bin/sh
+
+case "$1" in
+    hello)       echo 'Henlo, fren!' ;;
+    completions) cat                 ;;
+    *)           echo '?'            ;;
+esac <<'EOF'
+_gerp() {
+    _values 'commands'              \
+            'hello[greet the user]' \
+            'completions[generate shell completions]'
+}
+compdef _gerp gerp
+EOF
