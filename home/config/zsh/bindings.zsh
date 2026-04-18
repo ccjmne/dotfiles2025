@@ -9,7 +9,8 @@ bindkey  ^E end-of-line                                    #
 bindkey  ^_ undo                   # Ctrl-/ undoes changes, such as *expansions*
 bindkey  ^Z zle-resume                         # Ctrl-Z to resume background job
 bindkey a zle-anchor                    # Meta-A to jump to the nearest anchor
-bindkey  ^X zle-time-zsh                          # time zsh interactive startup
+bindkey x zle-time-zsh                # Meta-X to time zsh interactive startup
+bindkey m zle-mise-activate                          # Meta-M to activate mise
 
 # Incremental search bindings
 # ---------------------------
@@ -64,3 +65,6 @@ zle -N zle-anchor
 
 function zle-time-zsh { BUFFER='time zsh -ic exit'; zle accept-line }
 zle -N zle-time-zsh
+
+function zle-mise-activate { source <(mise activate) }
+zle -N zle-mise-activate
