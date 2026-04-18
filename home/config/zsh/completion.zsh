@@ -15,11 +15,11 @@ bindkey -M menuselect '^H'   backward-delete-char     # let ^H        behave in 
 bindkey -M menuselect  '/'   history-incremental-search-forward
 bindkey -M menuselect  '?'   history-incremental-search-backward
 
-bindkey -M menuselect '^[h'  vi-backward-char         # navigate options grid with Meta-[hjkl]
-bindkey -M menuselect '^[k'  vi-up-line-or-history    #
-bindkey -M menuselect '^[l'  vi-forward-char          #
-bindkey -M menuselect '^[j'  vi-down-line-or-history  #
-bindkey -M menuselect '^N'   vi-down-line-or-history  # navigate otpions grid with ^N, ^P
-bindkey -M menuselect '^P'   vi-up-line-or-history    #
-bindkey -M menuselect '^I'   vi-down-line-or-history  # navigate otpions grid with Tab, S-Tab
-bindkey -M menuselect '^[[Z' vi-up-line-or-history    #
+bindkey -M menuselect '^[h'  backward-char            # navigate options grid with Meta-[hjkl]
+bindkey -M menuselect '^[k'  up-line-or-history       #
+bindkey -M menuselect '^[l'  forward-char             #
+bindkey -M menuselect '^[j'  down-line-or-history     #
+bindkey -M menuselect '^N'   down-line-or-history     # navigate otpions grid with ^N, ^P
+bindkey -M menuselect '^P'   up-line-or-history       #
+bindkey -M menuselect '^I'   down-line-or-history     # navigate otpions grid with Tab, S-Tab
+bindkey -M menuselect '^[[Z' up-line-or-history       #
