@@ -1,5 +1,5 @@
 # vim:se ft=cfg
-
+# r !curl -Os https://raw.githubusercontent.com/catppuccin/palette/master/palette.json; jq -r '.latte.ansiColors[] | .normal, .bright | "palette = \(.code)=\(.hex)"' palette.json | sort -nk3; jq -r '"foreground = \(.latte.colors.text.hex)"' palette.json; jq -r '"background = \(.latte.colors.base.hex)"' palette.json; rm palette.json
 palette = 0=#5c5f77
 palette = 1=#d20f39
 palette = 2=#40a02b
@@ -16,12 +16,8 @@ palette = 12=#456eff
 palette = 13=#fe85d8
 palette = 14=#2d9fa8
 palette = 15=#bcc0cc
-background = #eff1f5
 foreground = #4c4f69
-cursor-color = #dc8a78
-cursor-text = #eff1f5
-selection-background = #acb0be
-selection-foreground = #4c4f69
+background = #eff1f5
 
 # Use mauve instead of pink for ANSI magenta
 palette = 5=#8839ef

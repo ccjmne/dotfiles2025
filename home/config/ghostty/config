@@ -4,7 +4,7 @@ gtk-single-instance   = true
 confirm-close-surface = false
 app-notifications     = false
 
-theme = dark:mocha,light:latte
+theme = dark:dark,light:light
 
 cursor-style               = block
 cursor-style-blink         = false
