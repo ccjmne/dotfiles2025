@@ -3,14 +3,14 @@
 readonly cache="$XDG_CACHE_HOME/fuzzel/$(basename $0)"
 mkdir -p $cache
 if [ "$1" = "^" ]; then
-  head -1 "$cache/$(pactl get-default-sink)" | sed 's/|[0-9]*$//'                                                             \
-    | ifne xargs -II jq -r '.[] | select(.properties["device.description"] == "I") | .name' <(pactl --format json list sinks) \
-    | ifne xargs pactl set-default-sink
+    head -1 "$cache/$(pactl get-default-sink)" | sed 's/|[0-9]*$//'                                                               \
+        | ifne xargs -II jq -r '.[] | select(.properties["device.description"] == "I") | .name' <(pactl --format json list sinks) \
+        | ifne xargs pactl set-default-sink
 else
-  pactl --format=json list sinks                                                                             \
-    | jq --raw-output '.[] | select(.state != "RUNNING") | .name + "\t" + .properties["device.description"]' \
-    | ifne fuzzel --dmenu --accept-nth=1 --with-nth=2                                                        \
-                  --anchor="${1:-top-left}" --hide-prompt                                                    \
-                  --cache="$cache/$(pactl get-default-sink)"                                                 \
-    | ifne xargs pactl set-default-sink
+    pactl --format=json list sinks                                                                               \
+        | jq --raw-output '.[] | select(.state != "RUNNING") | .name + "\t" + .properties["device.description"]' \
+        | ifne fuzzel --dmenu --accept-nth=1 --with-nth=2                                                        \
+                      --anchor="${1:-top-left}" --hide-prompt                                                    \
+                      --cache="$cache/$(pactl get-default-sink)"                                                 \
+        | ifne xargs pactl set-default-sink
 fi
