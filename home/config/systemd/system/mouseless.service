@@ -1,0 +1,13 @@
+[Unit]
+Description=mouseless service
+ConditionPathExists=/usr/bin/mouseless
+After=graphical-session.target
+
+[Service]
+User=mouseless
+Group=mouseless
+ExecStart=/usr/bin/mouseless --config /home/ccjmne/.config/mouseless/config.yaml
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
