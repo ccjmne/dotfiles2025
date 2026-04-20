@@ -4,9 +4,8 @@ ConditionPathExists=/usr/bin/mouseless
 After=graphical-session.target
 
 [Service]
-User=mouseless
-Group=mouseless
-ExecStart=/usr/bin/mouseless --config /home/ccjmne/.config/mouseless/config.yaml
+SupplementaryGroups=input uinput
+ExecStart=/usr/bin/mouseless
 Restart=on-failure
 
 [Install]

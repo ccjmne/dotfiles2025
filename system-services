@@ -1,9 +1,5 @@
 #! /bin/sh
 
-getent group uinput                     || groupadd --system   uinput
-id mouseless 2>/dev/null                || useradd  --system   mouseless
-id mouseless --groups | grep -wq uinput || usermod  -aG uinput mouseless
-
 xargs systemctl enable --now <<-EOF
 	docker.service
 	tlp.service
