@@ -1,32 +1,35 @@
-# Variety
-# -------
+# Miscellaneous
+# -------------
 "comment" = 8
+"meta.group.expansion.command.parens" = {}  # reset command substitution base style $()
 "string"  = "green"
 
-# Built-ins
-# ---------
-"keyword"            = "magenta"  # repeat, for, while, case, if...
-"storage.modifier"   = "magenta"  # readonly, local
-"support.function"   = "magenta"  # let, alias...
+# Shell built-ins
+# ---------------
+"keyword"                = "magenta"        # repeat, while, case, if...
+"keyword.operator"       = { bold = true }  # ||, &&, >, ;, =
+"storage.modifier"       = "magenta"        # readonly, local
+"support.function"       = "magenta"        # let, alias...
 
 # Variables
 # ---------
-"keyword.operator.assignment.shell"    = { bold = true } # = in ASDF=1, :- in ${ASDF:-1}
-"meta.group.expansion.parameter.shell" = "yellow"        # variables
-"variable.other.readwrite"             = "yellow"        # left-hand in assignments
-"variable.parameter"                   = "cyan"          # flags
+# "keyword.operator.assignment"    = { bold = true }  # = in ASDF=1 and --asdf=1, :- in ${ASDF:-1}
+# "keyword.operator.logical.shell" = { bold = true }  # =, =~ in [[ "$ADSF" = "1" ]]
+"meta.group.expansion.parameter" = "yellow"         # variables
+"variable.other.readwrite"       = "yellow"         # left-hand in assignments
+"variable.parameter"             = { bold = true }  # flags
 
-# Expanding bits
-# --------------
+# Contextual bits
+# ---------------
 "keyword.operator.regexp"            = { bold = true, underline = true }  # asterisk in glob, in case...
 "meta.group.expansion.history.shell" = { bold = true, underline = true }  # history expansion
 
 # Standouts
 # ---------
-"constant"               = "blue"  # fd numbers, repeat count
-"keyword.operator"       = "blue"  # ||, &&, >, ;, =
-"punctuation.terminator" = "blue"  # terminators (e.g. ";;" after a case item)
-"support"                = "blue"  # [[, let...
+"constant.numeric.integer.decimal.file-descriptor" = { foreground = "blue", bold = true }  # numeric file descriptors
+"keyword.operator.assignment.redirection"          = { foreground = "blue", bold = true }  # >, <, <>, <<, <<<
+"punctuation.terminator" = "blue"           # terminators (e.g. ";;" after a case item)
+"support"                = "blue"           # [[, let...
 
 # Paths
 # -----
@@ -35,10 +38,6 @@
 
 # Utilities
 # ---------
-"entity.name.function"      = { foreground = "green", underline = true }
-"dynamic.callable"          = { foreground = "green" }
-"dynamic.callable.alias"    = { foreground = "green", underline = true }
+"dynamic.callable"          = "green"
 "dynamic.callable.builtin"  = { foreground = "green", bold = true }
-"dynamic.callable.command"  = { foreground = "green" }
-"dynamic.callable.function" = { foreground = "green", underline = true }
-"dynamic.callable.missing"  = { foreground = "red" }
+"dynamic.callable.missing"  = "red"
