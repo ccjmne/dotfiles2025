@@ -48,7 +48,7 @@ bindkey -M visual  S add-surround
 
 # Custom ZLE Widgets
 # ------------------
-function zle-resume { fg; zle push-input; BUFFER=''; zle accept-line }
+function zle-resume { zle push-input; BUFFER='fg'; zle accept-line }
 zle -N zle-resume
 
 # exe "r!sed -n '/anchor_files=/,/)$/p' <(curl -sL https://github.com/romkatv/powerlevel10k/raw/refs/heads/master/config/p10k-classic.zsh)" | norm V%J==F(lx
