@@ -1,42 +1,32 @@
-export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
-
-export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"  # Supposedly omz-only but others (like mise) appear to use it too
-export ZLE_SPACE_SUFFIX_CHARS=$'&|'         # Avoid 'consuming' the space before a pipe or ampersand
-export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|"
-export MISE_CONFIG_FILE="$XDG_CONFIG_HOME/mise/config.toml"
-
-typeset -U path
-path=(
-    "$HOME/bin"
-    $path
-    "$XDG_DATA_HOME/nvim/mason/bin"
-)
-
-typeset -U fpath
-fpath+="$XDG_DATA_HOME/zsh/site-functions"
-
-export CALCRC="$XDG_CONFIG_HOME/calc/calcrc"
-export CALCPATH=".:$XDG_DATA_HOME/calc:$XDG_CONFIG_HOME/calc:/usr/share/calc:/usr/share/calc/custom"
-export CALCHISTFILE="$XDG_STATE_HOME/calc/history"
-
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export LUAROCKS_HOME="$XDG_DATA_HOME/luarocks"
-export LUA_PATH="$LUAROCKS_HOME/share/lua/5.4/?.lua;$LUAROCKS_HOME/share/lua/5.4/?/init.lua;;"
-export LUA_CPATH="$LUAROCKS_HOME/lib/lua/5.4/?.so;;"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+
+typeset -U fpath; fpath=("${fpath[@]}" "$XDG_DATA_HOME/zsh/site-functions")
+typeset -U  path;  path=("$HOME/bin" "${path[@]}" "$XDG_DATA_HOME/nvim/mason/bin")
 [[ -d "$CARGO_HOME/bin" ]]    && path+="$CARGO_HOME/bin"
 [[ -d "$PNPM_HOME" ]]         && path+="$PNPM_HOME"
 [[ -d "$LUAROCKS_HOME/bin" ]] && path+="$LUAROCKS_HOME/bin"
 
-export MANWIDTH=100
-export MANOPT='--no-justification --no-hyphenation'
 (( $+commands[nvim] ))                 && export EDITOR=vim VISUAL=nvim MANPAGER='nvim +Man!'
-(( $+commands[ghostty] ))              && export TERMINAL=ghostty             # For fuzzel to handle Terminal=true \.desktop entries, for instance
-(( $+commands[google-chrome-stable] )) && export BROWSER=google-chrome-stable # Just in case something might use it (like man --html)
-export FCEDIT="$EDITOR +'set ft=sh'"
+(( $+commands[ghostty] ))              && export TERMINAL=ghostty              # For fuzzel to handle Terminal=true \.desktop entries, for instance
+(( $+commands[google-chrome-stable] )) && export BROWSER=google-chrome-stable  # Just in case something might use it (like man --html)
 
-# TODO: Do I need the following?
-# export VIM="$XDG_DATA_HOME/${EDITOR:-vim}" # VIMRUNTIME goes to $VIM/runtime (or other places), w/o considering $XDG_DATA_HOME
+export BAT_STYLE=plain
+export BAT_THEME=base16
+export CALCHISTFILE="$XDG_STATE_HOME/calc/history"
+export CALCPATH=".:$XDG_DATA_HOME/calc:$XDG_CONFIG_HOME/calc:/usr/share/calc:/usr/share/calc/custom"
+export CALCRC="$XDG_CONFIG_HOME/calc/calcrc"
+export FCEDIT="$EDITOR +'se ft=sh'"
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export LUA_CPATH="$LUAROCKS_HOME/lib/lua/5.4/?.so;;"
+export LUA_PATH="$LUAROCKS_HOME/share/lua/5.4/?.lua;$LUAROCKS_HOME/share/lua/5.4/?/init.lua;;"
+export MANOPT='--no-justification --no-hyphenation'
+export MANWIDTH=100
+export MISE_CONFIG_FILE="$XDG_CONFIG_HOME/mise/config.toml"
+export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|"
+export ZLE_SPACE_SUFFIX_CHARS=$'&|'         # Avoid 'consuming' the space before a pipe or ampersand
+export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"  # Supposedly omz-only but others (like mise) appear to use it too
 
 # TODO: Figure out how to incorporate --tiebreak=chunk,begin (probably?) except for C-t, M-c...
 export FZF_DEFAULT_OPTS='
@@ -56,5 +46,3 @@ export FZF_DEFAULT_OPTS='
 '
 
 eval $(dircolors)
-export BAT_THEME=base16
-export BAT_STYLE=plain
