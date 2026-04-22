@@ -1,20 +1,27 @@
 #! /bin/sh
 
+dir=$(obs-cmd record-directory get | grep -oP '(?<=Current record directory:\s).*')
+[ $1 = 'dir' ] && exec xdg-open "$dir" && exit 0
+
 pgrep --exact obs || obs --minimize-to-tray &
 obs-cmd scene-collection switch 'Game Recording'
 obs-cmd recording status | grep -qi 'active:\s*true'
 before=$?
 
+[ "$before" -eq 1 ] && [ "$*" = 'stop' ] && exit 0
 obs-cmd recording "${*:-toggle}"
-[ $? -ne 0 ] && notify-send "failed to do $*"
+[ $? -ne 0 ] && notify-send "failed to $*" --urgency=critical && exit 1
 sleep .5
 
 obs-cmd recording status | grep -qi 'active:\s*true'
 after=$?
 if   [ $after -eq 0 ] && [ $before -eq 1 ]; then
-	notify-send 'Recording started' "Click to stop" --action='default=Finish recording' | ifne $0 stop
+	notify-send 'Recording started' 'Click to stop' --urgency=low --action='default=Finish recording' | ifne $0 stop
 elif [ $after -eq 1 ] && [ $before -eq 0 ]; then
-	dir=$(obs-cmd record-directory get | grep -oP '(?<=Current record directory:\s).*')
-	file="$(ls -t "$dir"/*.mp4 | head -1)"
-	notify-send 'Recording complete' "Saved to $file" --action='default=Open the recording' | ifne xdg-open "$file"
+	file="$(ls -t "$dir"/*.mkv | head -1)"
+	action=$(notify-send 'Recording complete' "Saved to $file" --action='default=Open the recording' --action='dir=Open recordings directory')
+	[ $action = 'default' ] && xdg-open "$file"
+	[ $action = 'dir' ]     && xdg-open "$dir"
+elif [ "$1" = 'create-chapter' ]; then
+	notify-send 'Marker added' --urgency=low
 fi
