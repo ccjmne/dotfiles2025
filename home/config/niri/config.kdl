@@ -388,6 +388,7 @@ binds {
     Alt+Print       { screenshot-window; }
     Mod+Print       { spawn "record-screen"; }
     Mod+Shift+Print { spawn "record-screen" "create-chapter"; }
+    Mod+Ctrl+Print  { spawn "record-screen" "dir"; }
 
     // Applications such as remote-desktop clients and software KVM switches may
     // request that niri stops processing the keyboard shortcuts defined here
