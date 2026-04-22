@@ -28,17 +28,12 @@ export LUA_CPATH="$LUAROCKS_HOME/lib/lua/5.4/?.so;;"
 [[ -d "$PNPM_HOME" ]]         && path+="$PNPM_HOME"
 [[ -d "$LUAROCKS_HOME/bin" ]] && path+="$LUAROCKS_HOME/bin"
 
-export BROWSER="$(which google-chrome-stable)" # Just in case something might use it (like man --html)
 export MANWIDTH=100
 export MANOPT='--no-justification --no-hyphenation'
-if [[ $(command -v nvim) ]]; then
-  export EDITOR="nvim"
-  export VISUAL="nvim"
-  export MANPAGER='nvim +Man!'
-fi
+(( $+commands[nvim] ))                 && export EDITOR=vim VISUAL=nvim MANPAGER='nvim +Man!'
+(( $+commands[ghostty] ))              && export TERMINAL=ghostty             # For fuzzel to handle Terminal=true \.desktop entries, for instance
+(( $+commands[google-chrome-stable] )) && export BROWSER=google-chrome-stable # Just in case something might use it (like man --html)
 export FCEDIT="$EDITOR +'set ft=sh'"
-
-[[ $(command -v ghostty) ]] && export TERMINAL=ghostty  # For fuzzel to handle Terminal=true \.desktop entries, for instance
 
 # TODO: Do I need the following?
 # export VIM="$XDG_DATA_HOME/${EDITOR:-vim}" # VIMRUNTIME goes to $VIM/runtime (or other places), w/o considering $XDG_DATA_HOME
