@@ -26,9 +26,8 @@ source "$ZDOTDIR/aliases.zsh"
 source "$ZDOTDIR/bindings.zsh"
 source "$ZDOTDIR/hooks.zsh"
 
-if [[ -n "$PS1" ]]; then                                          # One-time setup:
-  export GPG_TTY=$TTY                                             #   gpg --import publickeys.asc privatekeys.asc
-  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)    #   gpg --list-keys --with-keygrip
-fi                                                                #   echo [keygrip] >> $GNUPGHOME/sshcontrol
+export GPG_TTY=$TTY                                          # gpg --import publickeys.asc privatekeys.asc
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) # gpg --list-keys --with-keygrip
+                                                             # echo [keygrip] >> $GNUPGHOME/sshcontrol
 
 [[ -f ~/.uniterc ]] && source ~/.uniterc
