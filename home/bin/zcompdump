@@ -4,12 +4,12 @@ readonly dumpfile=$ZDOTDIR/.zcompdump
 readonly compdir=$XDG_DATA_HOME/zsh/site-functions
 
 mkdir -p $compdir
-rm $compdir/*
+rm -- $compdir/*
 
 klog completion -c zsh > $compdir/_klog  # doesn't quite work currently, requires upstream fix at kong-completion, PR submitted
-niri completions zsh >   $compdir/_niri
-zsh-patina completion >  $compdir/_zsh-patina
+niri completions zsh   > $compdir/_niri
+zsh-patina completion  > $compdir/_zsh-patina
 
-fpath+=$compdir
-[ -f $dumpfile ] && rm $dumpfile
+fpath+=($compdir)
+[ -f $dumpfile ] && rm -- $dumpfile
 autoload -U compinit && compinit -d $dumpfile
