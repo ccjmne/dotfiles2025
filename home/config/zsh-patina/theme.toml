@@ -1,43 +1,21 @@
-# Miscellaneous
-# -------------
-"comment" = 8
-"meta.group.expansion.command.parens" = {}  # reset command substitution base style $()
-"string"  = "green"
-
-# Shell built-ins
-# ---------------
-"keyword"                = "magenta"        # repeat, while, case, if...
-"keyword.operator"       = { bold = true }  # ||, &&, >, ;, =
-"storage.modifier"       = "magenta"        # readonly, local
-"support.function"       = "magenta"        # let, alias...
-
-# Variables
-# ---------
-# "keyword.operator.assignment"    = { bold = true }  # = in ASDF=1 and --asdf=1, :- in ${ASDF:-1}
-# "keyword.operator.logical.shell" = { bold = true }  # =, =~ in [[ "$ADSF" = "1" ]]
-"meta.group.expansion.parameter" = "yellow"         # variables
-"variable.other.readwrite"       = "yellow"         # left-hand in assignments
-"variable.parameter"             = { bold = true }  # flags
-
-# Contextual bits
-# ---------------
-"keyword.operator.regexp"            = { bold = true, underline = true }  # asterisk in glob, in case...
-"meta.group.expansion.history.shell" = { bold = true, underline = true }  # history expansion
-
-# Standouts
-# ---------
-"constant.numeric.integer.decimal.file-descriptor" = { foreground = "blue", bold = true }  # numeric file descriptors
-"keyword.operator.assignment.redirection"          = { foreground = "blue", bold = true }  # >, <, <>, <<, <<<
-"punctuation.terminator" = "blue"           # terminators (e.g. ";;" after a case item)
-"support"                = "blue"           # [[, let...
-
-# Paths
-# -----
-"dynamic.path"              = { bold = true }
-"variable.language.tilde"   = { bold = true }
-
-# Utilities
-# ---------
-"dynamic.callable"          = "green"
-"dynamic.callable.builtin"  = { foreground = "green", bold = true }
-"dynamic.callable.missing"  = "red"
+"support"                                          = "blue"                                # [[, let...
+"punctuation.terminator"                           = "blue"                                # terminators (e.g. ";;" after a case item)
+"dynamic.callable"                                 = "green"
+"string"                                           = "green"
+"support.function"                                 = "magenta"                             # let, alias...
+"storage.modifier"                                 = "magenta"                             # readonly, local
+"keyword"                                          = "magenta"                             # repeat, while, case, if...
+"dynamic.callable.missing"                         = "red"
+"variable.other.readwrite"                         = "yellow"                              # left-hand in assignments
+"meta.group.expansion.parameter"                   = "yellow"                              # variables
+"comment"                                          = 8
+"dynamic.path"                                     = { bold = true }
+"variable.language.tilde"                          = { bold = true }
+"variable.parameter"                               = { bold = true }                       # flags
+"keyword.operator"                                 = { bold = true }                       # ||, &&, >, ;, =
+"keyword.operator.assignment.redirection"          = { bold = true, foreground = "blue"  } # >, <, <>, <<, <<<
+"constant.numeric.integer.decimal.file-descriptor" = { bold = true, foreground = "blue" }  # numeric file descriptors
+"dynamic.callable.builtin"                         = { bold = true, foreground = "green" }
+"keyword.operator.regexp"                          = { bold = true, underline = true }     # asterisk in glob, in case...
+"meta.group.expansion.history.shell"               = { bold = true, underline = true }     # history expansion
+"meta.group.expansion.command.parens"              = {}                                    # reset command substitution base style $()
