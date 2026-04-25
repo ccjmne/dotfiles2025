@@ -1,0 +1,40 @@
+# vim:ft=conf
+
+# text     = c6d0f5
+# subtext0 = a5adce
+# overlay0 = 737994
+# surface0 = 414559
+# base     = 303446
+
+indicator-idle-visible
+
+bs-hl-color=737994
+key-hl-color=a5adce
+
+color=303446
+separator-color=00000000
+
+inside-clear-color=303446
+inside-color=303446
+inside-ver-color=303446
+inside-wrong-color=303446
+
+layout-bg-color=00000000
+layout-border-color=00000000
+layout-text-color=c6d0f5
+
+line-clear-color=00000000
+line-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+
+ring-clear-color=414559
+ring-color=414559
+ring-ver-color=414559
+ring-wrong-color=414559
+
+text-caps-lock-color=c6d0f5
+text-clear-color=c6d0f5
+text-color=c6d0f5
+text-ver-color=c6d0f5
+text-wrong-color=c6d0f5
