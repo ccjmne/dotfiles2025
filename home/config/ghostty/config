@@ -3,13 +3,13 @@ window-step-resize    = true
 gtk-single-instance   = true
 confirm-close-surface = false
 app-notifications     = false
+shell-integration     = none
 
 theme = dark:dark,light:light
 
-cursor-style               = block
-cursor-style-blink         = false
-cursor-invert-fg-bg        = true
-shell-integration-features = no-cursor
+cursor-style        = block
+cursor-style-blink  = false
+cursor-invert-fg-bg = true
 
 # w/ smart kerning, alt i, alt 6 & 9, dotted 0, alt ilatics aefgy
 font-family  = CommitMono Nerd Font Mono
