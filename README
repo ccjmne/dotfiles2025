@@ -1,5 +1,5 @@
-Revisions: 7                   Personal Dotfiles                    Éric NICOLAS
-Latest: 2026-04-01             =================
+Revisions: 8                   Personal Dotfiles                    Éric NICOLAS
+Latest: 2026-04-25             =================                ccjmne@gmail.com
 
                            --- Usage w/ GNU Stow ---
 
@@ -66,8 +66,9 @@ References .....................................................................
 
 TODO ...........................................................................
 
-    1.  Rewrite this using proper Vim `help` filetype syntax.
-    2.  Prefer OpenRC to systemd?  Would likely call for Artix.
+    1.  Switch away from Neovim and back to the more poised Vim.
+    2.  Rewrite this using proper Vim `help` filetype syntax.
+    3.  Prefer OpenRC to systemd?  Would likely call for Artix.
 
 Deprecated Procedure --------------------------- >8 ----------------------------
 
