@@ -1,216 +1,15 @@
-include "inputs.kdl"
-include "windows.kdl"
-
-hotkey-overlay {
-    skip-at-startup
-}
-
-output "eDP-1" {
-    mode "1920x1080@120.030"
-    transform "normal"
-    position x=-1 y=0
-    layout {
-        default-column-width { proportion 0.5; }
-    }
-}
-output "Dell Inc. DELL P2422H 1DY6QP3" {
-    mode "1920x1080@120.030"
-    transform "normal"
-    position x=0 y=-1080
-    layout {
-        default-column-width { proportion 0.5; }
-    }
-}
-output "Dell Inc. DELL P2422H 9KY6QP3" {
-    mode "1920x1080@120.030"
-    transform "270"
-    position x=1920 y=-1080
-    layout {
-        default-column-width { proportion 1.0; }
-    }
-}
-
-layout {
-    gaps 1
-    empty-workspace-above-first
-    preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-    }
-    preset-window-heights {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-    }
-    default-column-width {}
-    focus-ring {
-        off
-        width 4
-        active-color   "#fab387" // on   active monitor: cattpuccin/mocha/peach
-        inactive-color "#9399b2" // on inactive monitor: cattpuccin/mocha/overlay_2
-    }
-    border {
-        off
-        width 4
-        active-color "#ffc87f"
-        inactive-color "#505050"
-        urgent-color "#9b0000"
-    }
-    shadow {
-        softness 30
-        spread 5
-        offset x=0 y=5
-        color "#0007"
-    }
-    struts {
-        left -1
-        right -1
-        top -1
-        bottom -1
-    }
-}
-
+include "controls.kdl"
+include "layout.kdl"
 
 spawn-at-startup "nm-applet" "--indicator"
 prefer-no-csd // Omit client-side decorations if possible
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+hotkey-overlay { skip-at-startup; }
 
 animations {
     slowdown 0.5
-    window-open {
-        duration-ms 300
-    }
-    window-close {
-        duration-ms 300
-    }
-}
-
-binds {
-    Mod+Shift+Slash { show-hotkey-overlay; }
-
-    Mod+M          { spawn "niri-run-or-raise-rotate" "com.mitchellh.ghostty"; }
-    Mod+Shift+M    { spawn "ghostty"; }
-    Mod+N          { spawn "fuzzel" "--cache" "/home/ccjmne/cache/fuzzel/xdg-apps"; }
-    Mod+Z          { spawn "lock"; }
-    Mod+P          { spawn "ghostty" "-e" "top"; }
-    Mod+T          { spawn "scrcpy" "--turn-screen-off"; }
-    Mod+Apostrophe { spawn "kpfz"; }
-    Mod+Shift+Apostrophe { spawn "kpfz" "otp"; }
-    Mod+U          { swap-window-left; }
-    Mod+I          { swap-window-right; }
-    Mod+Y          { spawn "move-to-new-workspace" "below"; }
-    Mod+E          { spawn "toggle-colourscheme"; }
-    Mod+Shift+E    { spawn "select-audio-sink" "^"; }
-    Mod+D          { spawn "ghostty" "--title=calc" "-e" "zsh" "-c" "calc -d"; }
-    Mod+Shift+D    { spawn "ghostty" "--title=cal" "-e" "fcal"; }
-
-    XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute         allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@"   "toggle"; }
-    XF86AudioMicMute      allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "10%+"; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-"; }
-
-    Mod+O repeat=false { toggle-overview; }
-
-    Mod+Q { close-window; }
-
-    Mod+Left  { focus-column-left-or-last; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
-    Mod+Right { focus-column-right-or-first; }
-    Mod+H     { focus-column-left-or-last; }
-    Mod+J     { focus-window-or-workspace-down; }
-    Mod+K     { focus-window-or-workspace-up; }
-    Mod+L     { focus-column-right-or-first; }
-
-    Mod+Ctrl+Left  { move-column-left; }
-    Mod+Ctrl+Down  { move-window-down; }
-    Mod+Ctrl+Up    { move-window-up; }
-    Mod+Ctrl+Right { move-column-right; }
-    Mod+Ctrl+H     { move-column-left; }
-    Mod+Ctrl+J     { move-window-down-or-to-workspace-down; }
-    Mod+Ctrl+K     { move-window-up-or-to-workspace-up; }
-    Mod+Ctrl+L     { move-column-right; }
-
-    Mod+Home { focus-column-first; }
-    Mod+End  { focus-column-last; }
-    Mod+Ctrl+Home { move-column-to-first; }
-    Mod+Ctrl+End  { move-column-to-last; }
-
-    Mod+Shift+Left  { focus-monitor-left; }
-    Mod+Shift+Down  { focus-monitor-down; }
-    Mod+Shift+Up    { focus-monitor-up; }
-    Mod+Shift+Right { focus-monitor-right; }
-    Mod+Shift+H     { focus-monitor-left; }
-    Mod+Shift+J     { focus-monitor-down; }
-    Mod+Shift+K     { focus-monitor-up; }
-    Mod+Shift+L     { focus-monitor-right; }
-
-    Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
-    Mod+Shift+Ctrl+Down  { move-window-to-monitor-down; }
-    Mod+Shift+Ctrl+Up    { move-window-to-monitor-up; }
-    Mod+Shift+Ctrl+Right { move-window-to-monitor-right; }
-    Mod+Shift+Ctrl+H     { move-window-to-monitor-left; }
-    Mod+Shift+Ctrl+J     { move-window-to-monitor-down; }
-    Mod+Shift+Ctrl+K     { move-window-to-monitor-up; }
-    Mod+Shift+Ctrl+L     { move-window-to-monitor-right; }
-
-    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
-    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-
-    Mod+WheelScrollRight      { focus-column-right; }
-    Mod+WheelScrollLeft       { focus-column-left; }
-    Mod+Ctrl+WheelScrollRight { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
-
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
-    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
-
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
-
-    Mod+Comma  { consume-window-into-column; }
-    Mod+Period { expel-window-from-column; }
-
-    Mod+R { switch-preset-column-width; }
-    Mod+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
-
-    Mod+Ctrl+F { expand-column-to-available-width; }
-
-    Mod+C { center-column; }
-
-    Mod+Ctrl+C { center-visible-columns; }
-
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
-
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
-
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-
-    Mod+W { toggle-column-tabbed-display; }
-
-    Print           { spawn "sh" "-c" "grim -t ppm -g \"$(slurp -d)\" - | satty --filename - --initial-tool=arrow --copy-command=wl-copy --actions-on-right-click='save-to-clipboard' --actions-on-escape='save-to-clipboard,exit' --brush-smooth-history-size=5 --disable-notifications --corner-roundness=0"; }
-    Ctrl+Print      { screenshot-screen; }
-    Alt+Print       { screenshot-window; }
-    Mod+Print       { spawn "record-screen"; }
-    Mod+Shift+Print { spawn "record-screen" "create-chapter"; }
-    Mod+Ctrl+Print  { spawn "record-screen" "dir"; }
-
-    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-
-    Ctrl+Alt+Delete { quit; }
+    window-open  { duration-ms 300; }
+    window-close { duration-ms 300; }
 }
 
 recent-windows {
@@ -222,7 +21,6 @@ recent-windows {
         Alt+Shift+Tab   { previous-window                 scope="output"; }
         Alt+Grave       { next-window     filter="app-id" scope="output"; }
         Alt+Shift+Grave { previous-window filter="app-id" scope="output"; }
-
         Mod+Tab         { next-window                     scope="all"; }
         Mod+Shift+Tab   { previous-window                 scope="all"; }
         Mod+Grave       { next-window     filter="app-id" scope="all"; }
