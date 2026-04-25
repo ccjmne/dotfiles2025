@@ -1,12 +1,12 @@
 input {
     keyboard {
-        numlock // numlock on start-up
+        numlock
     }
     touchpad {
         tap
         natural-scroll
     }
-    warp-mouse-to-focus
+    warp-mouse-to-focus mode="center-xy-always"
 }
 
 gestures {
