@@ -24,10 +24,11 @@ source "$ZDOTDIR/completion.zsh"
 source "$ZDOTDIR/plugins.zsh"
 source "$ZDOTDIR/aliases.zsh"
 source "$ZDOTDIR/bindings.zsh"
-source "$ZDOTDIR/hooks.zsh"
 
-export GPG_TTY=$TTY                                          # gpg --import publickeys.asc privatekeys.asc
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) # gpg --list-keys --with-keygrip
-                                                             # echo [keygrip] >> $GNUPGHOME/sshcontrol
+export GPG_TTY=$TTY                                                   # One-time set-up
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)          # ---------------
+autoload -U add-zsh-hook                                              # gpg --import publickeys.asc privatekeys.asc
+add-zsh-hook preexec update_gpg_tty                                   # gpg --list-keys --with-keygrip
+update_gpg_tty() gpg-connect-agent updatestartuptty /bye &>/dev/null  # echo [keygrip] >> $GNUPGHOME/sshcontrol
 
 [[ -f ~/.uniterc ]] && source ~/.uniterc
