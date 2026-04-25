@@ -187,7 +187,7 @@ binds {
     Mod+M          { spawn "niri-run-or-raise-rotate" "com.mitchellh.ghostty"; }
     Mod+Shift+M    { spawn "ghostty"; }
     Mod+N          { spawn "fuzzel" "--cache" "/home/ccjmne/cache/fuzzel/xdg-apps"; }
-    Mod+Z          { spawn "sh" "-c" "niri msg action power-off-monitors && swaylock"; }
+    Mod+Z          { spawn "sh" "-c" "niri msg action power-off-monitors && swaylock && gpgconf --kill gpg-agent"; }
     Mod+P          { spawn "ghostty" "-e" "top"; }
     Mod+T          { spawn "scrcpy" "--turn-screen-off"; }
     Mod+Apostrophe { spawn "kpfz"; }
