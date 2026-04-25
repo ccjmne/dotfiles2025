@@ -16,9 +16,6 @@ fi
 [[ -f "$ZDOTDIR/p10k.zsh" ]]                                  && source "$ZDOTDIR/p10k.zsh"
 [[ -d /usr/share/zsh-theme-powerlevel10k ]]                   && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-export LC_ALL=en_NZ.utf8
-[[ ! $(locale -a | grep -i $LC_ALL) ]] && sudo locale-gen $LC_ALL # Set up preferred locale if absent (on WSL for instance)
-
 source "$ZDOTDIR/opts.zsh"
 source "$ZDOTDIR/completion.zsh"
 source "$ZDOTDIR/plugins.zsh"

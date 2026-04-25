@@ -42,6 +42,10 @@ Post-install ...................................................................
 
     Log out and back in for PAM to pick up and propagate desired configuration.
 
+    Set up the preferred locale, en_NZ.utf8 (configured in /etc/locale.conf):
+
+        sudo locale-gen $LANG
+
     Install packages:
 
         sudo xargs pacman -Syu < PACKAGES
