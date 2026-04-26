@@ -8,7 +8,7 @@ typeset -U  path;  path=("$HOME/bin" "${path[@]}" "$XDG_DATA_HOME/nvim/mason/bin
 [[ -d "$PNPM_HOME" ]]         && path+="$PNPM_HOME"
 [[ -d "$LUAROCKS_HOME/bin" ]] && path+="$LUAROCKS_HOME/bin"
 
-(( $+commands[nvim] ))                 && export EDITOR=vim VISUAL=nvim MANPAGER='nvim +Man!'
+(( $+commands[nvim] ))                 && export EDITOR=nvim VISUAL=nvim MANPAGER='nvim +Man!'
 (( $+commands[ghostty] ))              && export TERMINAL=ghostty              # For fuzzel to handle Terminal=true \.desktop entries, for instance
 (( $+commands[google-chrome-stable] )) && export BROWSER=google-chrome-stable  # Just in case something might use it (like man --html)
 
