@@ -2,6 +2,10 @@ alias -- -='cd -'
 alias -10='fc -10 -1'
 alias -100='fc -100 -1'
 
+alias -g L='| less'
+alias -g N='| nvim -'
+alias -g S='| tee >(tail -1 | awk '"'"'{ printf "%s [%+d]\n", $0, $4 - $6 }'"'"') | head -n-1'
+
 alias fd='noglob fd --hidden --exclude .git'
 alias find='noglob find'
 alias git='noglob git'

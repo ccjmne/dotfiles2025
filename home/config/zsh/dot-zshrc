@@ -17,8 +17,8 @@
 source $ZDOTDIR/opts.zsh
 source $ZDOTDIR/completion.zsh
 source $ZDOTDIR/plugins.zsh
-source $ZDOTDIR/aliases.zsh
 source $ZDOTDIR/bindings.zsh
+source $ZDOTDIR/aliases.zsh
 
 export GPG_TTY=$TTY                                                   # One-time set-up
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)          # ---------------
