@@ -27,26 +27,26 @@ bindkey                 ^F history-incremental-pattern-search-forward
 # Vi mode configuration
 # ---------------------
 autoload -U edit-command-line && zle -N edit-command-line
-zstyle :zle:edit-command-line editor $EDITOR +'set ft=sh'
+zstyle :zle:edit-command-line editor $EDITOR +'se ft=sh'
+zle -A backward-delete-char vi-backward-delete-char  #    Ctrl-H, Ctrl-W, Ctrl-U
+zle -A backward-kill-word   vi-backward-kill-word    #    may operate beyond the
+zle -A kill-whole-line      vi-kill-line             # last viins entry boundary
 bindkey -v
 bindkey -M vicmd  v edit-command-line                  # never enter visual mode
 bindkey -M vicmd  V edit-command-line                  #   but invoke fc instead
 bindkey -M vicmd ^V edit-command-line
 bindkey          ^V edit-command-line
-zle -A backward-delete-char vi-backward-delete-char   # Ctrl-H may move past ins
-zle -A backward-kill-word vi-backward-kill-word       # Ctrl-W may move past ins
-zle -A kill-whole-line vi-kill-line                   # Ctrl-U may move past ins
 
 # Surround bindings
 # -----------------
 autoload -U surround
-zle -N add-surround    surround
-zle -N change-surround surround
-zle -N delete-surround surround
+zle     -N    add-surround  surround
+zle     -N change-surround  surround
+zle     -N delete-surround  surround
 bindkey -M vicmd  cs change-surround
 bindkey -M vicmd  ds delete-surround
-bindkey -M vicmd  ys add-surround
-bindkey -M visual  S add-surround
+bindkey -M vicmd  ys    add-surround
+bindkey -M visual  S    add-surround
 
 # Custom ZLE Widgets
 # ------------------
