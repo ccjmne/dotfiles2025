@@ -6,6 +6,7 @@
 "storage.modifier"                                 = "magenta"                             # readonly, local
 "keyword"                                          = "magenta"                             # repeat, while, case, if...
 "dynamic.callable.missing"                         = "red"
+"meta.group.expansion.job.shell"                   = "yellow"
 "variable.other.readwrite"                         = "yellow"                              # left-hand in assignments
 "meta.group.expansion.parameter"                   = "yellow"                              # variables
 "comment"                                          = 8
