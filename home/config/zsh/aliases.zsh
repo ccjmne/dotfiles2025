@@ -37,6 +37,10 @@ function bak {
   done
 }
 
+function lostfound {
+  git fsck --lost-found | fzf --preview 'git show {3}' --bind enter:become:'git show {3}'
+}
+
 function btop() {
   read -q "answer?Don't you want to use top instead? [Y/n] "
   case "$answer" in
