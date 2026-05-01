@@ -14,6 +14,7 @@ binds {
     Mod+Shift+E          { spawn "select-audio-sink" "^";                                                   }
     Mod+D                { spawn "ghostty" "--title=calc" "-e" "zsh" "-c" "calc -d";                        }
     Mod+Shift+D          { spawn "ghostty" "--title=cal" "-e" "fcal";                                       }
+    Mod+B                { spawn-sh "toggle bdo -- cpulimit -l10 -eblackdesert64";                          }
 
     XF86AudioRaiseVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";   }
     XF86AudioLowerVolume  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";   }
