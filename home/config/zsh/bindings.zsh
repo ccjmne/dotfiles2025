@@ -50,29 +50,23 @@ bindkey -M visual  S    add-surround
 
 # Custom ZLE Widgets
 # ------------------
-function zle-resume { zle push-input; BUFFER='fg'; zle accept-line }
+zle -N zle-mise-activate
+zle -N zle-osc133-prev
 zle -N zle-resume
-
-# exe "r!sed -n '/anchor_files=/,/)$/p' <(curl -sL https://github.com/romkatv/powerlevel10k/raw/refs/heads/master/config/p10k-classic.zsh)" | norm V%J==F(lx
-local anchor_files=(.bzr .citc .git .hg .node-version .python-version .go-version .ruby-version .lua-version .java-version .perl-version .php-version .tool-versions .mise.toml .shorten_folder_marker .svn .terraform CVS Cargo.toml composer.json go.mod package.json stack.yaml)
+zle -N zle-time-zsh
+zle -N zle-anchor
+function zle-mise-activate { source <(mise activate) }
+function zle-osc133-prev   { tmux copy-mode; tmux send-keys -X previous-prompt }
+function zle-resume        { zle push-input; BUFFER='fg';                zle accept-line }
+function zle-time-zsh      { zle push-input; BUFFER='time zsh -ic exit'; zle accept-line }
 function zle-anchor {
+  # exe "r !sed -n '/anchor_files=/,/)$/p' <(curl -sL https://github.com/romkatv/powerlevel10k/raw/refs/heads/master/config/p10k-classic.zsh)" | norm V%J==F(lx
+  local anchor_files=(.bzr .citc .git .hg .node-version .python-version .go-version .ruby-version .lua-version .java-version .perl-version .php-version .tool-versions .mise.toml .shorten_folder_marker .svn .terraform CVS Cargo.toml composer.json go.mod package.json stack.yaml)
   local dir=${PWD:h}
-  while [[ "$dir" != "/" ]]; do
-    for anchor in "${anchor_files[@]}"; do
-      if [[ -e "$dir/$anchor" ]]; then
-        cd ${(q)dir}; zle push-input; BUFFER=''; zle accept-line; return 0
-      fi
+  while [[ $dir != / ]]; do
+    for anchor in ${(@)anchor_files}
+    do [[ -e $dir/$anchor ]] && { zle push-input; BUFFER="builtin cd -- ${(q)dir}"; zle accept-line; return 0 }
     done
     dir=${dir:h}
   done
 }
-zle -N zle-anchor
-
-function zle-time-zsh { BUFFER='time zsh -ic exit'; zle accept-line }
-zle -N zle-time-zsh
-
-function zle-mise-activate { source <(mise activate) }
-zle -N zle-mise-activate
-
-function zle-osc133-prev { tmux copy-mode && tmux send-keys -X previous-prompt }
-zle -N zle-osc133-prev
