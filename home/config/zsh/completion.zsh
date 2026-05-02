@@ -3,7 +3,7 @@ autoload -U compinit && compinit -C
 autoload -U _generic
 zle -C zle-expand-omni expand-or-complete _generic
 
-zstyle ':completion:zle-expand-omni:*' completer _expand_alias _complete _approximate
+zstyle ':completion:zle-expand-omni:*' completer _expand_alias _complete
 zstyle ':completion:*' menu select                    # enter menu mode when Tab again after options were displayed
 zstyle ':completion:*' matcher-list ''                          `# plain`            \
                                     'm:{[:lower:]}={[:upper:]}' `# case-insensitive` \
