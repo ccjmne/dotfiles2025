@@ -1,5 +1,5 @@
 zmodload zsh/complist
-autoload -U compinit && compinit -C
+autoload -U compinit && compinit -C -d $XDG_CACHE_HOME/zcompdump
 autoload -U _generic
 zle -C zle-expand-omni expand-or-complete _generic
 

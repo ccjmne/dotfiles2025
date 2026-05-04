@@ -1,6 +1,6 @@
 #! /usr/bin/env zsh
 
-readonly dumpfile=$ZDOTDIR/.zcompdump
+readonly dumpfile=$XDG_CACHE_HOME/zcompdump
 readonly compdir=$XDG_DATA_HOME/zsh/site-functions
 
 mkdir -p $compdir
