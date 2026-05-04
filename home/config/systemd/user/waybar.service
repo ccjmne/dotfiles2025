@@ -2,10 +2,10 @@
 Description=Waybar
 ConditionPathExists=/usr/bin/waybar
 After=graphical-session.target
+PartOf=niri.service
 
 [Service]
 ExecStart=/usr/bin/waybar
-Restart=on-failure
 
 [Install]
-WantedBy=default.target
+WantedBy=niri.service

@@ -1,9 +1,10 @@
 [Unit]
 Description=Restart waybar on config changes
+PartOf=niri.service
 
 [Path]
 PathChanged=%h/config/waybar
 Unit=restart@waybar.service
 
 [Install]
-WantedBy=default.target
+WantedBy=niri.service
