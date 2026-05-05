@@ -1,0 +1,6 @@
+#! /bin/sh
+
+if [ "$1" = "current" ]
+then niri msg focused-output | sed -n '/^  Logical position/{N;s/^.*: \| //gm;s/\n/ /p}'
+else slurp
+fi | grim -g- - | swappy -f -

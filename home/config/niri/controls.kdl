@@ -80,12 +80,12 @@ binds {
 
     Mod+W { toggle-column-tabbed-display; }
 
-    Print           { spawn-sh "slurp | grim -g- - | swappy -f -"; }
-    Ctrl+Print      { screenshot-screen;                           }
-    Alt+Print       { screenshot-window;                           }
-    Mod+Print       { spawn "record-screen";                       }
-    Mod+Shift+Print { spawn "record-screen" "create-chapter";      }
-    Mod+Ctrl+Print  { spawn "record-screen" "dir";                 }
+    Print           { spawn "screenshot";                     }
+    Ctrl+Print      { spawn "screenshot" "current";           }
+    Alt+Print       { screenshot-window;                      }
+    Mod+Print       { spawn "record-screen";                  }
+    Mod+Shift+Print { spawn "record-screen" "create-chapter"; }
+    Mod+Ctrl+Print  { spawn "record-screen" "dir";            }
 
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
