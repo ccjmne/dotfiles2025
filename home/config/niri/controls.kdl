@@ -73,7 +73,6 @@ binds {
     Mod+Ctrl+F  { expand-column-to-available-width; }
 
     Mod+C      { center-column;          }
-    Mod+Ctrl+C { center-visible-columns; }
 
     Mod+V       { toggle-window-floating;                   }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
