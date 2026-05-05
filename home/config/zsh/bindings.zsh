@@ -32,8 +32,6 @@ zle -A backward-delete-char vi-backward-delete-char  #    Ctrl-H, Ctrl-W, Ctrl-U
 zle -A backward-kill-word   vi-backward-kill-word    #    may operate beyond the
 zle -A kill-whole-line      vi-kill-line             # last viins entry boundary
 bindkey -v
-bindkey -M vicmd  v edit-command-line                  # never enter visual mode
-bindkey -M vicmd  V edit-command-line                  #   but invoke fc instead
 bindkey -M vicmd ^V edit-command-line
 bindkey          ^V edit-command-line
 
