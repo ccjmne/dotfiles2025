@@ -5,7 +5,7 @@ setopt NOCASEGLOB               # Case insensitive globbing (used in pathname ex
 # --------------------
 SAVEHIST=8192                   # Maximum number of entries in $HISTFILE size
 HISTSIZE=16384                  # Maximum number of entries in memory
-HISTFILE="$ZDOTDIR/history"
+HISTFILE=$XDG_CACHE_HOME/zhistory
 
 setopt APPEND_HISTORY           # Append history to the history file (no overwriting)
 setopt EXTENDED_HISTORY         # Remove superfluous blanks from history entries
