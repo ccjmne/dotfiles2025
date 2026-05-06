@@ -10,6 +10,7 @@ zstyle ':completion:*' matcher-list ''                          `# plain`       
                                     '+l:|=*'                    `# + start halfway`
 
 bindkey               '^I'   zle-expand-omni          # Tab also expands aliases
+bindkey               '^D'   zle-expand-omni          # A single binding to both escalate completion and cancel menuselect
 bindkey -M menuselect '^?'   backward-delete-char     # let Backspace behave in isearch
 bindkey -M menuselect '^H'   backward-delete-char     # let ^H        behave in isearch
 bindkey -M menuselect  '/'   history-incremental-search-forward
