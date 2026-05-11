@@ -18,6 +18,8 @@ export CALCHISTFILE="$XDG_STATE_HOME/calc/history"
 export CALCPATH=".:$XDG_DATA_HOME/calc:$XDG_CONFIG_HOME/calc:/usr/share/calc:/usr/share/calc/custom"
 export CALCRC="$XDG_CONFIG_HOME/calc/calcrc"
 export FCEDIT="$EDITOR +'se ft=sh'"
+export FZF_CTRL_T_COMMAND='rg --files 2> /dev/null' # Ctrl-T searches only visible files
+export FZF_DEFAULT_COMMAND='rg --files --hidden'    # Search hidden files w/ fzf
 export FZF_DEFAULT_OPTS_FILE=/home/ccjmne/git/dotfiles/home/config/fzf/opts
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
 export LUA_CPATH="$LUAROCKS_HOME/lib/lua/5.4/?.so;;"
