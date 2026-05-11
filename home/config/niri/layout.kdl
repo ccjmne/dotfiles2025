@@ -59,6 +59,10 @@ window-rule {
 
 // App-specific settings
 // ---------------------
+layer-rule {
+    block-out-from "screen-capture"
+    match          namespace="^launcher$" // fuzzel
+}
 window-rule {
     open-floating true
     match         title="^cal$"
