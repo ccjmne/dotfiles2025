@@ -1,6 +1,7 @@
 #! /bin/sh
 
-fwupdmgr get-updates
+fwupdmgr refresh     --assume-yes
+fwupdmgr get-updates --assume-yes
 rc=$?
 
 if [ $rc -eq 0 ]; then
