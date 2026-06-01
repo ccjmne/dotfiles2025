@@ -90,10 +90,10 @@ window-rule {
 window-rule {
     match         app-id="scrcpy"
     open-floating false
-    min-width     450
-    max-width     450
-    min-height    1000
-    max-height    1000
+    min-width     486
+    max-width     486
+    min-height    1080
+    max-height    1080
 }
 window-rule {
     match         app-id="swappy"
