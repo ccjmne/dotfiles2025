@@ -1,6 +1,7 @@
 window#waybar {
     background: #555;
     color: #eee;
+    font-family: 'CommitMono Nerd Font Propo';
 }
 
 .module {
