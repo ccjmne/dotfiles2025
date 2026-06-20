@@ -20,7 +20,7 @@ typedef struct {
 	const uint8_t *b;
 } event;
 
-enum { BKSH, BGSL, GMTH, GPKG, KRND, KTUM, KZRK, MRKA, NVER, OFFN, QINT, SNGN, UTRI, VELL };
+enum { NONE, BKSH, BGSL, GMTH, GPKG, KRND, KTUM, KZRK, MRKA, NVER, OFFN, QINT, SNGN, UTRI, VELL };
 static const char *const H[] = {
 	[BKSH] = "Black Shadow", [BGSL] = "Bulgasal",
 	[GMTH] = "Garmoth",      [GPKG] = "Golden Pig King",
