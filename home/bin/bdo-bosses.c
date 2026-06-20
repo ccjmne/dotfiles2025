@@ -1,34 +1,35 @@
-#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/types.h>
 #include <time.h>
 #include <unistd.h>
 
 #define TIMESLOTS_S (sizeof(SCHEDULE) / sizeof(SCHEDULE[0]))
-#define EVENTS_S    (TIMESLOTS_S * 7)
+#define SPAWNS_S    (TIMESLOTS_S * 7)
 
 typedef int32_t timew; // seconds since start of week
 
 typedef struct {
 	const uint8_t h;
 	const uint8_t m;
-	const char    *bs[7][2];
+	const uint8_t bs[7][2];
 } tslot;
 
 typedef struct {
-	timew             t;
-	char const *const *bs;
+	timew         t;
+	const uint8_t *b;
 } event;
 
-static const char BKSH[] = "Black Shadow", BGSL[] = "Bulgasal",
-                  GMTH[] = "Garmoth",      GPKG[] = "Golden Pig King",
-                  KRND[] = "Karanda",      KTUM[] = "Kutum",
-                  KZRK[] = "Kzarka",       MRKA[] = "Muraka",
-                  NVER[] = "Nouver",       OFFN[] = "Offin",
-                  QINT[] = "Quint",        SNGN[] = "Sangoon",
-                  UTRI[] = "Uturi",        VELL[] = "Vell";
+enum { BKSH, BGSL, GMTH, GPKG, KRND, KTUM, KZRK, MRKA, NVER, OFFN, QINT, SNGN, UTRI, VELL };
+static const char *const H[] = {
+	[BKSH] = "Black Shadow", [BGSL] = "Bulgasal",
+	[GMTH] = "Garmoth",      [GPKG] = "Golden Pig King",
+	[KRND] = "Karanda",      [KTUM] = "Kutum",
+	[KZRK] = "Kzarka",       [MRKA] = "Muraka",
+	[NVER] = "Nouver",       [OFFN] = "Offin",
+	[QINT] = "Quint",        [SNGN] = "Sangoon",
+	[UTRI] = "Uturi",        [VELL] = "Vell",
+};
 
 static const tslot SCHEDULE[] = {
 	//              MONDAY          TUESDAY        WEDNESDAY       THURSDAY         FRIDAY         SATURDAY         SUNDAY
@@ -43,26 +44,26 @@ static const tslot SCHEDULE[] = {
 	{ 23, 15, { { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, {            }, { GMTH       } } },
 };
 
-static event EVENTS[EVENTS_S];
+static event SPAWNS[SPAWNS_S];
 
 timew norm(const int d, const int h, const int m, const int s) {
 	return 86400 * d + 3600 * h + 60 * m + s;
 }
 
-event extract(const tslot *s, const uint8_t d) {
+event extract(const tslot *const s, const uint8_t d) {
 	return (event) { norm(d, s->h, s->m, 0), s->bs[d] };
 }
 
 timew now(void) {
-	const time_t     t = time(NULL);
-	const struct tm* l = localtime(&t);
+	const time_t           t  = time(NULL);
+	const struct tm *const l = localtime(&t);
 	return norm((l->tm_wday + 6) % 7, l->tm_hour, l->tm_min, l->tm_sec);
 }
 
 event next(const timew t) { // previous if <5m, next otherwise
-	for (uint8_t i = 0; i < EVENTS_S; i++)
-		if (EVENTS[i].bs[0] && EVENTS[i].t > t - 300) return EVENTS[i];
-	return (event) { EVENTS[0].t + 604800, EVENTS[0].bs };
+	for (uint8_t i = 0; i < SPAWNS_S; i++)
+		if (SPAWNS[i].b[0] && SPAWNS[i].t > t - 300) return SPAWNS[i];
+	return (event) { SPAWNS[0].t + 604800, SPAWNS[0].b };
 }
 
 const char *pretty(const uint32_t dur) {
@@ -77,7 +78,7 @@ const char *pretty(const uint32_t dur) {
 void run(const timew t) {
 	const event e = next(t);
 	if (isatty(STDIN_FILENO)) printf("[H[J");
-	printf("%s%s%s ", e.bs[0], e.bs[1] ? ", " : "", e.bs[1] ? e.bs[1] : "");
+	printf("%s%s%s ", H[*e.b], e.b[1] ? ", " : "", e.b[1] ? H[e.b[1]] : "");
 	printf(e.t < t ? "%s ago\n" : "in %s\n", pretty(abs(t - e.t)));
 	fflush(stdout);
 }
@@ -85,8 +86,6 @@ void run(const timew t) {
 int main(void) {
 	for (uint8_t s = 0; s < TIMESLOTS_S; s++)
 		for (uint8_t d = 0; d < 7; ++d)
-			EVENTS[d * TIMESLOTS_S + s] = extract(&SCHEDULE[s], d);
-
-	const struct timespec delay = { .tv_sec = 1 };
-	for (;; nanosleep(&delay, NULL)) run(now());
+			SPAWNS[d * TIMESLOTS_S + s] = extract(&SCHEDULE[s], d);
+	for (;; sleep(1)) run(now());
 }
