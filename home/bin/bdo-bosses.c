@@ -55,7 +55,7 @@ event extract(const tslot *const s, const uint8_t d) {
 }
 
 timew now(void) {
-	const time_t           t  = time(NULL);
+	const time_t           t = time(NULL);
 	const struct tm *const l = localtime(&t);
 	return norm((l->tm_wday + 6) % 7, l->tm_hour, l->tm_min, l->tm_sec);
 }
@@ -76,10 +76,13 @@ const char *pretty(const uint32_t dur) {
 }
 
 void run(const timew t) {
-	const event e = next(t);
+	const event   e  = next(t);
+	const int32_t dt = t - e.t;
 	if (isatty(STDIN_FILENO)) printf("[H[J");
+	printf("{\"text\":\"");
 	printf("%s%s%s ", H[*e.b], e.b[1] ? ", " : "", e.b[1] ? H[e.b[1]] : "");
-	printf(e.t < t ? "%s ago\n" : "in %s\n", pretty(abs(t - e.t)));
+	printf(e.t < t ? "%s ago" : "in %s", pretty(abs(dt)));
+	printf("\",\"class\":\"%s\"}\n", dt > 0 && dt < 300 ? "imminent" : "");
 	fflush(stdout);
 }
 
