@@ -11,3 +11,11 @@ window {
 #tray *:not(first-child) {
     padding-left: 5px;
 }
+
+#custom-bdo.imminent {
+    animation: blink 1s ease-in-out alternate infinite;
+}
+
+@keyframes blink {
+    100% { color: transparent }
+}
