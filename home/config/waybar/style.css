@@ -1,13 +1,11 @@
-window#waybar {
-    background: #555;
-    color: #eee;
+window {
     font-family: 'CommitMono Nerd Font Propo';
+    background:  #1e1e2e;
+    color:       #cdd6f4;
 }
 
 .module {
-    padding: .25rem 1rem;
-    background: #333;
-    border-left: 1px solid #555;
+    padding: .2rem 1rem;
 }
 
 #tray *:not(first-child) {
