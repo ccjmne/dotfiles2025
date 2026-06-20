@@ -1,7 +1,13 @@
+@define-color text      #cdd6f4;
+@define-color overlay2  #9399b2;
+@define-color surface1  #45475a;
+@define-color surface0  #313244;
+@define-color base      #1e1e2e;
+
 window {
     font-family: 'CommitMono Nerd Font Propo';
-    background:  #1e1e2e;
-    color:       #cdd6f4;
+    background:  @base;
+    color:       @text;
 }
 
 .module {
