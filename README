@@ -1,5 +1,5 @@
-Revisions: 8                   Personal Dotfiles                    Éric NICOLAS
-Latest: 2026-04-25             =================                ccjmne@gmail.com
+Revisions: 9                   Personal Dotfiles                    Éric NICOLAS
+Latest: 2026-06-20             =================                ccjmne@gmail.com
 
                            --- Usage w/ GNU Stow ---
 
@@ -49,6 +49,10 @@ Post-install ...................................................................
     Install packages:
 
         sudo xargs pacman -Syu < PACKAGES
+
+    Compile C utilities:
+
+        for f in ~/bin/*.c; do gcc -Wall -Wextra -pedantic -o ${f%.c} $f; done
 
     Enable systemd units:
 
