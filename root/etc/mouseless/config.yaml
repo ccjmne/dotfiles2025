@@ -11,7 +11,7 @@ layers:
     passThrough: true
     bindings:
       leftshift: speed 2
-      leftctrl: speed 0.25
+      leftctrl: speed 0.2
 
       r: reload-config
 
