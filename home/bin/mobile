@@ -1,7 +1,8 @@
-#! /bin/sh -e
+#! /bin/sh
 
-readonly mobile=192.168.0.185
-avahi-browse --parsable --terminate --resolve _adb-tls-connect._tcp \
-    | grep -o "$mobile;[[:digit:]]*" | head -1 | tr \; :            \
-    | xargs adb connect
+dest=192.168.0.185
+addr=$(avahi-browse --parsable --terminate --resolve _adb-tls-connect._tcp \
+	| grep -o "$dest;[[:digit:]]*" | head -1 | tr \; :)
+if [ -z "$addr" ]; then notify-send 'No ADB devices found'; exit 1; fi
+adb connect $addr
 scrcpy --turn-screen-off --max-size=1080
