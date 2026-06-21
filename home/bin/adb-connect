@@ -1,8 +1,9 @@
-#! /bin/sh
+#! /bin/sh -e
 
 dest=192.168.0.185
 addr=$(avahi-browse --parsable --terminate --resolve _adb-tls-connect._tcp \
 	| grep -o "$dest;[[:digit:]]*" | head -1 | tr \; :)
+if [ "$1" = "test" ]; then [ -n "$addr" ]; exit $?; fi
 if [ -z "$addr" ]; then notify-send 'No ADB devices found'; exit 1; fi
 adb connect $addr
 scrcpy --turn-screen-off --max-size=1080
