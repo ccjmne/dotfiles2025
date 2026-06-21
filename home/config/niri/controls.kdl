@@ -4,7 +4,7 @@ binds {
     Mod+N                { spawn "fuzzel" "--cache" "/home/ccjmne/cache/fuzzel/xdg-apps";                   }
     Mod+Z                { spawn "lock";                                                                    }
     Mod+P                { spawn "ghostty" "-e" "top";                                                      }
-    Mod+T                { spawn "mobile";                                                                  }
+    Mod+T                { spawn "adb-connect";                                                             }
     Mod+Apostrophe       { spawn "kpfz";                                                                    }
     Mod+Shift+Apostrophe { spawn "kpfz" "otp";                                                              }
     Mod+U                { swap-window-left;                                                                }
