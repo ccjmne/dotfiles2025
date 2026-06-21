@@ -4,31 +4,29 @@
 #include <time.h>
 #include <unistd.h>
 
-#define TIMESLOTS_S (sizeof(SCHEDULE) / sizeof(SCHEDULE[0]))
-#define SPAWNS_S    (TIMESLOTS_S * 7)
+#define TSLOTS_S (sizeof(SCHEDULE) / sizeof(SCHEDULE[0]))
+#define SPAWNS_S (TSLOTS_S * 7)
 
-typedef int32_t timew; // seconds since start of week
+typedef uint32_t timew; // seconds since start of week
 
 typedef struct {
-    const uint8_t h;
-    const uint8_t m;
-    const uint8_t bs[7][2];
+    const uint8_t h;       // Hour
+    const uint8_t m;       // Minute
+    const uint8_t b[7][2]; // Boss spawns across the week
 } tslot;
 
 typedef struct {
-    timew         t;
-    const uint8_t *b;
-} event;
+    timew         t;  // Time of week
+    const uint8_t *b; // Bosses IDs
+} spawn;
 
 enum { NONE, BKSH, BGSL, GMTH, GPKG, KRND, KTUM, KZRK, MRKA, NVER, OFFN, QINT, SNGN, UTRI, VELL };
-static const char *const H[] = {
-    [BKSH] = "Black Shadow", [BGSL] = "Bulgasal",
-    [GMTH] = "Garmoth",      [GPKG] = "Golden Pig King",
-    [KRND] = "Karanda",      [KTUM] = "Kutum",
-    [KZRK] = "Kzarka",       [MRKA] = "Muraka",
-    [NVER] = "Nouver",       [OFFN] = "Offin",
-    [QINT] = "Quint",        [SNGN] = "Sangoon",
-    [UTRI] = "Uturi",        [VELL] = "Vell",
+static const char *const B[] = {
+    [BKSH] = "Black Shadow",    [BGSL] = "Bulgasal", [GMTH] = "Garmoth",
+    [GPKG] = "Golden Pig King", [KRND] = "Karanda",  [KTUM] = "Kutum",
+    [KZRK] = "Kzarka",          [MRKA] = "Muraka",   [NVER] = "Nouver",
+    [OFFN] = "Offin",           [QINT] = "Quint",    [SNGN] = "Sangoon",
+    [UTRI] = "Uturi",           [VELL] = "Vell",
 };
 
 static const tslot SCHEDULE[] = {
@@ -44,14 +42,14 @@ static const tslot SCHEDULE[] = {
     { 23, 15, { { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, {            }, { GMTH       } } },
 };
 
-static event SPAWNS[SPAWNS_S];
+static spawn SPAWNS[SPAWNS_S];
 
 timew norm(const int d, const int h, const int m, const int s) {
     return 86400 * d + 3600 * h + 60 * m + s;
 }
 
-event extract(const tslot *const s, const uint8_t d) {
-    return (event) { norm(d, s->h, s->m, 0), s->bs[d] };
+spawn extract(const tslot *const s, const uint8_t d) {
+    return (spawn) { norm(d, s->h, s->m, 0), s->b[d] };
 }
 
 timew now(void) {
@@ -60,10 +58,10 @@ timew now(void) {
     return norm((l->tm_wday + 6) % 7, l->tm_hour, l->tm_min, l->tm_sec);
 }
 
-event next(const timew t) { // previous if <5m, next otherwise
+spawn next(const timew t) { // previous if <5m ago, next otherwise
     for (uint8_t i = 0; i < SPAWNS_S; i++)
         if (SPAWNS[i].b[0] && SPAWNS[i].t > t - 300) return SPAWNS[i];
-    return (event) { SPAWNS[0].t + 604800, SPAWNS[0].b };
+    return (spawn){ SPAWNS[0].t + 604800, SPAWNS[0].b };
 }
 
 const char *pretty(const uint32_t dur) {
@@ -76,19 +74,18 @@ const char *pretty(const uint32_t dur) {
 }
 
 void run(const timew t) {
-    const event   e  = next(t);
-    const int32_t dt = t - e.t;
-    if (isatty(STDIN_FILENO)) printf("[H[J");
+    const spawn   s  = next(t);
+    const int32_t dt = s.t - t;
     printf("{\"text\":\"");
-    printf("%s%s%s ", H[e.b[0]], e.b[1] ? ", " : "", e.b[1] ? H[e.b[1]] : "");
-    printf(e.t < t ? "%s ago" : "in %s", pretty(abs(dt)));
+    printf("%s%s%s ", B[s.b[0]], s.b[1] ? ", " : "", s.b[1] ? B[s.b[1]] : "");
+    printf(s.t < t ? "%s ago" : "in %s", pretty(abs(dt)));
     printf("\",\"class\":\"%s\"}\n", dt > 0 && dt < 300 ? "imminent" : "");
     fflush(stdout);
 }
 
 int main(void) {
-    for (uint8_t s = 0; s < TIMESLOTS_S; s++)
-        for (uint8_t d = 0; d < 7; ++d)
-            SPAWNS[d * TIMESLOTS_S + s] = extract(&SCHEDULE[s], d);
+    for (uint8_t s = 0; s < TSLOTS_S; s++)
+        for (uint8_t d = 0; d < 7; d++)
+            SPAWNS[d * TSLOTS_S + s] = extract(&SCHEDULE[s], d);
     for (;; sleep(1)) run(now());
 }
