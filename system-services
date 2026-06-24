@@ -1,6 +1,7 @@
 #! /bin/sh
 
 xargs systemctl enable --now <<-EOF
+	avahi-daemon.service
 	docker.service
 	tlp.service
 	mouseless.service
