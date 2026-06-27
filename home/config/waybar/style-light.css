@@ -5,3 +5,19 @@
 @define-color surface1 #bcc0cc;
 @define-color surface0 #ccd0da;
 @define-color base     #eff1f5;
+
+#custom-bdo.imminent {
+    animation-name: blink-light;
+}
+
+@keyframes blink-light {
+    50% {
+        background: @base;
+        color:      @text;
+    }
+    100% {
+        font-weight: bold;
+        background:  @text;
+        color:       @base;
+    }
+}

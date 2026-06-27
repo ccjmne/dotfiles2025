@@ -19,8 +19,19 @@ window {
 }
 
 #custom-bdo.imminent {
-    background: @text;
-    color:      @base;
+    animation: 1500ms blink infinite steps(2);
+}
+
+@keyframes blink {
+    50% {
+        background: @base;
+        color:      @text;
+    }
+    100% {
+        font-weight: bold;
+        background:  @text;
+        color:       @base;
+    }
 }
 
 menu {
