@@ -48,16 +48,15 @@ timew norm(const int d, const int h, const int m, const int s) {
     return 86400 * d + 3600 * h + 60 * m + s;
 }
 
-spawn extract(const tslot *const s, const uint8_t d) {
-    return (spawn) { norm(d, s->h, s->m, 0), s->b[d] };
-}
-
 timew now(void) {
     const time_t           t = time(NULL);
     const struct tm *const l = localtime(&t);
     return norm((l->tm_wday + 6) % 7, l->tm_hour, l->tm_min, l->tm_sec);
 }
 
+spawn extract(const tslot *const s, const uint8_t d) {
+    return (spawn) { norm(d, s->h, s->m, 0), s->b[d] };
+}
 spawn next(const timew t) { // previous if <5m ago, next otherwise
     for (uint8_t i = 0; i < SPAWNS_S; i++)
         if (SPAWNS[i].b[0] && SPAWNS[i].t > t - 300) return SPAWNS[i];
@@ -67,9 +66,9 @@ spawn next(const timew t) { // previous if <5m ago, next otherwise
 const char *pretty(const uint32_t dur) {
     static char buf[16];
     const uint8_t h = dur / 3600, m = dur % 3600 / 60, s = dur % 60;
-    if      (h > 0) snprintf(buf, 16, "%dh %dm %ds", h, m, s);
-    else if (m > 0) snprintf(buf, 16, "%dm %ds",     m, s);
-    else            snprintf(buf, 16, "%ds",         s);
+    if      (h > 0) snprintf(buf, sizeof buf, "%dh %dm %ds", h, m, s);
+    else if (m > 0) snprintf(buf, sizeof buf, "%dm %ds",     m, s);
+    else            snprintf(buf, sizeof buf, "%ds",         s);
     return buf;
 }
 
