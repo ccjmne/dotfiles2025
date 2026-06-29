@@ -9,6 +9,9 @@ if [ "$1" = "^" ]; then
 else
     pactl --format=json list sinks                                                                               \
         | jq --raw-output '.[] | select(.state != "RUNNING") | .name + "\t" + .properties["device.description"]' \
+        | sed '/openfit/   Is/\t/\t 󱡏 /'                                                                         \
+        | sed '/poly bt/   Is/\t/\t  /'                                                                         \
+        | sed '/500 series/Is/\t/\t 󰕾 /'                                                                         \
         | ifne fuzzel --dmenu --accept-nth=1 --with-nth=2                                                        \
                       --anchor="${1:-top-left}" --hide-prompt                                                    \
                       --cache="$cache/$(pactl get-default-sink)"                                                 \
