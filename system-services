@@ -2,6 +2,7 @@
 
 xargs systemctl enable --now <<-EOF
 	avahi-daemon.service
+	bluetooth.service
 	docker.service
 	tlp.service
 	mouseless.service
