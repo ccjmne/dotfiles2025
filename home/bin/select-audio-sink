@@ -3,7 +3,7 @@
 readonly cache="$XDG_CACHE_HOME/fuzzel/$(basename $0)"
 mkdir -p $cache
 if [ "$1" = "^" ]; then
-    sort -t'|' -k2 -r "$cache/$(pactl get-default-sink)" | head -1 | sed 's/|[0-9]*$//'                                           \
+    sort -t\| -nk2 "$cache/$(pactl get-default-sink)" | sed '$!d;s/|[0-9]*$//'                                                    \
         | ifne xargs -II jq -r '.[] | select(.properties["device.description"] == "I") | .name' <(pactl --format json list sinks) \
         | ifne xargs pactl set-default-sink
 else
