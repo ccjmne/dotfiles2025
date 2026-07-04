@@ -25,9 +25,9 @@ layers:
       i: scroll up
       o: scroll right
 
-      j: button left
-      k: button middle
-      l: button right
+      l:          button left
+      semicolon:  button middle
+      apostrophe: button right
 
   - name: mouse
     passThrough: true
