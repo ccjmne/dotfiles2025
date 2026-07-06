@@ -14,4 +14,5 @@
 --scrollbar=█
 --marker=▌
 
---color=16,info:-1,spinner:-1,hl:3,hl+:3:reverse,fg+:-1:reverse,bg+:-1,gutter:-1,header:6,prompt:3,pointer:3:bold,marker:3,border:-1
+# As noted in 3271a8b, work off (base)16 rather than b(&)w for coloured previews
+--color='16,info:-1,spinner:-1,hl:3,hl+:3:reverse,fg+:-1:reverse,bg+:-1,gutter:-1,header:6,prompt:3,pointer:3:bold,marker:3,border:-1'
