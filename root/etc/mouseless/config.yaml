@@ -20,10 +20,10 @@ layers:
       w: move  0 -1
       d: move  1  0
 
-      y: scroll left
-      u: scroll down
-      i: scroll up
-      o: scroll right
+      i:         scroll left
+      o:         scroll down
+      p:         scroll up
+      leftbrace: scroll right
 
       l:          button left
       semicolon:  button middle
