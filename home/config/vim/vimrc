@@ -5,7 +5,9 @@ filetype plugin on
 packadd comment
 packadd hlyank
 
+se mouse=a ttymouse=sgr                              " tmux mouse in [a]ll modes
 se nu rnu
+se timeoutlen=320 ttimeoutlen=0
 
 let v:clipproviders['wl'] = {
     \  'copy':  {'+': {_, __, lines -> system('wl-copy', lines)}},
