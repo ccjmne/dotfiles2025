@@ -14,3 +14,5 @@ let v:clipproviders['wl'] = {
     \  'paste': {'+': {_ -> ['', systemlist('wl-paste')]}},
     \}
 set clipmethod^=wl
+
+hi Visual cterm=reverse ctermfg=NONE ctermbg=NONE
