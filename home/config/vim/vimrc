@@ -6,3 +6,9 @@ packadd comment
 packadd hlyank
 
 se nu rnu
+
+let v:clipproviders['wl'] = {
+    \  'copy':  {'+': {_, __, lines -> system('wl-copy', lines)}},
+    \  'paste': {'+': {_ -> ['', systemlist('wl-paste')]}},
+    \}
+set clipmethod^=wl
