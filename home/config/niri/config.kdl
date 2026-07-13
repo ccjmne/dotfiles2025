@@ -7,7 +7,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 hotkey-overlay { skip-at-startup; }
 
 animations {
-    slowdown 0.5
+    slowdown 0.0
     window-open  { duration-ms 300; }
     window-close { duration-ms 300; }
 }
