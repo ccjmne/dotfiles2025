@@ -1,3 +1,5 @@
+[advice]
+    statushints = 0
 [checkout]
     defaultremote = upstream
 [clone]
