@@ -6,6 +6,7 @@ alias -g L='| less'
 alias -g N='| nvim -'
 alias -g S='| tee >(tail -1 | awk '"'"'{ printf "%s [%+d]\n", $0, $4 - $6 }'"'"') | head -n-1'
 
+alias G='vim +G +on'
 alias fd='noglob fd --hidden --exclude .git'
 alias find='noglob find'
 alias git='noglob git'
