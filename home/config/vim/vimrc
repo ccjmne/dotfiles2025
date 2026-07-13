@@ -1,18 +1,20 @@
+" vim:tw=80:sw=4:et:sta
+
 syntax          on
 filetype indent on
 filetype plugin on
 
 packadd comment
-packadd hlyank
+packadd hlyank | let g:hlput_enable = v:true | let g:hlyank_duration = 100 | let g:hlput_duration = 100
 
+let v:clipproviders['wl'] = {
+    \    'copy':  {'+': {_, __, lines -> system('wl-copy', lines)}},
+    \    'paste': {'+': {_ -> ['', systemlist('wl-paste')]}},
+    \}
+
+se clipmethod^=wl clipboard=unnamed
 se mouse=a ttymouse=sgr                              " tmux mouse in [a]ll modes
 se nu rnu
 se timeoutlen=320 ttimeoutlen=0
-
-let v:clipproviders['wl'] = {
-    \  'copy':  {'+': {_, __, lines -> system('wl-copy', lines)}},
-    \  'paste': {'+': {_ -> ['', systemlist('wl-paste')]}},
-    \}
-set clipmethod^=wl
 
 hi Visual cterm=reverse ctermfg=NONE ctermbg=NONE
