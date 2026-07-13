@@ -4,3 +4,6 @@
 [submodule "home/config/vim/pack/external/start/vim-fugitive"]
 	path = home/config/vim/pack/external/start/vim-fugitive
 	url = gh:tpope/vim-fugitive
+[submodule "home/config/vim/pack/external/start/fzf.vim"]
+	path = home/config/vim/pack/external/start/fzf.vim
+	url = gh:junegunn/fzf.vim
