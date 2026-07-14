@@ -3,7 +3,7 @@
 pass=$(fuzzel --dmenu --password --lines=0)
 if [ "$1" = otp ]; then
     item=$(echo "$pass" | keepassxc-cli search "$XDG_DATA_HOME/main.kdbx" "+attr:otp" \
-        | ifne fuzzel --dmenu --nth-delimiter=: --accept-nth=1 --only-match)
+        | ifne fuzzel --dmenu --only-match)
     attr=totp
 else
     until [ -n "$item" ] && [ "${item%/}" = "$item" ]; do item=$(echo "$pass"       \
