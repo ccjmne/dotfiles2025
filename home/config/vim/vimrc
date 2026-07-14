@@ -1,20 +1,59 @@
 " vim:tw=80:sw=4:et:sta
+vim9script
 
 syntax          on
 filetype indent on
 filetype plugin on
 
 packadd comment
-packadd hlyank | let g:hlput_enable = v:true | let g:hlyank_duration = 100 | let g:hlput_duration = 100
+packadd hlyank | g:hlput_enable = true | g:hlyank_duration = 100 | g:hlput_duration = 100
 
-let v:clipproviders['wl'] = {
-    \    'copy':  {'+': {_, __, lines -> system('wl-copy', lines)}},
-    \    'paste': {'+': {_ -> ['', systemlist('wl-paste')]}},
-    \}
+v:clipproviders['wl'] = {
+    copy:  {'+': (_, __, lines) => system('wl-copy', lines)},
+    paste: {'+': (_) => ['', systemlist('wl-paste')]},
+}
 
 se clipmethod^=wl clipboard=unnamed
-se mouse=a ttymouse=sgr                              " tmux mouse in [a]ll modes
-se nu rnu
+se cul nu rnu
+se list listchars=tab:»\ ,trail:·,nbsp:␣,precedes:<,extends:>
+se mouse=a ttymouse=sgr                  # tmux-ready (SGR) mouse in [a]ll modes
+se nf=bin,hex
+se scrolloff=8 sidescrolloff=8 nowrap
+se smartcase incsearch hlsearch
+se spelllang=en_gb
+se splitright splitbelow fillchars=vert:\ 
+se t_Co=16                       # force 16 colours, :help terminal-output-codes
 se timeoutlen=320 ttimeoutlen=0
+se undofile undodir=$XDG_CACHE_HOME/vim/undo
+se wildoptions=pum
 
-hi Visual cterm=reverse ctermfg=NONE ctermbg=NONE
+if executable('rg') | se grepprg=rg\ --vimgrep | endif
+
+#---------------------------------- BINDINGS -----------------------------------
+g:mapleader = ' '
+nno <Leader>ve :exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'
+
+nno <Leader>x :
+nno         :nohl:lcl:ccl:pc
+nno       mz:tabe %`zzz
+
+nno j :cnext
+nno k :cprev
+nno h :cold
+nno l :cnew
+
+#                    FZF BINDINGS ..............................................
+nno <Leader>-        :History!
+nno <Leader><Leader> :Buffers!
+nno <Leader>f,       :Files! ~/git/dotfiles
+nno <Leader>ff       :Files!
+nno <Leader>fg       :Rg!
+nno <Leader>fh       :Helptags!
+
+#                    CMD BINDINGS ..............................................
+cno j <Down>
+cno k <Up>
+
+# ------------------------------ LOCAL HELPERS ---------------------------------
+au BufEnter    kr100 norm! G
+au InsertLeave kr100 norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
