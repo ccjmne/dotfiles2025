@@ -97,6 +97,7 @@ trash-cli
 tree
 v4l2loopback-dkms
 vesktop-bin
+vifm
 vulkan-headers
 vulkan-icd-loader
 vulkan-tools
@@ -106,7 +107,6 @@ wl-clipboard
 wlrobs-hg
 xray-oci-git
 xwayland-satellite
-yazi-git
 ydotool
 yq
 yt-dlp
