@@ -29,6 +29,17 @@ se wildoptions=pum
 
 if executable('rg') | se grepprg=rg\ --vimgrep | endif
 
+# -------------------------------- HIGHLIGHTS ----------------------------------
+hi LineNR        ctermfg=8
+hi ColorColumn                 ctermbg=0     cterm=reverse
+hi CursorColumn                ctermbg=NONE  cterm=reverse
+hi CursorLine                                cterm=bold,underline
+hi CursorLineNR  ctermfg=NONE
+hi Visual        ctermfg=NONE  ctermbg=NONE  cterm=bold,reverse
+hi Search        ctermfg=NONE  ctermbg=NONE  cterm=bold,reverse
+hi Error         ctermfg=0     ctermbg=1     cterm=bold
+hi Todo          ctermfg=0     ctermbg=3     cterm=bold
+
 #---------------------------------- BINDINGS -----------------------------------
 g:mapleader = ' '
 nno <Leader>ve :exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'
