@@ -22,7 +22,7 @@ se mouse=a ttymouse=sgr                  # tmux-ready (SGR) mouse in [a]ll modes
 se nf=bin,hex
 se scrolloff=8 sidescrolloff=8 nowrap
 se spelllang=en_gb
-se splitright splitbelow fillchars=vert:\ 
+se splitright splitbelow splitkeep=screen fillchars=vert:\ 
 se t_Co=16                       # force 16 colours, :help terminal-output-codes
 se timeoutlen=320 ttimeoutlen=0
 se undofile undodir=$XDG_CACHE_HOME/vim/undo
