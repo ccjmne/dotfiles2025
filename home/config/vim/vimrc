@@ -15,11 +15,11 @@ v:clipproviders['wl'] = {
 
 se clipmethod^=wl clipboard=unnamed
 se cul nu rnu
+se ignorecase smartcase incsearch hlsearch
 se list listchars=tab:»\ ,trail:·,nbsp:␣,precedes:<,extends:>
 se mouse=a ttymouse=sgr                  # tmux-ready (SGR) mouse in [a]ll modes
 se nf=bin,hex
 se scrolloff=8 sidescrolloff=8 nowrap
-se smartcase incsearch hlsearch
 se spelllang=en_gb
 se splitright splitbelow fillchars=vert:\ 
 se t_Co=16                       # force 16 colours, :help terminal-output-codes
