@@ -5,18 +5,17 @@ syntax          on
 filetype indent on
 filetype plugin on
 
-packadd comment
-packadd hlyank | g:hlput_enable = true | g:hlyank_duration = 100 | g:hlput_duration = 100
-
+# --------------------------------- OPTIONS ------------------------------------
 v:clipproviders['wl'] = {
     copy:  {'+': (_, __, lines) => system('wl-copy', lines)},
     paste: {'+': (_) => ['', systemlist('wl-paste')]},
 }
 
 se clipmethod^=wl clipboard=unnamed
-se cul nu rnu
+se cul nu rnu scl=yes
 se hidden
 se ignorecase smartcase incsearch hlsearch
+se keyprotocol=tmux:mok2 noesckeys
 se list listchars=tab:»\ ,trail:·,nbsp:␣,precedes:<,extends:>
 se mouse=a ttymouse=sgr                  # tmux-ready (SGR) mouse in [a]ll modes
 se nf=bin,hex
@@ -73,3 +72,8 @@ cno k <Up>
 # ------------------------------ LOCAL HELPERS ---------------------------------
 au BufEnter    kr100 norm! G
 au InsertLeave kr100 norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
+
+# --------------------------------- PLUG-INS -----------------------------------
+pa comment
+pa hlyank | g:hlput_enable = true | g:hlyank_duration = 100 | g:hlput_duration = 100
+ru ftplugin/man.vim
