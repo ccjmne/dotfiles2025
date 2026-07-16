@@ -15,6 +15,7 @@ v:clipproviders['wl'] = {
 
 se clipmethod^=wl clipboard=unnamed
 se cul nu rnu
+se hidden
 se ignorecase smartcase incsearch hlsearch
 se list listchars=tab:»\ ,trail:·,nbsp:␣,precedes:<,extends:>
 se mouse=a ttymouse=sgr                  # tmux-ready (SGR) mouse in [a]ll modes
