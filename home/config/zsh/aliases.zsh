@@ -18,6 +18,7 @@ alias rg='noglob rg --hidden --glob="!.git" --smart-case'
 alias sg='ast-grep'
 alias ssh='TERM=xterm-256color ssh'
 alias tokenise='zsh-patina tokenize'
+alias vimstartup='tmp=$(mktemp); vim --startuptime $tmp; tail -1 $tmp'
 alias watch='watch --color'
 alias xclip='xclip -selection clipboard'
 
