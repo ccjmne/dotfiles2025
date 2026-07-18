@@ -71,6 +71,8 @@ cno k <Up>
 
 # ------------------------------ LOCAL HELPERS ---------------------------------
 au InsertLeave kr100 silent norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
+au FileType asciidoc,gitcommit,markdown setl spell
+au FileType gitcommit                   setl cc=50
 
 # --------------------------------- PLUG-INS -----------------------------------
 pa! comment
