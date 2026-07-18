@@ -70,8 +70,7 @@ cno j <Down>
 cno k <Up>
 
 # ------------------------------ LOCAL HELPERS ---------------------------------
-au BufEnter    kr100 norm! G
-au InsertLeave kr100 norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
+au InsertLeave kr100 silent norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
 
 # --------------------------------- PLUG-INS -----------------------------------
 pa comment
