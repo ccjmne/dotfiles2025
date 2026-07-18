@@ -28,6 +28,7 @@ export MANOPT='--no-justification --no-hyphenation'
 export MANWIDTH=100
 export MISE_CONFIG_FILE="$XDG_CONFIG_HOME/mise/config.toml"
 export PARINIT="rTbgqR B=.,?'_A_a_@ Q=_s>|"
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'   # dropped "/" from there, to Ctrl-W only last path segment
 export ZLE_SPACE_SUFFIX_CHARS=$'&|'         # Avoid 'consuming' the space before a pipe or ampersand
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"  # Supposedly omz-only but others (like mise) appear to use it too
 
