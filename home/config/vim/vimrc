@@ -22,7 +22,6 @@ se nf=bin,hex
 se scrolloff=8 sidescrolloff=8 nowrap
 se spelllang=en_gb
 se splitright splitbelow splitkeep=screen fillchars=vert:\ 
-se t_Co=16                       # force 16 colours, :help terminal-output-codes
 se timeoutlen=320 ttimeoutlen=0
 se undofile undodir=$XDG_CACHE_HOME/vim/undo
 se wildoptions=pum
@@ -30,19 +29,13 @@ se wildoptions=pum
 if executable('rg') | se grepprg=rg\ --vimgrep | endif
 
 # -------------------------------- HIGHLIGHTS ----------------------------------
-hi ColorColumn                 ctermbg=0     cterm=reverse
-hi CursorColumn                ctermbg=NONE  cterm=reverse
-hi CursorLine                                cterm=bold,underline
-hi CursorLineNR  ctermfg=NONE
-hi LineNR        ctermfg=8
-hi Visual        ctermfg=NONE  ctermbg=NONE  cterm=bold,reverse
-hi Search        ctermfg=NONE  ctermbg=NONE  cterm=bold,reverse
-hi Todo          ctermfg=3     ctermbg=NONE  cterm=bold,reverse
-hi Error         ctermfg=1     ctermbg=NONE  cterm=bold,reverse
-hi ErrorMsg      ctermfg=1     ctermbg=NONE
-hi MoreMsg       ctermfg=6
-hi Question      ctermfg=6
-hi SignColumn    ctermfg=NONE  ctermbg=NONE
+color catppuccin
+se termguicolors
+au ColorScheme * hi! default link ColorColumn  CursorLine
+au ColorScheme * hi! default link CursorColumn CursorLine
+                 hi! default link GitGutterAdd    Added
+                 hi! default link GitGutterChange Changed
+                 hi! default link GitGutterDelete Removed
 
 # --------------------------------- MAPPINGS -----------------------------------
 g:mapleader = ' '
