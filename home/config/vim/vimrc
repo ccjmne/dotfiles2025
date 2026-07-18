@@ -43,16 +43,16 @@ au ColorScheme * hi! default link CursorColumn CursorLine
 
 # --------------------------------- MAPPINGS -----------------------------------
 g:mapleader = ' '
-nno <Leader>ve :exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'
-vno <Leader>ve :exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'gv
-nno <Leader>b :exe &bg == 'light' ? 'se bg=dark' : 'se bg=light'
-nno <Leader>x :
-nno  mz:tabe %`zzz
-nno <silent>  :nohl:lcl:ccl:pc
-nno j :cnex:cc
-nno k :cpre:cc
-nno h :cold:cc
-nno l :cnew:cc
+nno <Leader>ve <Cmd>exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'<CR>
+vno <Leader>ve <Cmd>exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'<CR>
+nno <Leader>b <Cmd>exe &bg == 'light' ? 'se bg=dark' : 'se bg=light'<CR>
+nno <Leader>x <Cmd><CR>
+nno  mz<Cmd>tabe %<CR>`zzz
+nno <silent>  <Cmd>nohl<CR><Cmd>lcl<CR><Cmd>ccl<CR><Cmd>pc<CR>
+nno j <Cmd>cnex<CR><Cmd>cc<CR>
+nno k <Cmd>cpre<CR><Cmd>cc<CR>
+nno h <Cmd>cold<CR><Cmd>cc<CR>
+nno l <Cmd>cnew<CR><Cmd>cc<CR>
 cno j <Down>
 cno k <Up>
 nno Y y$
