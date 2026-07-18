@@ -44,30 +44,22 @@ hi MoreMsg       ctermfg=6
 hi Question      ctermfg=6
 hi SignColumn    ctermfg=NONE  ctermbg=NONE
 
-#---------------------------------- BINDINGS -----------------------------------
+# --------------------------------- MAPPINGS -----------------------------------
 g:mapleader = ' '
 nno <Leader>ve :exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'
-
+vno <Leader>ve :exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'gv
+nno <Leader>b :exe &bg == 'light' ? 'se bg=dark' : 'se bg=light'
 nno <Leader>x :
-nno         :nohl:lcl:ccl:pc
-nno       mz:tabe %`zzz
-
-nno j :cnext
-nno k :cprev
-nno h :cold
-nno l :cnew
-
-#                    FZF BINDINGS ..............................................
-nno <Leader>-        :History!
-nno <Leader><Leader> :Buffers!
-nno <Leader>f,       :Files! ~/git/dotfiles
-nno <Leader>ff       :Files!
-nno <Leader>fg       :Rg!
-nno <Leader>fh       :Helptags!
-
-#                    CMD BINDINGS ..............................................
+nno  mz:tabe %`zzz
+nno <silent>  :nohl:lcl:ccl:pc
+nno j :cnex:cc
+nno k :cpre:cc
+nno h :cold:cc
+nno l :cnew:cc
 cno j <Down>
 cno k <Up>
+nno Y y$
+com W w
 
 # ------------------------------ LOCAL HELPERS ---------------------------------
 au InsertLeave kr100 silent norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
