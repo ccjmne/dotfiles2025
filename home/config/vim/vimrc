@@ -30,8 +30,8 @@ if executable('rg') | se grepprg=rg\ --vimgrep | endif
 # -------------------------------- HIGHLIGHTS ----------------------------------
 color catppuccin
 const ansi = {
-  dark:  ['#45475a', '#f38ba8', '#a6e3a1', '#f9e2af', '#89b4fa', '#f5c2e7', '#94e2d5', '#a6adc8', '#585b70', '#f37799', '#89d88b', '#ebd391', '#74a8fc', '#f2aede', '#6bd7ca', '#bac2de'],
-  light: ['#5c5f77', '#d20f39', '#40a02b', '#df8e1d', '#1e66f5', '#ea76cb', '#179299', '#acb0be', '#6c6f85', '#de293e', '#49af3d', '#eea02d', '#456eff', '#fe85d8', '#2d9fa8', '#bcc0cc']
+  dark:  ['#45475a', '#f38ba8', '#a6e3a1', '#f9e2af', '#89b4fa', '#cba6f7', '#94e2d5', '#a6adc8', '#585b70', '#f37799', '#89d88b', '#ebd391', '#74a8fc', '#c892ee', '#6bd7ca', '#bac2de'],
+  light: ['#5c5f77', '#d20f39', '#40a02b', '#df8e1d', '#1e66f5', '#8839ef', '#179299', '#acb0be', '#6c6f85', '#de293e', '#49af3d', '#eea02d', '#456eff', '#9c48fc', '#2d9fa8', '#bcc0cc']
 }
 se termguicolors t_RB=]11;?
 au ColorScheme * g:terminal_ansi_colors = ansi[&background]
