@@ -1,0 +1,12 @@
+[Unit]
+Description=Periodically re-compile most recent Vim checkout
+
+[Timer]
+OnCalendar=monthly
+RandomizedOffsetSec=4 weeks
+AccuracySec=1 day
+Persistent=true
+Unit=run@update-vim.service
+
+[Install]
+WantedBy=timers.target
