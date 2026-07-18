@@ -6,12 +6,7 @@ filetype indent on
 filetype plugin on
 
 # --------------------------------- OPTIONS ------------------------------------
-v:clipproviders['wl'] = {
-    copy:  {'+': (_, __, lines) => system('wl-copy', lines)},
-    paste: {'+': (_) => ['', systemlist('wl-paste')]},
-}
-
-se clipmethod^=wl clipboard=unnamed
+se clipboard=unnamed
 se cul nu rnu scl=yes
 se hidden
 se ignorecase smartcase incsearch hlsearch

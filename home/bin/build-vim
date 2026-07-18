@@ -1,0 +1,43 @@
+#! /bin/sh -e
+
+if ! head -n1 README.txt 2>/dev/null |
+    grep -q '^README.txt for version [[:digit:]].[[:digit:]] of Vim: Vi IMproved.$'
+then
+    echo >&2 'Navigate to the correct directory.'
+    exit 2
+fi
+
+./configure                                                      \
+    --disable-arabic                                             \
+    --disable-canberra                                           \
+    --disable-darwin                                             \
+    --disable-netbeans                                           \
+    --disable-nls                                                \
+    --disable-rightleft                                          \
+    --disable-selinux                                            \
+    --disable-smack                                              \
+    --disable-sysmouse                                           \
+    --disable-xsmp                                               \
+    --disable-xsmp-interact                                      \
+    --enable-autoservername                                      \
+    --enable-cscope                                              \
+    --enable-fail-if-missing                                     \
+    --enable-gpm=dynamic                                         \
+    --enable-gui=no                                              \
+    --enable-luainterp=dyn                                       \
+    --enable-multibyte                                           \
+    --enable-perlinterp=dyn                                      \
+    --enable-python3interp=dyn                                   \
+    --enable-rubyinterp=dyn                                      \
+    --enable-tclinterp=dyn                                       \
+    --enable-terminal                                            \
+    --enable-year2038                                            \
+    --with-compiledby='Éric NICOLAS (ccjmne) <ccjmne@gmail.com>' \
+    --with-global-runtime=/usr/share/vim/vimfiles                \
+    --with-luajit                                                \
+    --with-wayland                                               \
+    --without-gnome                                              \
+    --without-x
+
+make -j8
+sudo make install
