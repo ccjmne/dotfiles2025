@@ -13,8 +13,9 @@ se scrolloff=8 sidescrolloff=8 nowrap
 se spelllang=en_gb
 se splitright splitbelow splitkeep=screen fillchars=vert:\ 
 se timeoutlen=320 ttimeoutlen=0 lazyredraw updatetime=100
-se undofile undodir=$XDG_CACHE_HOME/vim/undo
+se undofile undodir=$XDG_STATE_HOME/vim/undo// directory=$XDG_CACHE_HOME/vim/swap//
 se wildoptions=pum
+vim9 mkdir(&undodir, 'p', 0o700) | vim9 mkdir(&directory, 'p', 0o700)
 if executable('rg') | se grepprg=rg\ --vimgrep | endif
 filetype indent plugin on
 syntax on
