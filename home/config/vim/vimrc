@@ -3,14 +3,14 @@ vim9script
 
 # --------------------------------- OPTIONS ------------------------------------
 se clipboard=unnamed
-se cul nu rnu scl=yes
+se nu rnu signcolumn=yes
 se hidden
 se ignorecase smartcase incsearch hlsearch
 se list listchars=tab:»\ ,trail:·,nbsp:␣,precedes:<,extends:>
 se mouse=a ttymouse=sgr                  # tmux-ready (SGR) mouse in [a]ll modes
 se nf=bin,hex
 se scrolloff=8 sidescrolloff=8 nowrap
-se spelllang=en_gb
+se spelllang=en_gb,cjk
 se splitright splitbelow splitkeep=screen fillchars=vert:\ 
 se timeoutlen=320 ttimeoutlen=0 lazyredraw updatetime=100
 se undofile undodir=$XDG_STATE_HOME/vim/undo// directory=$XDG_CACHE_HOME/vim/swap//
@@ -22,10 +22,8 @@ syntax on
 
 # -------------------------------- HIGHLIGHTS ----------------------------------
 color catppuccin
-const ansi = {
-  dark:  ['#45475a', '#f38ba8', '#a6e3a1', '#f9e2af', '#89b4fa', '#cba6f7', '#94e2d5', '#a6adc8', '#585b70', '#f37799', '#89d88b', '#ebd391', '#74a8fc', '#c892ee', '#6bd7ca', '#bac2de'],
-  light: ['#5c5f77', '#d20f39', '#40a02b', '#df8e1d', '#1e66f5', '#8839ef', '#179299', '#acb0be', '#6c6f85', '#de293e', '#49af3d', '#eea02d', '#456eff', '#9c48fc', '#2d9fa8', '#bcc0cc']
-}
+const ansi = { dark:  ['#45475a', '#f38ba8', '#a6e3a1', '#f9e2af', '#89b4fa', '#cba6f7', '#94e2d5', '#a6adc8', '#585b70', '#f37799', '#89d88b', '#ebd391', '#74a8fc', '#c892ee', '#6bd7ca', '#bac2de'],
+               light: ['#5c5f77', '#d20f39', '#40a02b', '#df8e1d', '#1e66f5', '#8839ef', '#179299', '#acb0be', '#6c6f85', '#de293e', '#49af3d', '#eea02d', '#456eff', '#9c48fc', '#2d9fa8', '#bcc0cc'] }
 se termguicolors t_RB=]11;?
 au ColorScheme * g:terminal_ansi_colors = ansi[&background]
 au ColorScheme * hi! default link ColorColumn  CursorLine
