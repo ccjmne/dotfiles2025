@@ -1,10 +1,6 @@
 " vim:tw=80:sw=4:et:sta
 vim9script
 
-syntax          on
-filetype indent on
-filetype plugin on
-
 # --------------------------------- OPTIONS ------------------------------------
 se clipboard=unnamed
 se cul nu rnu scl=yes
@@ -19,8 +15,9 @@ se splitright splitbelow splitkeep=screen fillchars=vert:\
 se timeoutlen=320 ttimeoutlen=0 lazyredraw updatetime=100
 se undofile undodir=$XDG_CACHE_HOME/vim/undo
 se wildoptions=pum
-
 if executable('rg') | se grepprg=rg\ --vimgrep | endif
+filetype indent plugin on
+syntax on
 
 # -------------------------------- HIGHLIGHTS ----------------------------------
 color catppuccin
