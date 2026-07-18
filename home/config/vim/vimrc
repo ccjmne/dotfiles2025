@@ -15,7 +15,6 @@ se clipmethod^=wl clipboard=unnamed
 se cul nu rnu scl=yes
 se hidden
 se ignorecase smartcase incsearch hlsearch
-se keyprotocol=tmux:mok2 noesckeys
 se list listchars=tab:»\ ,trail:·,nbsp:␣,precedes:<,extends:>
 se mouse=a ttymouse=sgr                  # tmux-ready (SGR) mouse in [a]ll modes
 se nf=bin,hex
