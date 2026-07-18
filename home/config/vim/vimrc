@@ -75,5 +75,5 @@ au InsertLeave kr100 norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 
 
 # --------------------------------- PLUG-INS -----------------------------------
 pa comment
-pa hlyank | g:hlput_enable = true | g:hlyank_duration = 100 | g:hlput_duration = 100
+pa hlyank | g:hlput_enable = true | g:hlyank_duration = 100 | g:hlput_duration = 100 | g:hlput_hlgroup = 'Search' | g:hlyank_hlgroup = 'Search'
 ru ftplugin/man.vim
