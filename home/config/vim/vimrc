@@ -30,7 +30,7 @@ if executable('rg') | se grepprg=rg\ --vimgrep | endif
 
 # -------------------------------- HIGHLIGHTS ----------------------------------
 color catppuccin
-se termguicolors
+se termguicolors t_RB=]11;?
 au ColorScheme * hi! default link ColorColumn  CursorLine
 au ColorScheme * hi! default link CursorColumn CursorLine
                  hi! default link GitGutterAdd    Added
