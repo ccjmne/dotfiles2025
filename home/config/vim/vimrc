@@ -46,10 +46,9 @@ cno k <Up>
 nno Y y$
 com W w
 
-# ------------------------------ LOCAL HELPERS ---------------------------------
+# ------------------------------- AUTOCOMMANDS ---------------------------------
 au BufWinEnter ?* if &buftype == '' && expand('%:p') !~# '^/tmp/' | loadview | endif
 au BufWinLeave ?* if &buftype == '' && expand('%:p') !~# '^/tmp/' |   mkview | endif
-au InsertLeave kr100 silent norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
 au FileType asciidoc,gitcommit,markdown setl spell
 au FileType gitcommit                   setl cc=50
 
@@ -58,3 +57,8 @@ pa! comment
 pa! hlyank | g:hlput_enable = true | g:hlyank_duration = 100 | g:hlput_duration = 100 | g:hlput_hlgroup = 'Search' | g:hlyank_hlgroup = 'Search'
 ru ftplugin/man.vim
 ru macros/matchit.vim
+
+# ---------------------------- FILE-SPECIFIC BITS ------------------------------
+aug kr100
+    au InsertLeave kr100 silent norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
+aug END
