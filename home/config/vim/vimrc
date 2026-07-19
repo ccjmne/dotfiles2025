@@ -49,6 +49,8 @@ com W w
 # ------------------------------- AUTOCOMMANDS ---------------------------------
 au BufWinEnter ?* if &buftype == '' && expand('%:p') !~# '^/tmp/' | loadview | endif
 au BufWinLeave ?* if &buftype == '' && expand('%:p') !~# '^/tmp/' |   mkview | endif
+au BufReadPost * ++nested if &buftype == '' && resolve(expand('%:p')) !=# expand('%:p')
+    | exe 'bw | e ' .. fnameescape(resolve(expand('%:p'))) | endif # resolve symlinks, edit their targets
 au FileType asciidoc,gitcommit,markdown setl spell
 au FileType gitcommit                   setl cc=50
 
