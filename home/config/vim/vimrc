@@ -60,5 +60,13 @@ ru macros/matchit.vim
 
 # ---------------------------- FILE-SPECIFIC BITS ------------------------------
 aug kr100
+    def HighScore()
+        const v = winsaveview()
+        const max = system($"awk '{{print $3}}' | sort -nr | head -1", getline(3, '$'))->trim()
+        sil! :%s/  <<<$//
+        exe $'g/{max}$/norm A  <<<'
+        winrestview(v)
+    enddef
     au InsertLeave kr100 silent norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
+    au InsertLeave kr100 vim9 HighScore()
 aug END
