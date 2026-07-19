@@ -26,11 +26,8 @@ const ansi = { dark:  ['#45475a', '#f38ba8', '#a6e3a1', '#f9e2af', '#89b4fa', '#
                light: ['#5c5f77', '#d20f39', '#40a02b', '#df8e1d', '#1e66f5', '#8839ef', '#179299', '#acb0be', '#6c6f85', '#de293e', '#49af3d', '#eea02d', '#456eff', '#9c48fc', '#2d9fa8', '#bcc0cc'] }
 se termguicolors t_RB=]11;?
 au ColorScheme * g:terminal_ansi_colors = ansi[&background]
-au ColorScheme * hi! default link ColorColumn  CursorLine
-au ColorScheme * hi! default link CursorColumn CursorLine
-                 hi! default link GitGutterAdd    Added
-                 hi! default link GitGutterChange Changed
-                 hi! default link GitGutterDelete Removed
+au ColorScheme * hi! link ColorColumn  CursorLine
+au ColorScheme * hi! link CursorColumn CursorLine
 
 # --------------------------------- MAPPINGS -----------------------------------
 g:mapleader = ' '

@@ -4,6 +4,20 @@
 [submodule "home/config/vim/pack/external/start/vim-fugitive"]
 	path = home/config/vim/pack/external/start/vim-fugitive
 	url = gh:tpope/vim-fugitive
+	shallow = true
 [submodule "home/config/vim/pack/external/start/fzf.vim"]
 	path = home/config/vim/pack/external/start/fzf.vim
 	url = gh:junegunn/fzf.vim
+	shallow = true
+[submodule "home/config/vim/pack/external/start/vifm.vim"]
+	path = home/config/vim/pack/external/start/vifm.vim
+	url = gh:vifm/vifm.vim
+	shallow = true
+[submodule "home/config/vim/pack/external/start/vim-gitgutter"]
+	path = home/config/vim/pack/external/start/vim-gitgutter
+	url = gh:airblade/vim-gitgutter
+	shallow = true
+[submodule "home/config/vim/pack/external/start/vim-sleuth"]
+	path = home/config/vim/pack/external/start/vim-sleuth
+	url = gh:tpope/vim-sleuth
+	shallow = true
