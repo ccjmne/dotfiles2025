@@ -6,15 +6,13 @@ if [ ! -d "$dir/.git" ]; then
         https://github.com/vim/vim.git "$dir"
 fi
 cd "$dir"
-git fetch --depth=1 --no-tags upstream master
-git reset --hard FETCH_HEAD
-
-if ! head -n1 README.txt 2>/dev/null |
-    grep -q '^README.txt for version [[:digit:]].[[:digit:]] of Vim: Vi IMproved.$'
-then
-    echo >&2 'Invalid Vim checkout.'
-    exit 2
-fi
+readonly key=4F19708816918E19AAE19DEEF3F92DA383FDDE09 # Christian Brabandt (@chrisbra) <cb@256bit.org>
+tag=$(git ls-remote --refs --tags --sort=-version:refname upstream 'v*.[0-9][0-9][0-9][0-9]' | head -n1)
+tag=${tag#*refs/tags/}
+gpg --batch --keyserver hkps://keys.openpgp.org --recv-key "$key"
+git fetch --depth=1 upstream tag "$tag"
+test "$(git verify-tag --format=%GF "$tag")" = "$key"
+git reset --hard "$tag"
 
 ./configure                                                      \
     --disable-arabic                                             \
