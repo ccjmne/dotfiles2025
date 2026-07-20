@@ -1,20 +1,31 @@
 #! /bin/sh -e
 
-readonly dir=$XDG_CACHE_HOME/${0##*/}
-if [ ! -d "$dir/.git" ]; then
-    git clone --depth=1 --single-branch --branch=master --no-tags \
-        https://github.com/vim/vim.git "$dir"
+if [ ! -d .git ]; then
+    git clone --depth=1 --single-branch --branch=master --no-tags --origin=upstream \
+        https://github.com/vim/vim.git .
 fi
-cd "$dir"
+
+if [ "$1" = "uninstall" ]; then
+    if [ ! -f src/auto/config.mk ]; then
+        echo 'No configured Vim build to uninstall.' >&2
+        exit 1
+    fi
+    make uninstall
+    exit
+fi
+
 readonly key=4F19708816918E19AAE19DEEF3F92DA383FDDE09 # Christian Brabandt (@chrisbra) <cb@256bit.org>
 tag=$(git ls-remote --refs --tags --sort=-version:refname upstream 'v*.[0-9][0-9][0-9][0-9]' | head -n1)
 tag=${tag#*refs/tags/}
-gpg --batch --keyserver hkps://keys.openpgp.org --recv-key "$key"
+export GNUPGHOME=$(mktemp -d)
+trap 'rm -rf -- "$GNUPGHOME"' EXIT
+gpg --batch --keyserver hkps://keys.openpgp.org --recv-key $key
 git fetch --depth=1 upstream tag "$tag"
-test "$(git verify-tag --format=%GF "$tag")" = "$key"
+git verify-tag "$tag"
 git reset --hard "$tag"
 
-./configure                                                      \
+make distclean && ./configure                                    \
+    --prefix="$HOME"                                             \
     --disable-arabic                                             \
     --disable-canberra                                           \
     --disable-darwin                                             \
@@ -46,9 +57,5 @@ git reset --hard "$tag"
     --without-gnome                                              \
     --without-x
 
-if [ "$1" = "uninstall" ]; then
-    sudo make uninstall
-else
-    make -j8
-    sudo make install
-fi
+make -j8
+make install

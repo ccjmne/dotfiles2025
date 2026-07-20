@@ -1,6 +1,8 @@
 [Unit]
-Description=Run script in $HOME/bin from .path or .timer
+Description=Run anything in ~/bin
 
 [Service]
 Type=oneshot
-ExecStart=/bin/bash -c ${HOME}/bin/%i
+ExecStart=%h/bin/%i
+CacheDirectory=%i
+WorkingDirectory=%C/%i
