@@ -1,19 +1,20 @@
 vim9script
 
 # -------------------------------- OPTIONS -----------------------------------
+se autoread t_fe=[?1004h t_fd=[?1004l   # reload buffer on external change
 se clipboard=unnamed
-se nu rnu signcolumn=yes
-se hidden autoread
+se hidden                                      # allow non-shown dirty buffers
 se ignorecase smartcase incsearch hlsearch
 se list listchars=tab:»\ ,trail:·,nbsp:␣,precedes:<,extends:>
 se mouse=a ttymouse=sgr                # tmux-ready (SGR) mouse in [a]ll modes
 se nf=bin,hex
+se nu rnu cul signcolumn=yes
 se scrolloff=8 sidescrolloff=8 nowrap
-se spelllang=en_gb,cjk
+se spelllang=en_gb,cjk spelloptions=camel
 se splitright splitbelow splitkeep=screen fillchars=vert:\ 
 se timeoutlen=320 ttimeoutlen=0 lazyredraw updatetime=100
 se undofile undodir=$XDG_STATE_HOME/vim/undo// directory=$XDG_CACHE_HOME/vim/swap//
-se wildoptions=pum
+se wildoptions=pum                                               # pop-up menu
 vim9 mkdir(&undodir, 'p', 0o700) | vim9 mkdir(&directory, 'p', 0o700)
 if executable('rg') | se grepprg=rg\ --vimgrep | endif
 filetype indent plugin on
@@ -47,7 +48,7 @@ cno j <Down>
 cno k <Up>
 nno Y y$
 com W w
-com ReadLink exe 'keepalt file ' .. fnameescape(resolve(expand('%:p')))
+com Readlink exe 'keepalt file ' .. fnameescape(resolve(expand('%:p')))
 
 # ------------------------------ AUTOCOMMANDS --------------------------------
 au BufWinEnter ?* if &buftype == '' && expand('%:p') !~# '^/tmp/' | loadview | endif
@@ -63,13 +64,13 @@ ru macros/matchit.vim
 
 # --------------------------- FILE-SPECIFIC BITS -----------------------------
 aug kr100
-    def HighScore()
+    def Kr100()
         const v = winsaveview()
+        norm ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
         const max = system($"awk '{{print $3}}' | sort -nr | head -1", getline(3, '$'))->trim()
         sil! :%s/  <<<$//
         exe $'g/{max}$/norm A  <<<'
         winrestview(v)
     enddef
-    au InsertLeave kr100 silent norm! ^"=strftime("%F  ")Pw"ayiwE"byiw$"=printf("  %.1f", 100/(a+b/60.0))p
-    au InsertLeave kr100 vim9 HighScore()
+    au InsertLeave kr100 vim9 Kr100()
 aug END
