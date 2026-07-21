@@ -1,13 +1,12 @@
-" vim:tw=80:sw=4:et:sta
 vim9script
 
-# --------------------------------- OPTIONS ------------------------------------
+# -------------------------------- OPTIONS -----------------------------------
 se clipboard=unnamed
 se nu rnu signcolumn=yes
 se hidden autoread
 se ignorecase smartcase incsearch hlsearch
 se list listchars=tab:»\ ,trail:·,nbsp:␣,precedes:<,extends:>
-se mouse=a ttymouse=sgr                  # tmux-ready (SGR) mouse in [a]ll modes
+se mouse=a ttymouse=sgr                # tmux-ready (SGR) mouse in [a]ll modes
 se nf=bin,hex
 se scrolloff=8 sidescrolloff=8 nowrap
 se spelllang=en_gb,cjk
@@ -20,7 +19,7 @@ if executable('rg') | se grepprg=rg\ --vimgrep | endif
 filetype indent plugin on
 syntax on
 
-# -------------------------------- HIGHLIGHTS ----------------------------------
+# ------------------------------- HIGHLIGHTS ---------------------------------
 color catppuccin
 const ansi = {
     dark:  ['#45475a', '#f38ba8', '#a6e3a1', '#f9e2af', '#89b4fa', '#cba6f7', '#94e2d5', '#a6adc8', '#585b70', '#f37799', '#89d88b', '#ebd391', '#74a8fc', '#c892ee', '#6bd7ca', '#bac2de'],
@@ -32,7 +31,7 @@ au ColorScheme * hi! link ColorColumn  CursorLine
 au ColorScheme * hi! link CursorColumn CursorLine
 au ColorScheme * hi! link QuickFixLine Visual
 
-# --------------------------------- MAPPINGS -----------------------------------
+# -------------------------------- MAPPINGS ----------------------------------
 g:mapleader = ' '
 nno <Leader>ve <Cmd>exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'<CR>
 vno <Leader>ve <Cmd>exe &l:ve == 'all' ? 'setl ve< cuc<' : 'setl ve=all cuc'<CR>
@@ -50,19 +49,19 @@ nno Y y$
 com W w
 com ReadLink exe 'keepalt file ' .. fnameescape(resolve(expand('%:p')))
 
-# ------------------------------- AUTOCOMMANDS ---------------------------------
+# ------------------------------ AUTOCOMMANDS --------------------------------
 au BufWinEnter ?* if &buftype == '' && expand('%:p') !~# '^/tmp/' | loadview | endif
 au BufWinLeave ?* if &buftype == '' && expand('%:p') !~# '^/tmp/' |   mkview | endif
 au FileType asciidoc,gitcommit,markdown setl spell
 au FileType gitcommit                   setl cc=50
 
-# --------------------------------- PLUG-INS -----------------------------------
+# -------------------------------- PLUG-INS ----------------------------------
 pa! comment
 pa! hlyank | g:hlput_enable = true | g:hlyank_duration = 100 | g:hlput_duration = 100 | g:hlput_hlgroup = 'Search' | g:hlyank_hlgroup = 'Search'
 ru ftplugin/man.vim
 ru macros/matchit.vim
 
-# ---------------------------- FILE-SPECIFIC BITS ------------------------------
+# --------------------------- FILE-SPECIFIC BITS -----------------------------
 aug kr100
     def HighScore()
         const v = winsaveview()
