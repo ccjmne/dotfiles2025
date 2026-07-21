@@ -33,6 +33,11 @@
     autostash = yes
 [rerere]
     enabled = yes
+[sendemail]
+    smtpEncryption = tls
+    smtpServer = smtp.gmail.com
+    smtpServerPort = 587
+    smtpUser = ccjmne@gmail.com
 [status]
     aheadbehind = yes
     short = yes

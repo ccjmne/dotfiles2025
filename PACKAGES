@@ -70,6 +70,8 @@ otf-commit-mono-nerd
 par-git
 paru-git
 pavucontrol
+perl-authen-sasl
+perl-io-socket-ssl
 pnpm
 postgresql
 qbittorrent
