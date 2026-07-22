@@ -1,5 +1,8 @@
 #! /bin/sh -e
 
+readonly wd=$XDG_CACHE_HOME/${0##*/}
+mkdir -p $wd && cd $wd
+
 if [ ! -d .git ]; then
     git clone --depth=1 --single-branch --branch=master --no-tags --origin=upstream \
         https://github.com/vim/vim.git .

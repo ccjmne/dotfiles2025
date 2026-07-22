@@ -4,5 +4,3 @@ Description=Run anything in ~/bin
 [Service]
 Type=oneshot
 ExecStart=%h/bin/%i
-CacheDirectory=%i
-WorkingDirectory=%C/%i
