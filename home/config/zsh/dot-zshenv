@@ -2,8 +2,9 @@ export CARGO_HOME="$XDG_DATA_HOME/cargo"
 export LUAROCKS_HOME="$XDG_DATA_HOME/luarocks"
 export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 
-typeset -U fpath; fpath=("${fpath[@]}" "$XDG_DATA_HOME/zsh/site-functions")
-typeset -U  path;  path=("$HOME/bin" "${path[@]}" "$XDG_DATA_HOME/nvim/mason/bin")
+typeset -U cdpath; cdpath=("$HOME/git" "$HOME/git.unite" "$HOME/git.skynet")
+typeset -U  fpath;  fpath=("${fpath[@]}" "$XDG_DATA_HOME/zsh/site-functions")
+typeset -U   path;   path=("$HOME/bin" "${path[@]}" "$XDG_DATA_HOME/nvim/mason/bin")
 [[ -d "$CARGO_HOME/bin" ]]    && path+="$CARGO_HOME/bin"
 [[ -d "$PNPM_HOME" ]]         && path+="$PNPM_HOME"
 [[ -d "$LUAROCKS_HOME/bin" ]] && path+="$LUAROCKS_HOME/bin"

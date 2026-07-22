@@ -10,4 +10,3 @@
 source /usr/share/fzf/key-bindings.zsh              # ~    0.5 ms
 # source /usr/share/fzf/completion.zsh              # ~    1   ms
 source <(zsh-patina activate)                       # ~    2   ms
-source <(zoxide init zsh --cmd cd)
