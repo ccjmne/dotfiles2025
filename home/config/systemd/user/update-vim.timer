@@ -2,9 +2,9 @@
 Description=Periodically re-compile most recent Vim checkout
 
 [Timer]
-OnCalendar=monthly
-RandomizedOffsetSec=4 weeks
-AccuracySec=1 day
+OnCalendar=weekly
+RandomizedOffsetSec=1w
+AccuracySec=1d
 Persistent=true
 Unit=run@update-vim.service
 
