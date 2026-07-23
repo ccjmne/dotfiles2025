@@ -48,6 +48,7 @@ cno j <Down>
 cno k <Up>
 nno Y y$
 com W w
+com Diff exe 'vert new | se bt=nofile | r ++edit ' .. fnameescape(expand('%:p')) .. ' | :0d _ | diffthis | wincmd p | diffthis | wincmd x'
 com Readlink exe 'keepalt file ' .. fnameescape(resolve(expand('%:p')))
 
 # ------------------------------ AUTOCOMMANDS --------------------------------
