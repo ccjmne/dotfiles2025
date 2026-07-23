@@ -1,8 +1,7 @@
 [Default Applications]
-application/vnd.ms-excel=ghostty+nvim.desktop
 application/xhtml+xml=google-chrome.desktop
 text/html=google-chrome.desktop
-text/plain=ghostty+nvim.desktop
+text/plain=ghostty+vim.desktop
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
 x-scheme-handler/chrome=google-chrome.desktop

@@ -8,7 +8,7 @@
     gpgsign = yes
     verbose = yes
 [core]
-    editor = nvim +'norm $'
+    editor = vim +'norm $'
     fsmonitor = yes
     pager = less -SFX -x2
     untrackedcache = yes
@@ -16,7 +16,7 @@
     algorithm = histogram
     colormoved = zebra
     mnemonicprefix = yes
-    tool = nvimdiff
+    tool = vimdiff
 [gpg]
     program = gpg2
 [grep]
@@ -27,7 +27,7 @@
     templatedir = ~/config/git/template
 [merge]
     conflictstyle = zdiff3
-    tool = nvimdiff
+    tool = vimdiff
 [push]
     default = upstream
 [rebase]
