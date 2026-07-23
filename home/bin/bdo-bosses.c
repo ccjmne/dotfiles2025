@@ -20,13 +20,14 @@ typedef struct {
     const uint8_t *b; // Bosses IDs
 } spawn;
 
-enum { BGSL, BKSH, GMTH, GPKG, KRND, KTUM, KZRK, MRKA, MRMD, NONE, NVER, OFFN, QINT, SNGN, UTRI, VELL };
+enum { ____, BBVL, BGSL, BKSH, GMTH, GPKG, KRND, KTUM, KZRK, MRKA, MRMD, NVER, OFFN, QINT, SNGN, UTRI, VELL };
 static const char *const B[] = {
-    [BGSL] = "Bulgasal",        [BKSH] = "Black Shadow", [GMTH] = "Garmoth",
-    [GPKG] = "Golden Pig King", [KRND] = "Karanda",      [KTUM] = "Kutum",
-    [KZRK] = "Kzarka",          [MRKA] = "Muraka",       [MRMD] = "Winged Mermaid",
-    [NVER] = "Nouver",          [OFFN] = "Offin",        [QINT] = "Quint",
-    [SNGN] = "Sangoon",         [UTRI] = "Uturi",        [VELL] = "Vell",
+    [BBVL] = "Baby Vell",      [BGSL] = "Bulgasal",        [BKSH] = "Black Shadow",
+    [GMTH] = "Garmoth",        [GPKG] = "Golden Pig King", [KRND] = "Karanda",
+    [KTUM] = "Kutum",          [KZRK] = "Kzarka",          [MRKA] = "Muraka",
+    [MRMD] = "Winged Mermaid", [NVER] = "Nouver",          [OFFN] = "Offin",
+    [QINT] = "Quint",          [SNGN] = "Sangoon",         [UTRI] = "Uturi",
+    [VELL] = "Vell",
 };
 
 static const tslot SCHEDULE[] = {
@@ -39,9 +40,11 @@ static const tslot SCHEDULE[] = {
     { 18, 30, { { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       } } },
     { 19, 00, { { GPKG, NVER }, { UTRI, KZRK }, { VELL       }, { BGSL, KTUM }, { SNGN, OFFN }, { SNGN, KRND }, {            } } },
     { 19, 15, { {            }, {            }, {            }, {            }, {            }, {            }, { GMTH       } } },
+    { 19, 30, { { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       } } },
     { 22, 15, { { BGSL, KZRK }, { QINT, MRKA }, { UTRI, NVER }, { QINT, MRKA }, { GPKG, KTUM }, {            }, { SNGN, KRND } } },
     { 22, 30, { { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       } } },
     { 23, 15, { { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, {            }, { GMTH       } } },
+    { 23, 30, { { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       } } },
 };
 
 static spawn SPAWNS[SPAWNS_S];
@@ -59,6 +62,7 @@ timew now(void) {
 spawn extract(const tslot *const s, const uint8_t d) {
     return (spawn) { norm(d, s->h, s->m, 0), s->b[d] };
 }
+
 spawn next(const timew t) { // previous if <5m ago, next otherwise
     for (uint8_t i = 0; i < SPAWNS_S; i++)
         if (SPAWNS[i].b[0] && SPAWNS[i].t > t - 300) return SPAWNS[i];
