@@ -28,6 +28,8 @@ const ansi = {
 se termguicolors t_RB=]11;?
 au ColorScheme * g:terminal_ansi_colors = ansi[&background]
 au ColorScheme * hi! Visual cterm=NONE
+au ColorScheme * hi! link VertSplit    StatusLine
+au ColorScheme * hi! link VertSplitNC  StatusLineNC
 au ColorScheme * hi! link ColorColumn  CursorLine
 au ColorScheme * hi! link CursorColumn CursorLine
 au ColorScheme * hi! link QuickFixLine Visual
