@@ -59,8 +59,9 @@ com Readlink exe 'keepalt file ' .. fnameescape(resolve(expand('%:p')))
 # ------------------------------ AUTOCOMMANDS --------------------------------
 au BufWinEnter ?* if expand('%:t') != 'COMMIT_EDITMSG' && &buftype == '' && expand('%:p') !~# '^/tmp/' | loadview | endif
 au BufWinLeave ?* if expand('%:t') != 'COMMIT_EDITMSG' && &buftype == '' && expand('%:p') !~# '^/tmp/' |   mkview | endif
+au BufRead,BufNewFile *.klg             setl spell sw=4
 au FileType asciidoc,gitcommit,markdown setl spell
-au FileType gitcommit                   setl cc=50
+au FileType gitcommit                   setl cc=50 sw=4
 
 # -------------------------------- PLUG-INS ----------------------------------
 pa! comment
