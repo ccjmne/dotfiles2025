@@ -4,11 +4,14 @@
 [[ -f $ZDOTDIR/p10k.zsh ]]                                  && source $ZDOTDIR/p10k.zsh
 [[ -d /usr/share/zsh-theme-powerlevel10k ]]                 && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
-source $ZDOTDIR/opts.zsh
-source $ZDOTDIR/completion.zsh
-source $ZDOTDIR/plugins.zsh
-source $ZDOTDIR/bindings.zsh
-source $ZDOTDIR/aliases.zsh
+source /usr/share/fzf/key-bindings.zsh  # ~ 0.9 ms
+# source /usr/share/fzf/completion.zsh  # ~ 1.7 ms
+source <(zsh-patina activate)           # ~ 1.6 ms
+# source <(mise activate)               # ~ 27.6 ms
+source $ZDOTDIR/opts.zsh                # ~ 0.1 ms
+source $ZDOTDIR/completion.zsh          # ~ 5.9 ms
+source $ZDOTDIR/bindings.zsh            # ~ 0.5 ms
+source $ZDOTDIR/aliases.zsh             # ~ 0.7 ms
 
 export GPG_TTY=$TTY                                                   # One-time set-up
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)          # ---------------
