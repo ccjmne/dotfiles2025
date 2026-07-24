@@ -1,5 +1,7 @@
 [advice]
     statushints = 0
+[alias]
+    recommit = !git commit --file $(git rev-parse --git-path COMMIT_EDITMSG)
 [checkout]
     defaultremote = upstream
 [clone]
