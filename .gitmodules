@@ -21,3 +21,11 @@
 	path = home/config/vim/pack/external/start/vim-sleuth
 	url = gh:tpope/vim-sleuth
 	shallow = true
+[submodule "home/config/vim/pack/external/start/vim-rhubarb"]
+	path = home/config/vim/pack/external/start/vim-rhubarb
+	url = gh:tpope/vim-rhubarb
+	shallow = true
+[submodule "home/config/vim/pack/external/start/fugitive-gitlab"]
+	path = home/config/vim/pack/external/start/fugitive-gitlab
+	url = gh:shumphrey/fugitive-gitlab.vim
+	shallow = true
