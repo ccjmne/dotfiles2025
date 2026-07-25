@@ -1,0 +1,21 @@
+pager view
+max-items 100
+keep-articles-days 30
+
+bind-key h  quit
+bind-key j  down
+bind-key k  up
+bind-key l  open
+bind-key g  home
+bind-key G  end
+bind-key ^D halfpagedown
+bind-key ^U halfpageup
+
+color article           default default
+color background        default default
+color hint-key          cyan    default underline
+color info              cyan    default
+color listfocus         default default bold reverse
+color listfocus_unread  yellow  default bold reverse
+color listnormal        default default
+color listnormal_unread yellow  default bold
