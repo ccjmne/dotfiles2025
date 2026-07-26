@@ -1,5 +1,5 @@
-Revisions: 9                   Personal Dotfiles                    Éric NICOLAS
-Latest: 2026-06-20             =================                ccjmne@gmail.com
+Revisions: 10                  Personal Dotfiles                    Éric NICOLAS
+Latest: 2026-07-26             =================                ccjmne@gmail.com
 
                            --- Usage w/ GNU Stow ---
 
@@ -10,7 +10,7 @@ Less is more [1]; I use Git [2] and GNU Stow [3].
     sudo STOW_DIR=dotfiles stow --dotfiles --target / root
     # STOW_DIR=dotfiles    stow --dotfiles --target ~ <workplace>
 
-TL;DR: fzf, git, gnu, niri, nvim, tmux, zsh .............. in alphabetical order
+TL;DR: fzf, git, gnu, niri, tmux, vim, zsh ............... in alphabetical order
 
                          --- One treacherous nicety ---
 
@@ -70,9 +70,10 @@ References .....................................................................
 
 TODO ...........................................................................
 
-    1.  Switch away from Neovim and back to the more poised Vim.
+    1.  Switch away from Neovim and back to the more poised Vim .... in progress
     2.  Rewrite this using proper Vim `help` filetype syntax.
     3.  Prefer OpenRC to systemd?  Would likely call for Artix.
+    4.  Gentoo or bust.
 
 Deprecated Procedure --------------------------- >8 ----------------------------
 
