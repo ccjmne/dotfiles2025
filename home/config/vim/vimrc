@@ -62,6 +62,7 @@ au BufWinLeave ?* if expand('%:t') != 'COMMIT_EDITMSG' && &buftype == '' && expa
 au BufRead,BufNewFile *.klg             setl spell sw=4
 au FileType asciidoc,gitcommit,markdown setl spell
 au FileType gitcommit                   setl cc=50 sw=4
+au FileType man                         nno <buffer> q <Cmd>q<CR>
 
 # -------------------------------- PLUG-INS ----------------------------------
 pa! comment
