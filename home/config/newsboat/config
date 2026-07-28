@@ -1,18 +1,18 @@
 max-items 100
 
-bind  h   everywhere            quit
-bind  j   everywhere            down
-bind  k   everywhere            up
-bind  l   everywhere            open
-bind  g   everywhere            home
-bind  G   everywhere            end
-bind  ^D  everywhere            halfpagedown
-bind  ^U  everywhere            halfpageup
-bind  v   article               pipe-to "view --not-a-terminal -"
-bind  q   feedlist,articlelist  hard-quit
-bind  d            articlelist  delete-article
-bind  D            articlelist  delete-all-articles
-bind  .            articlelist  toggle-article-read
+bind  h   everywhere   quit
+bind  j   everywhere   down
+bind  k   everywhere   up
+bind  l   everywhere   open
+bind  g   everywhere   home
+bind  G   everywhere   end
+bind  ^D  everywhere   halfpagedown
+bind  ^U  everywhere   halfpageup
+bind  q   everywhere   hard-quit
+bind  v   article      pipe-to "view --not-a-terminal -"
+bind  d   articlelist  delete-article
+bind  D   articlelist  delete-all-articles
+bind  .   articlelist  toggle-article-read
 
 unbind-key h feedlist
 
