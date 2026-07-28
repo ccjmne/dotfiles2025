@@ -8,6 +8,7 @@ bind  g   everywhere            home
 bind  G   everywhere            end
 bind  ^D  everywhere            halfpagedown
 bind  ^U  everywhere            halfpageup
+bind  v   article               pipe-to "view --not-a-terminal -"
 bind  q   feedlist,articlelist  hard-quit
 bind  d            articlelist  delete-article
 bind  D            articlelist  delete-all-articles
