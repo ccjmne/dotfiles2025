@@ -3,4 +3,4 @@ Description=Refresh newsboat feeds
 
 [Service]
 Type=oneshot
-ExecStart=newsboat -x reload
+ExecStart=-newsboat -x reload
