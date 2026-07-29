@@ -47,6 +47,8 @@
     short = yes
 [tag]
     gpgsign = yes
+[url "git@codeberg.org:"]
+    insteadof = cb:
 [url "git@gitlab.build-unite.unite.eu:"]
     insteadof = glue:
 [url "git@github.com:"]
