@@ -20,14 +20,14 @@ typedef struct {
     const uint8_t *b; // Bosses IDs
 } spawn;
 
-enum { ____, BBVL, BGSL, BKSH, GMTH, GPKG, KRND, KTUM, KZRK, MRKA, MRMD, NVER, OFFN, QINT, SNGN, UTRI, VELL };
+enum { ____, BBVL, BGSL, BKSH, GMTH, GPKG, GULD, KRND, KTUM, KZRK, MRKA, MRMD, NVER, OFFN, QINT, SNGN, UTRI, VELL };
 static const char *const B[] = {
-    [BBVL] = "Baby Vell",      [BGSL] = "Bulgasal",        [BKSH] = "Black Shadow",
-    [GMTH] = "Garmoth",        [GPKG] = "Golden Pig King", [KRND] = "Karanda",
-    [KTUM] = "Kutum",          [KZRK] = "Kzarka",          [MRKA] = "Muraka",
-    [MRMD] = "Winged Mermaid", [NVER] = "Nouver",          [OFFN] = "Offin",
-    [QINT] = "Quint",          [SNGN] = "Sangoon",         [UTRI] = "Uturi",
-    [VELL] = "Vell",
+    [BBVL] = "Baby Vell", [BGSL] = "Bulgasal",        [BKSH] = "Black Shadow",
+    [GMTH] = "Garmoth",   [GPKG] = "Golden Pig King", [GULD] = "Guild Bosses",
+    [KRND] = "Karanda",   [KTUM] = "Kutum",           [KZRK] = "Kzarka",
+    [MRKA] = "Muraka",    [MRMD] = "Winged Mermaid",  [NVER] = "Nouver",
+    [OFFN] = "Offin",     [QINT] = "Quint",           [SNGN] = "Sangoon",
+    [UTRI] = "Uturi",     [VELL] = "Vell",
 };
 
 static const tslot SCHEDULE[] = {
@@ -41,6 +41,7 @@ static const tslot SCHEDULE[] = {
     { 19, 00, { { GPKG, NVER }, { UTRI, KZRK }, { VELL       }, { BGSL, KTUM }, { SNGN, OFFN }, { SNGN, KRND }, {            } } },
     { 19, 15, { {            }, {            }, {            }, {            }, {            }, {            }, { GMTH       } } },
     { 19, 30, { { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       } } },
+    { 22, 00, { {            }, {            }, {            }, {            }, {            }, {            }, { GULD       } } },
     { 22, 15, { { BGSL, KZRK }, { QINT, MRKA }, { UTRI, NVER }, { QINT, MRKA }, { GPKG, KTUM }, {            }, { SNGN, KRND } } },
     { 22, 30, { { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       } } },
     { 23, 15, { { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, {            }, { GMTH       } } },
