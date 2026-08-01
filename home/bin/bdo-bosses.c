@@ -4,10 +4,12 @@
 #include <time.h>
 #include <unistd.h>
 
-#define TSLOTS_S (sizeof(SCHEDULE) / sizeof(SCHEDULE[0]))
-#define SPAWNS_S (TSLOTS_S * 7)
+#define GLOBAL_S (sizeof(GLOBAL) / sizeof(GLOBAL[0]))
+#define EVENTS_S (sizeof(EVENTS) / sizeof(EVENTS[0]))
+#define SPAWNS_S ((GLOBAL_S + EVENTS_S) * 7)
 
 typedef uint32_t timew; // seconds since start of week
+typedef uint32_t timed; // seconds since start of day
 
 typedef struct {
     const uint8_t h;       // Hour
@@ -30,28 +32,36 @@ static const char *const B[] = {
     [UTRI] = "Uturi",     [VELL] = "Vell",
 };
 
-static const tslot SCHEDULE[] = {
+static const tslot GLOBAL[] = {
     //              MONDAY          TUESDAY        WEDNESDAY       THURSDAY         FRIDAY         SATURDAY         SUNDAY
     { 00, 15, { { UTRI, KTUM }, { SNGN, KRND }, { GPKG, KZRK }, { UTRI, NVER }, { GPKG, KRND }, { BGSL, KZRK }, { BGSL, NVER } } },
     { 02, 00, { { SNGN, KRND }, {            }, {            }, { GPKG, KZRK }, { BGSL, NVER }, { UTRI, OFFN }, { GPKG, KTUM } } },
     { 12, 00, { { SNGN, NVER }, { BGSL, KTUM }, { SNGN, KRND }, {            }, { UTRI, KTUM }, { GPKG, NVER }, { UTRI, KZRK } } },
     { 14, 00, { { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       } } },
     { 16, 00, { { UTRI, KTUM }, { GPKG, NVER }, { BGSL, OFFN }, { SNGN, KRND }, { BGSL, KZRK }, { BKSH       }, { VELL       } } },
-    { 18, 30, { { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       } } },
     { 19, 00, { { GPKG, NVER }, { UTRI, KZRK }, { VELL       }, { BGSL, KTUM }, { SNGN, OFFN }, { SNGN, KRND }, {            } } },
     { 19, 15, { {            }, {            }, {            }, {            }, {            }, {            }, { GMTH       } } },
-    { 19, 30, { { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       } } },
-    { 22, 00, { {            }, {            }, {            }, {            }, {            }, {            }, { GULD       } } },
     { 22, 15, { { BGSL, KZRK }, { QINT, MRKA }, { UTRI, NVER }, { QINT, MRKA }, { GPKG, KTUM }, {            }, { SNGN, KRND } } },
-    { 22, 30, { { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       }, { MRMD       } } },
     { 23, 15, { { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, { GMTH       }, {            }, { GMTH       } } },
-    { 23, 30, { { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       }, { BBVL       } } },
+};
+
+static const tslot EVENTS[] = {
+//               MONDAY   TUESDAY   WEDNESDAY THURSDAY   FRIDAY   SATURDAY   SUNDAY
+//  { 18, 30, { { MRMD }, { MRMD }, { MRMD }, { MRMD }, { MRMD }, { MRMD }, { MRMD } } },
+    { 19, 30, { { BBVL }, { BBVL }, { BBVL }, { BBVL }, { BBVL }, { BBVL }, { BBVL } } },
+    { 22, 00, { {      }, {      }, {      }, {      }, {      }, {      }, { GULD } } },
+//  { 22, 30, { { MRMD }, { MRMD }, { MRMD }, { MRMD }, { MRMD }, { MRMD }, { MRMD } } },
+    { 23, 30, { { BBVL }, { BBVL }, { BBVL }, { BBVL }, { BBVL }, { BBVL }, { BBVL } } },
 };
 
 static spawn SPAWNS[SPAWNS_S];
 
 timew norm(const int d, const int h, const int m, const int s) {
     return 86400 * d + 3600 * h + 60 * m + s;
+}
+
+timed tofd(const tslot t) {
+    return 3600 * t.h + 60 * t.m;
 }
 
 timew now(void) {
@@ -90,8 +100,11 @@ void run(const timew t) {
 }
 
 int main(void) {
-    for (uint8_t s = 0; s < TSLOTS_S; s++)
-        for (uint8_t d = 0; d < 7; d++)
-            SPAWNS[d * TSLOTS_S + s] = extract(&SCHEDULE[s], d);
+    for (uint8_t s = 0, e = 0; e < EVENTS_S || s < GLOBAL_S;) {
+        const tslot *t = s < GLOBAL_S && tofd(GLOBAL[s]) < tofd(EVENTS[e])
+            ? &GLOBAL[s++] : &EVENTS[e++];
+        for (int d = 0; d < 7; d++)
+            SPAWNS[d * (GLOBAL_S + EVENTS_S) + s + e - 1] = extract(t, d);
+    }
     for (;; sleep(1)) run(now());
 }
