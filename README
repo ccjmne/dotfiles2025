@@ -1,6 +1,12 @@
 Revisions: 11                  Personal Dotfiles                    Éric NICOLAS
 Latest: 2026-08-02             =================                ccjmne@gmail.com
 
+
+                   -----------------------------------------
+                   This content has migrated to Codeberg.org
+                   -----------------------------------------
+
+
                            --- Usage w/ GNU Stow ---
 
 Less is more [1]; I use Git [2] and GNU Stow [3].

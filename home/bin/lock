@@ -1,5 +1,0 @@
-#! /bin/sh -e
-
-gpgconf --kill gpg-agent
-niri msg action power-off-monitors
-swaylock

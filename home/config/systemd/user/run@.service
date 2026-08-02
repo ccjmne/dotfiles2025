@@ -1,6 +1,0 @@
-[Unit]
-Description=Run anything in ~/bin
-
-[Service]
-Type=oneshot
-ExecStart=%h/bin/%i

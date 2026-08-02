@@ -1,9 +1,0 @@
-[Unit]
-Description=Periodically look for updates to scripts in $HOME/bin
-
-[Timer]
-OnCalendar=daily
-Unit=run@binup.service
-
-[Install]
-WantedBy=timers.target

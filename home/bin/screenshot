@@ -1,7 +1,0 @@
-#! /bin/sh
-
-prev=$XDG_CACHE_HOME/slurp
-if [ "$1" = "current" ]
-then niri msg focused-output | sed -n '/^  Logical position/{N;s/^.*: \| //gm;s/\n/ /p}'
-else { [ -f $prev ] && cat $prev; } | slurp "$@" | tee >(sponge $prev)
-fi | grim -g- - | swappy -f -
