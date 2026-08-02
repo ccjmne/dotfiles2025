@@ -5,7 +5,7 @@ Latest: 2026-08-02             =================                ccjmne@gmail.com
 
 Less is more [1]; I use Git [2] and GNU Stow [3].
 
-    git clone git@github.com:ccjmne/dotfiles2025 dotfiles
+    git clone git@codeberg.org:ccjmne/dotfiles dotfiles
     STOW_DIR=dotfiles      stow --dotfiles --target ~ home
     sudo STOW_DIR=dotfiles stow --dotfiles --target / root
     # STOW_DIR=dotfiles    stow --dotfiles --target ~ <workplace>
