@@ -1,5 +1,5 @@
-Revisions: 10                  Personal Dotfiles                    Éric NICOLAS
-Latest: 2026-07-26             =================                ccjmne@gmail.com
+Revisions: 11                  Personal Dotfiles                    Éric NICOLAS
+Latest: 2026-08-02             =================                ccjmne@gmail.com
 
                            --- Usage w/ GNU Stow ---
 
@@ -71,33 +71,7 @@ References .....................................................................
 TODO ...........................................................................
 
     1.  Switch away from Neovim and back to the more poised Vim .... in progress
-    2.  Rewrite this using proper Vim `help` filetype syntax.
-    3.  Prefer OpenRC to systemd?  Would likely call for Artix.
-    4.  Gentoo or bust.
-
-Deprecated Procedure --------------------------- >8 ----------------------------
-
-1.  Using a bare Git repo instead of symlinks.  It's rather neat, but your tools
-    may not be too excellent at recognising that you're editing files that are
-    tracked by Git.
-
-    If you're using Vim and Fugitive, you can simply:
-
-        :call FugitiveDetect('~/.d')
-
-2.  Set up
-
-    git clone --separate-git-dir=~/.d git@github.com:ccjmne/dotfiles2025 ~
-    alias dotfiles='git --git-dir=~/.d --work-tree=~'
-    dotfiles config status.showUntrackedFiles no
-    dotfiles update-index --assume-unchanged LICENSE README
-    rm ~/LICENSE ~/README
-
-3.  Daily usage
-
-    dotfiles status
-    dotfiles add --update
-    dotfiles commit
-    dotfiles push
+    2.  Prefer OpenRC to systemd?  Would likely call for Artix.
+    3.  Gentoo or bust.
 
                                                           vim: tw=80 sw=4 et sta
